@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://hq8cgr0bpkxv"]
+
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="1_850ho"]
+[ext_resource type="AudioStream" uid="uid://cm5bhfpiwf35e" path="res://Content/Art/Audio/Raw/Music/slow-travel.wav" id="1_ur0f0"]
+
+[resource]
+script = ExtResource("1_850ho")
+name = &"BGMSlowTravel"
+audio_stream = ExtResource("1_ur0f0")
+is_loop = true
+bus = &"Music"
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"

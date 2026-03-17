@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://bkqi4nluf1v2n"]
+
+[ext_resource type="Script" uid="uid://cu0ajdpn8hxhk" path="res://Content/Scene/UI/Common/ProgressBar/feel_progress_bar.gd" id="1_fpbar"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+resource_local_to_scene = true
+bg_color = Color(0.15, 0.15, 0.15, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trail_increase"]
+resource_local_to_scene = true
+bg_color = Color(0.9, 0.8, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_trail_decrease"]
+resource_local_to_scene = true
+bg_color = Color(0.9, 0.9, 0.9, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bar"]
+resource_local_to_scene = true
+bg_color = Color(0.2, 0.8, 0.3, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="FeelProgressBar" type="Control" unique_id=215658329]
+clip_contents = true
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 200.0
+offset_bottom = 20.0
+script = ExtResource("1_fpbar")
+
+[node name="BG" type="Panel" parent="." unique_id=1721026556]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="TrailIncrease" type="Panel" parent="." unique_id=621531781]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_right = 200.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trail_increase")
+
+[node name="TrailDecrease" type="Panel" parent="." unique_id=621531782]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_right = 200.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_trail_decrease")
+
+[node name="Bar" type="Panel" parent="." unique_id=77194426]
+layout_mode = 0
+anchor_bottom = 1.0
+offset_right = 200.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bar")

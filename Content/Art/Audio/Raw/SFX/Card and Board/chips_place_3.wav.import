@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ctrrlinvwv0do"
+path="res://.godot/imported/chips_place_3.wav-4fdaa9fdea67bef4a3bb4c5d5c69f527.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Card and Board/chips_place_3.wav"
+dest_files=["res://.godot/imported/chips_place_3.wav-4fdaa9fdea67bef4a3bb4c5d5c69f527.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

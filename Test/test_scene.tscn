@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://87anyq22ta7o"]
+
+[ext_resource type="Script" uid="uid://vqc0va7jxcwa" path="res://Test/test_scene.gd" id="1_d38du"]
+[ext_resource type="Texture2D" uid="uid://denb6ti5hyuc6" path="res://Test/icon.svg" id="3_d38du"]
+[ext_resource type="PackedScene" uid="uid://g6owaymnd7hv" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_processing_2d.tscn" id="4_0s61m"]
+[ext_resource type="Script" uid="uid://b16m3wbv1885j" path="res://Test/test_robo.gd" id="4_u5yuk"]
+
+[node name="TestScene" type="Node2D" unique_id=751295409]
+script = ExtResource("1_d38du")
+load_time = 15.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2113716709]
+position = Vector2(982, 596)
+texture = ExtResource("3_d38du")
+script = ExtResource("4_u5yuk")
+
+[node name="PostProcessing" parent="." unique_id=347283282 instance=ExtResource("4_0s61m")]

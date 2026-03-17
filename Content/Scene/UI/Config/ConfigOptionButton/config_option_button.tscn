@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dfqegbmdc86w6"]
+
+[ext_resource type="Script" uid="uid://mnaq8mgpll43" path="res://Content/Scene/UI/Config/ConfigOptionButton/config_option_button.gd" id="1_2fdf4"]
+[ext_resource type="PackedScene" uid="uid://cfycmoyoxp308" path="res://Content/Scene/UI/Common/OptionButton/common_option_button.tscn" id="1_ed3cj"]
+
+[node name="ConfigOptionButton" type="HBoxContainer" unique_id=1363284844]
+offset_right = 82.0
+offset_bottom = 39.0
+script = ExtResource("1_2fdf4")
+
+[node name="CommonOptionButton" parent="." unique_id=665457521 instance=ExtResource("1_ed3cj")]
+layout_mode = 2

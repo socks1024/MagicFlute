@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://g6owaymnd7hv"]
+
+[ext_resource type="Shader" uid="uid://di2178e4vbqwl" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/chromatic_aberration.gdshader" id="1"]
+[ext_resource type="Shader" uid="uid://dpg0ipk3np46v" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/scanline.gdshader" id="2"]
+[ext_resource type="Shader" uid="uid://cjltkol0oh56q" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/flicker.gdshader" id="3"]
+[ext_resource type="Shader" uid="uid://8p5pofye4o25" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/brightness.gdshader" id="4"]
+[ext_resource type="Shader" uid="uid://br6yt6aeenuxf" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/vignette.gdshader" id="5"]
+[ext_resource type="Shader" uid="uid://cta567m78543q" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/bloom.gdshader" id="6"]
+[ext_resource type="Script" uid="uid://cmo7kqfwdcmuh" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_process_2d_controller.gd" id="7"]
+[ext_resource type="Shader" uid="uid://fki67kx50jkl" path="res://Content/Art/Shader/PostProcess/PostProcess2D/Shaders/transition.gdshader" id="8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1"]
+resource_local_to_scene = true
+shader = ExtResource("1")
+shader_parameter/chromatic_aberration = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2"]
+resource_local_to_scene = true
+shader = ExtResource("2")
+shader_parameter/scanline_density = 200.0
+shader_parameter/scanline_strength = 0.3
+shader_parameter/scroll_speed = 3.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3"]
+resource_local_to_scene = true
+shader = ExtResource("3")
+shader_parameter/flicker_strength = 0.02
+shader_parameter/flicker_speed = 8.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4"]
+resource_local_to_scene = true
+shader = ExtResource("4")
+shader_parameter/brightness = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5"]
+resource_local_to_scene = true
+shader = ExtResource("5")
+shader_parameter/vignette_strength = 0.4
+shader_parameter/vignette_radius = 0.8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6"]
+resource_local_to_scene = true
+shader = ExtResource("6")
+shader_parameter/threshold = 0.8
+shader_parameter/intensity = 0.5
+shader_parameter/blur_size = 1.5
+shader_parameter/blur_samples = 6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7"]
+resource_local_to_scene = true
+shader = ExtResource("8")
+shader_parameter/progress = 0.0
+shader_parameter/smoothness = 0.05
+shader_parameter/edge_color = Color(1, 1, 1, 0)
+shader_parameter/edge_width = 0.03
+shader_parameter/invert = 0.0
+
+[node name="PostProcessing" type="CanvasLayer" unique_id=347283282]
+layer = 127
+script = ExtResource("7")
+ChromaticAberration_enabled = false
+ChromaticAberration_chromatic_aberration = 1.0
+Scanline_enabled = false
+Scanline_scanline_density = 200.0
+Scanline_scanline_strength = 0.3
+Scanline_scroll_speed = 3.0
+Flicker_enabled = false
+Flicker_flicker_strength = 0.02
+Flicker_flicker_speed = 8.0
+Brightness_enabled = false
+Brightness_brightness = 1.0
+Vignette_enabled = false
+Vignette_vignette_strength = 0.4
+Vignette_vignette_radius = 0.8
+Bloom_enabled = false
+Bloom_threshold = 0.8
+Bloom_intensity = 0.5
+Bloom_blur_size = 1.5
+Bloom_blur_samples = 6
+Transition_enabled = false
+Transition_cover_texture = null
+Transition_transition_texture = null
+Transition_progress = 0.0
+Transition_smoothness = 0.05
+Transition_edge_color = Color(1, 1, 1, 0)
+Transition_edge_width = 0.03
+Transition_invert = 0.0
+
+[node name="BackBufferCopy1" type="BackBufferCopy" parent="." unique_id=2007969694]
+copy_mode = 2
+
+[node name="ChromaticAberration" type="ColorRect" parent="." unique_id=1516668189]
+visible = false
+material = SubResource("ShaderMaterial_1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="." unique_id=952396284]
+copy_mode = 2
+
+[node name="Scanline" type="ColorRect" parent="." unique_id=385281020]
+visible = false
+material = SubResource("ShaderMaterial_2")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="." unique_id=1546906600]
+copy_mode = 2
+
+[node name="Flicker" type="ColorRect" parent="." unique_id=626163214]
+visible = false
+material = SubResource("ShaderMaterial_3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy4" type="BackBufferCopy" parent="." unique_id=1259342731]
+copy_mode = 2
+
+[node name="Brightness" type="ColorRect" parent="." unique_id=142100995]
+visible = false
+material = SubResource("ShaderMaterial_4")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy5" type="BackBufferCopy" parent="." unique_id=646431871]
+copy_mode = 2
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1340997551]
+visible = false
+material = SubResource("ShaderMaterial_5")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy6" type="BackBufferCopy" parent="." unique_id=2007969695]
+copy_mode = 2
+
+[node name="Bloom" type="ColorRect" parent="." unique_id=1516668190]
+visible = false
+material = SubResource("ShaderMaterial_6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy7" type="BackBufferCopy" parent="." unique_id=852977628]
+copy_mode = 2
+
+[node name="Transition" type="ColorRect" parent="." unique_id=2136475826]
+visible = false
+material = SubResource("ShaderMaterial_7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

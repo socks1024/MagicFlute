@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://c3lso300yfoep"]
+
+[ext_resource type="Script" uid="uid://dksbae5wxuiyc" path="res://Content/Scene/Core/main.gd" id="1_mk4ev"]
+[ext_resource type="PackedScene" uid="uid://blo0dey15c4q" path="res://Content/Scene/UI/Menus/Start/start_menu.tscn" id="1_wqkls"]
+[ext_resource type="PackedScene" uid="uid://s5jmpb74xkon" path="res://Content/Scene/UI/Menus/Settings/settings_menu.tscn" id="2_hlmvs"]
+[ext_resource type="PackedScene" uid="uid://cmfy2e20lt70m" path="res://Content/Scene/UI/Menus/Credit/credit_menu.tscn" id="3_mk4ev"]
+[ext_resource type="PackedScene" uid="uid://bsasunuf55rsk" path="res://Content/Scene/UI/Menus/Pause/pause_menu.tscn" id="5_ogkmc"]
+
+[node name="Main" type="Node" unique_id=82085738]
+script = ExtResource("1_mk4ev")
+game_world_path = "uid://b350sxue7g686"
+loading_scene_path = "uid://dnyha205h1sve"
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=119709579]
+process_mode = 3
+layer = 127
+
+[node name="StartMenu" parent="UI" unique_id=712769790 instance=ExtResource("1_wqkls")]
+
+[node name="SettingsMenu" parent="UI" unique_id=1528348063 instance=ExtResource("2_hlmvs")]
+visible = false
+
+[node name="CreditMenu" parent="UI" unique_id=191120225 instance=ExtResource("3_mk4ev")]
+visible = false
+
+[node name="PauseMenu" parent="UI" unique_id=19894013 instance=ExtResource("5_ogkmc")]
+process_mode = 2
+visible = false
+
+[node name="World" type="Node" parent="." unique_id=77097175]
+process_mode = 1
+
+[connection signal="credits_clicked" from="UI/StartMenu" to="." method="_on_goto_credits"]
+[connection signal="exit_clicked" from="UI/StartMenu" to="." method="_on_exit_clicked"]
+[connection signal="new_game_clicked" from="UI/StartMenu" to="." method="_on_new_game"]
+[connection signal="settings_clicked" from="UI/StartMenu" to="." method="_on_goto_settings"]
+[connection signal="back_clicked" from="UI/SettingsMenu" to="." method="_on_back_to_start"]
+[connection signal="back_clicked" from="UI/CreditMenu" to="." method="_on_back_to_start"]
+[connection signal="back_to_start" from="UI/PauseMenu" to="." method="_on_pause_back_to_start"]
+[connection signal="resume_game" from="UI/PauseMenu" to="." method="_resume_game"]

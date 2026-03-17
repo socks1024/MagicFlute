@@ -1,0 +1,23 @@
+keys,en,zh
+LANG_SETTING,Language,语言
+TITLE,This is a game,这是游戏标题
+NEW_GAME,New Game,新游戏
+CONTINUE_GAME,Continue,继续游戏
+SETTINGS,Settings,设置
+CREDITS,Credits,制作者
+EXIT_GAME,Exit,退出
+GAME_SETTINGS,Game,游戏
+VIDEO_SETTINGS,Video,显示
+AUDIO_SETTINGS,Audio,音频
+INPUT_SETTINGS,Input,输入
+BACK,Back,返回
+RESET_ALL,Reset All,重置所有
+MASTER_VOL,Master Volume,总音量
+MUSIC_VOL,Music Volume,音乐音量
+SFX_VOL,SFX Volume,音效音量
+UI_VOL,UI Volume,UI音量
+VOICE_VOL,Voice Volume,语音音量
+PAUSE,Paused,暂停
+RESUME,Resume,恢复游戏
+HELP,Help,帮助
+BACK_TO_START,Back to Start,回到主界面

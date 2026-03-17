@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InputContext" format=3 uid="uid://dhb014m0yrg4o"]
+
+[ext_resource type="Script" uid="uid://cnmdmdgpavjnc" path="res://Content/Script/Input/input_context.gd" id="1_2rvtl"]
+
+[resource]
+script = ExtResource("1_2rvtl")
+context_name = &"MoveInputs"
+actions = Array[StringName]([&"move_up", &"move_down", &"move_left", &"move_right", &"jump"])
+metadata/_custom_type_script = "uid://cnmdmdgpavjnc"

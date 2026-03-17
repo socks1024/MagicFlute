@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ckxjebg2lkwdf"]
+
+[ext_resource type="PackedScene" uid="uid://dnukkdw5kd7md" path="res://Content/Scene/UI/Config/ConfigSlider/config_h_slider.tscn" id="1_6brt6"]
+
+[node name="MasterVolume" type="HBoxContainer" unique_id=980107422]
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="." unique_id=488654285]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 24
+text = "Master"
+vertical_alignment = 1
+
+[node name="ConfigHSlider" parent="." unique_id=2098967452 instance=ExtResource("1_6brt6")]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 2.0
+min_value = -80.0
+max_value = 24.0
+config_section = "Audio"
+config_key = "MasterVolume"

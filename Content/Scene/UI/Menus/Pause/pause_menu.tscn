@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://bsasunuf55rsk"]
+
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://Content/Scene/UI/Common/Button/common_button.tscn" id="1_btn"]
+[ext_resource type="Script" uid="uid://drkjqakad8mk3" path="res://Content/Scene/UI/Menus/Pause/pause_menu.gd" id="2_script"]
+[ext_resource type="PackedScene" uid="uid://s5jmpb74xkon" path="res://Content/Scene/UI/Menus/Settings/settings_menu.tscn" id="3_settings"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 36
+
+[sub_resource type="Curve" id="Curve_ebjcv"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_afupr"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_f2jfb"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_wsus8"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_help"]
+line_spacing = 10.0
+font_size = 24
+
+[sub_resource type="Curve" id="Curve_oytvr"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="PauseMenu" type="Control" unique_id=19894013]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_script")
+
+[node name="MainPanel" type="Panel" parent="." unique_id=1764744950]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainPanel" unique_id=361138714]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="MainPanel/VBoxContainer" unique_id=1148959018]
+layout_mode = 2
+text = "PAUSE"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="MainPanel/VBoxContainer" unique_id=1028191723]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="Resume" parent="MainPanel/VBoxContainer/Buttons" unique_id=1769110768 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "RESUME"
+ease_curve = SubResource("Curve_ebjcv")
+
+[node name="Settings" parent="MainPanel/VBoxContainer/Buttons" unique_id=2084197765 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "SETTINGS"
+ease_curve = SubResource("Curve_afupr")
+
+[node name="Help" parent="MainPanel/VBoxContainer/Buttons" unique_id=1700443550 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "HELP"
+ease_curve = SubResource("Curve_f2jfb")
+
+[node name="BackToStart" parent="MainPanel/VBoxContainer/Buttons" unique_id=1928213011 instance=ExtResource("1_btn")]
+layout_mode = 2
+text = "BACK_TO_START"
+ease_curve = SubResource("Curve_wsus8")
+
+[node name="SettingsMenu" parent="." unique_id=1286614551 instance=ExtResource("3_settings")]
+visible = false
+layout_mode = 1
+
+[node name="HelpPanel" type="Panel" parent="." unique_id=84126707]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="HelpPanel" unique_id=196553743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HelpPanel/MarginContainer" unique_id=2033912565]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="HelpContent" type="Label" parent="HelpPanel/MarginContainer/VBoxContainer" unique_id=34782564]
+layout_mode = 2
+size_flags_vertical = 3
+text = "HELP_CONTENT"
+label_settings = SubResource("LabelSettings_help")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelpBack" parent="HelpPanel/MarginContainer/VBoxContainer" unique_id=1388060525 instance=ExtResource("1_btn")]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "BACK"
+ease_curve = SubResource("Curve_oytvr")
+
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Resume" to="." method="_on_resume_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Settings" to="." method="_on_settings_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/Help" to="." method="_on_help_anim_finish"]
+[connection signal="button_anim_finish" from="MainPanel/VBoxContainer/Buttons/BackToStart" to="." method="_on_back_to_start_anim_finish"]
+[connection signal="button_anim_finish" from="HelpPanel/MarginContainer/VBoxContainer/HelpBack" to="." method="_on_help_back_anim_finish"]

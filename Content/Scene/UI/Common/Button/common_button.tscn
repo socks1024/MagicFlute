@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bkjowivgs5uon"]
+
+[ext_resource type="Script" uid="uid://bpxo6hbbk37fh" path="res://Content/Scene/UI/Common/Button/common_button.gd" id="1_ya6b0"]
+[ext_resource type="Resource" uid="uid://b7tq72k7uildv" path="res://Content/Art/Audio/Events/UI/common_button_pressed.tres" id="2_jl1ks"]
+
+[sub_resource type="Curve" id="Curve_ya6b0"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CommonButton" type="Button" unique_id=962221927]
+offset_right = 70.0
+offset_bottom = 39.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "Button"
+script = ExtResource("1_ya6b0")
+duration = 0.3
+ease_curve = SubResource("Curve_ya6b0")
+press_sound = ExtResource("2_jl1ks")

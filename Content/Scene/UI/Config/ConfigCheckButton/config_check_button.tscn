@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cm7n5p48c86nk"]
+
+[ext_resource type="PackedScene" uid="uid://dwh5x0ixibusl" path="res://Content/Scene/UI/Common/CheckButton/common_check_button.tscn" id="1_3tv5u"]
+[ext_resource type="Script" uid="uid://do7wbkn68oqhn" path="res://Content/Scene/UI/Config/ConfigCheckButton/config_check_button.gd" id="1_i3k83"]
+
+[node name="ConfigCheckButton" type="HBoxContainer" unique_id=718954916]
+offset_right = 48.0
+offset_bottom = 32.0
+script = ExtResource("1_i3k83")
+
+[node name="CommonCheckButton" parent="." unique_id=1987718343 instance=ExtResource("1_3tv5u")]
+layout_mode = 2

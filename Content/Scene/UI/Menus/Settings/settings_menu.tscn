@@ -1,0 +1,271 @@
+[gd_scene format=3 uid="uid://s5jmpb74xkon"]
+
+[ext_resource type="Script" uid="uid://epol140eeyvc" path="res://Content/Scene/UI/Menus/Settings/Video/video_settings.gd" id="1_6kt2o"]
+[ext_resource type="Script" uid="uid://qtgh4btd8b8j" path="res://Content/Scene/UI/Menus/Settings/Audio/audio_settings.gd" id="1_6t64p"]
+[ext_resource type="Script" uid="uid://nnp6lve3op57" path="res://Content/Scene/UI/Menus/Settings/Game/game_settings.gd" id="1_onyo0"]
+[ext_resource type="Script" uid="uid://cph60t833yrig" path="res://Content/Scene/UI/Menus/Settings/settings_menu.gd" id="1_pqu57"]
+[ext_resource type="PackedScene" uid="uid://cm7n5p48c86nk" path="res://Content/Scene/UI/Config/ConfigCheckButton/config_check_button.tscn" id="2_6kt2o"]
+[ext_resource type="Script" uid="uid://djkfc0m2p7k5e" path="res://Content/Scene/UI/Menus/Settings/Game/language_settings.gd" id="2_6owio"]
+[ext_resource type="PackedScene" uid="uid://cfycmoyoxp308" path="res://Content/Scene/UI/Common/OptionButton/common_option_button.tscn" id="2_onyo0"]
+[ext_resource type="Script" uid="uid://cpvxgakpudqhk" path="res://Content/Scene/UI/Menus/Settings/Input/input_settings.gd" id="3_a678y"]
+[ext_resource type="PackedScene" uid="uid://ckxjebg2lkwdf" path="res://Content/Scene/UI/Menus/Settings/Audio/volume.tscn" id="4_1moi3"]
+[ext_resource type="PackedScene" uid="uid://d1igkohr55osn" path="res://Content/Scene/UI/Menus/Settings/Input/config_input_action.tscn" id="4_5pmht"]
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://Content/Scene/UI/Common/Button/common_button.tscn" id="7_1moi3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1moi3"]
+font_size = 24
+
+[sub_resource type="Curve" id="Curve_pqu57"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_bghxe"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="SettingsMenu" type="Control" unique_id=1528348063]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pqu57")
+
+[node name="Panel" type="Panel" parent="." unique_id=1610699141]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1263803942]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer" unique_id=1532519892]
+layout_mode = 2
+theme_override_constants/tab_separation = 20
+theme_override_font_sizes/font_size = 36
+tab_alignment = 1
+current_tab = 2
+tab_0/title = "GAME_SETTINGS"
+tab_1/title = "VIDEO_SETTINGS"
+tab_2/title = "AUDIO_SETTINGS"
+tab_3/title = "INPUT_SETTINGS"
+
+[node name="Game" type="Control" parent="MarginContainer/TabContainer" unique_id=152992823]
+visible = false
+layout_mode = 2
+script = ExtResource("1_onyo0")
+metadata/_tab_index = 0
+metadata/_tab_name = "GAME_SETTINGS"
+
+[node name="LanguageSettings" type="HBoxContainer" parent="MarginContainer/TabContainer/Game" unique_id=406200966]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+script = ExtResource("2_6owio")
+config_section = "Game"
+config_key = "Language"
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Game/LanguageSettings" unique_id=74063121]
+layout_mode = 2
+text = "LANG_SETTING"
+label_settings = SubResource("LabelSettings_1moi3")
+
+[node name="CommonOptionButton" parent="MarginContainer/TabContainer/Game/LanguageSettings" unique_id=665457521 instance=ExtResource("2_onyo0")]
+layout_mode = 2
+popup/item_0/text = "English"
+popup/item_1/text = "简体中文"
+
+[node name="Video" type="Control" parent="MarginContainer/TabContainer" unique_id=1549774683]
+visible = false
+layout_mode = 2
+script = ExtResource("1_6kt2o")
+metadata/_tab_index = 1
+metadata/_tab_name = "VIDEO_SETTINGS"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Video" unique_id=648032194]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Video/MarginContainer" unique_id=563705086]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Fullscreen" type="HBoxContainer" parent="MarginContainer/TabContainer/Video/MarginContainer/VBoxContainer" unique_id=243887186]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/Video/MarginContainer/VBoxContainer/Fullscreen" unique_id=1531685745]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "Fullscreen"
+
+[node name="ConfigCheckButton" parent="MarginContainer/TabContainer/Video/MarginContainer/VBoxContainer/Fullscreen" unique_id=718954916 instance=ExtResource("2_6kt2o")]
+layout_mode = 2
+config_section = "Video"
+config_key = "Fullscreen"
+
+[node name="Audio" type="Control" parent="MarginContainer/TabContainer" unique_id=1632240500]
+layout_mode = 2
+script = ExtResource("1_6t64p")
+metadata/_tab_index = 2
+metadata/_tab_name = "AUDIO_SETTINGS"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Audio" unique_id=1839641834]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="VolumeSliders" type="VBoxContainer" parent="MarginContainer/TabContainer/Audio/MarginContainer" unique_id=1266323045]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="MasterVolume" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders" unique_id=980107422 instance=ExtResource("4_1moi3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MasterVolume" index="0" unique_id=488654285]
+text = "MASTER_VOL"
+
+[node name="MusicVolume" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders" unique_id=1366495867 instance=ExtResource("4_1moi3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MusicVolume" index="0" unique_id=488654285]
+text = "MUSIC_VOL"
+
+[node name="ConfigHSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MusicVolume" index="1" unique_id=2098967452]
+config_key = "MusicVolume"
+
+[node name="SFXVolume" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders" unique_id=308479947 instance=ExtResource("4_1moi3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/SFXVolume" index="0" unique_id=488654285]
+text = "SFX_VOL"
+
+[node name="ConfigHSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/SFXVolume" index="1" unique_id=2098967452]
+config_key = "SFXVolume"
+
+[node name="UIVolume" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders" unique_id=2027600673 instance=ExtResource("4_1moi3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/UIVolume" index="0" unique_id=488654285]
+text = "UI_VOL"
+
+[node name="ConfigHSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/UIVolume" index="1" unique_id=2098967452]
+config_key = "UIVolume"
+
+[node name="VoiceVolume" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders" unique_id=2068353813 instance=ExtResource("4_1moi3")]
+layout_mode = 2
+
+[node name="Label" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/VoiceVolume" index="0" unique_id=488654285]
+text = "VOICE_VOL"
+
+[node name="ConfigHSlider" parent="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/VoiceVolume" index="1" unique_id=2098967452]
+config_key = "VoiceVolume"
+
+[node name="Input" type="Control" parent="MarginContainer/TabContainer" unique_id=1075397164]
+visible = false
+layout_mode = 2
+script = ExtResource("3_a678y")
+config_input_action = ExtResource("4_5pmht")
+metadata/_tab_index = 3
+metadata/_tab_name = "INPUT_SETTINGS"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/Input" unique_id=437264717]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/TabContainer/Input/MarginContainer" unique_id=815808345]
+layout_mode = 2
+
+[node name="Actions" type="VBoxContainer" parent="MarginContainer/TabContainer/Input/MarginContainer/ScrollContainer" unique_id=1206834878]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=345389617]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+
+[node name="Back" parent="MarginContainer/HBoxContainer" unique_id=962221927 instance=ExtResource("7_1moi3")]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+text = "BACK"
+ease_curve = SubResource("Curve_pqu57")
+
+[node name="ResetAll" parent="MarginContainer/HBoxContainer" unique_id=1174507797 instance=ExtResource("7_1moi3")]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+text = "RESET_ALL"
+ease_curve = SubResource("Curve_bghxe")
+
+[connection signal="config_changed" from="MarginContainer/TabContainer/Game/LanguageSettings" to="MarginContainer/TabContainer/Game" method="_on_language_config_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Video/MarginContainer/VBoxContainer/Fullscreen/ConfigCheckButton" to="MarginContainer/TabContainer/Video" method="_on_fullscreen_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MasterVolume/ConfigHSlider" to="MarginContainer/TabContainer/Audio" method="_on_master_volume_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MusicVolume/ConfigHSlider" to="MarginContainer/TabContainer/Audio" method="_on_music_volume_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/SFXVolume/ConfigHSlider" to="MarginContainer/TabContainer/Audio" method="_on_sfx_volume_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/UIVolume/ConfigHSlider" to="MarginContainer/TabContainer/Audio" method="_on_ui_volume_changed"]
+[connection signal="config_changed" from="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/VoiceVolume/ConfigHSlider" to="MarginContainer/TabContainer/Audio" method="_on_voice_volume_changed"]
+[connection signal="button_anim_finish" from="MarginContainer/HBoxContainer/Back" to="." method="_on_back_button_anim_finish"]
+[connection signal="button_anim_finish" from="MarginContainer/HBoxContainer/ResetAll" to="." method="_on_reset_all_button_anim_finish"]
+
+[editable path="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MasterVolume"]
+[editable path="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/MusicVolume"]
+[editable path="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/SFXVolume"]
+[editable path="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/UIVolume"]
+[editable path="MarginContainer/TabContainer/Audio/MarginContainer/VolumeSliders/VoiceVolume"]

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d1igkohr55osn"]
+
+[ext_resource type="Script" uid="uid://c37v6ay7tg5dg" path="res://Content/Scene/UI/Menus/Settings/Input/config_input_action.gd" id="1_60scr"]
+
+[node name="ConfigInputAction" type="HBoxContainer" unique_id=1186448573]
+theme_override_constants/separation = 30
+alignment = 1
+script = ExtResource("1_60scr")
+config_section = "Input"
+
+[node name="Label" type="Label" parent="." unique_id=102507077]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Input Action"

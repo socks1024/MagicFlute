@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dnukkdw5kd7md"]
+
+[ext_resource type="PackedScene" uid="uid://d2edib5aglabi" path="res://Content/Scene/UI/Common/Slider/common_h_slider.tscn" id="1_glqa5"]
+[ext_resource type="Script" uid="uid://c0mylyajdtrdu" path="res://Content/Scene/UI/Config/ConfigSlider/config_h_slider.gd" id="1_jv2tq"]
+
+[node name="ConfigHSlider" type="HBoxContainer" unique_id=2098967452]
+offset_right = 100.0
+offset_bottom = 40.0
+size_flags_vertical = 1
+script = ExtResource("1_jv2tq")
+default_value = 0.0
+
+[node name="CommonHSlider" parent="." unique_id=818692552 instance=ExtResource("1_glqa5")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0

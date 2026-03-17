@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://blo0dey15c4q"]
+
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://Content/Scene/UI/Common/Button/common_button.tscn" id="1_i6emh"]
+[ext_resource type="Script" uid="uid://clgp4bfhaunuw" path="res://Content/Scene/UI/Menus/Start/start_menu.gd" id="1_scefs"]
+
+[sub_resource type="Curve" id="Curve_scefs"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_ikp7q"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_bn61v"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_r4neo"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_mgepj"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="StartMenu" type="Control" unique_id=712769790]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_scefs")
+
+[node name="Panel" type="Panel" parent="." unique_id=1891453999]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=2079655913]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Title" type="Label" parent="Panel/VBoxContainer" unique_id=1650041355]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "TITLE"
+
+[node name="Buttons" type="VBoxContainer" parent="Panel/VBoxContainer" unique_id=709712620]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="NewGame" parent="Panel/VBoxContainer/Buttons" unique_id=962221927 instance=ExtResource("1_i6emh")]
+layout_mode = 2
+text = "NEW_GAME"
+ease_curve = SubResource("Curve_scefs")
+
+[node name="Continue" parent="Panel/VBoxContainer/Buttons" unique_id=132687649 instance=ExtResource("1_i6emh")]
+layout_mode = 2
+text = "CONTINUE_GAME"
+ease_curve = SubResource("Curve_ikp7q")
+
+[node name="Settings" parent="Panel/VBoxContainer/Buttons" unique_id=966228876 instance=ExtResource("1_i6emh")]
+layout_mode = 2
+text = "SETTINGS"
+ease_curve = SubResource("Curve_bn61v")
+
+[node name="Credits" parent="Panel/VBoxContainer/Buttons" unique_id=819866585 instance=ExtResource("1_i6emh")]
+layout_mode = 2
+text = "CREDITS"
+ease_curve = SubResource("Curve_r4neo")
+
+[node name="Exit" parent="Panel/VBoxContainer/Buttons" unique_id=792682864 instance=ExtResource("1_i6emh")]
+layout_mode = 2
+text = "EXIT_GAME"
+ease_curve = SubResource("Curve_mgepj")
+
+[connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/NewGame" to="." method="_on_new_game_button_anim_finish"]
+[connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Continue" to="." method="_on_continue_button_anim_finish"]
+[connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Settings" to="." method="_on_settings_button_anim_finish"]
+[connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Credits" to="." method="_on_credits_button_anim_finish"]
+[connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Exit" to="." method="_on_exit_button_anim_finish"]

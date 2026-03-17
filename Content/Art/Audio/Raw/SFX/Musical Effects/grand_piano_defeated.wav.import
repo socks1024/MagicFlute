@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://h2wgkaguc7aj"
+path="res://.godot/imported/grand_piano_defeated.wav-e2eb0b2ece8afd05cfc4860b4e6fdada.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Musical Effects/grand_piano_defeated.wav"
+dest_files=["res://.godot/imported/grand_piano_defeated.wav-e2eb0b2ece8afd05cfc4860b4e6fdada.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

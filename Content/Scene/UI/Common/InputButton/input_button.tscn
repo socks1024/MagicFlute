@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://mx5v06pw2aqd"]
+
+[ext_resource type="Script" uid="uid://7rvh0ku26sis" path="res://Content/Scene/UI/Common/InputButton/input_button.gd" id="1_67kk1"]
+[ext_resource type="Resource" uid="uid://b7tq72k7uildv" path="res://Content/Art/Audio/Events/UI/common_button_pressed.tres" id="2_67kk1"]
+
+[sub_resource type="Curve" id="Curve_ivwpl"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="InputButton" type="Button" unique_id=848927360]
+custom_minimum_size = Vector2(120, 0)
+offset_right = 120.0
+offset_bottom = 39.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "InputButton"
+script = ExtResource("1_67kk1")
+waiting_text = "..."
+duration = 0.3
+ease_curve = SubResource("Curve_ivwpl")
+press_sound = ExtResource("2_67kk1")

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d2edib5aglabi"]
+
+[node name="CommonHSlider" type="HSlider" unique_id=818692552]
+custom_minimum_size = Vector2(100, 0)
+offset_right = 100.0
+offset_bottom = 16.0

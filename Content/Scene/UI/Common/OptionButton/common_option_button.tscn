@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cfycmoyoxp308"]
+
+[node name="CommonOptionButton" type="OptionButton" unique_id=665457521]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -15.5
+offset_right = 37.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Item 0"
+popup/item_0/id = 0
+popup/item_1/text = "Item 1"
+popup/item_1/id = 1

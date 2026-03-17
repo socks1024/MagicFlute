@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://b7tq72k7uildv"]
+
+[ext_resource type="AudioStream" uid="uid://7usjom8bsoq1" path="res://Content/Art/Audio/Raw/SFX/UI/pop_1.wav" id="1_lk227"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_8jvld"]
+
+[resource]
+script = ExtResource("2_8jvld")
+name = &"CommonButtonPressed"
+audio_stream = ExtResource("1_lk227")
+bus = &"UI"
+random_volume_range = 1.0
+random_pitch_range = 0.2
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"

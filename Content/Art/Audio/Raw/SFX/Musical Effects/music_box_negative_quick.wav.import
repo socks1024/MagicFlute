@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck70a1q00vfsk"
+path="res://.godot/imported/music_box_negative_quick.wav-cf5c57a0169a385d147a84df5feb4e56.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Musical Effects/music_box_negative_quick.wav"
+dest_files=["res://.godot/imported/music_box_negative_quick.wav-cf5c57a0169a385d147a84df5feb4e56.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

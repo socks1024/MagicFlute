@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cmfy2e20lt70m"]
+
+[ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://Content/Scene/UI/Common/Button/common_button.tscn" id="1_0ysi3"]
+[ext_resource type="Script" uid="uid://cfv6l83rhmt3e" path="res://Content/Scene/UI/Menus/Credit/credit_menu.gd" id="1_3y050"]
+
+[sub_resource type="Curve" id="Curve_drs5q"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="CreditMenu" type="Control" unique_id=191120225]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3y050")
+
+[node name="Panel" type="Panel" parent="." unique_id=1741080736]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Panel" unique_id=50131609]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.5
+offset_top = -49.5
+offset_right = 360.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 72
+text = "Created by Sock1024"
+
+[node name="Back" parent="Panel" unique_id=962221927 instance=ExtResource("1_0ysi3")]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 180.0
+offset_bottom = 80.0
+text = "BACK"
+ease_curve = SubResource("Curve_drs5q")
+
+[connection signal="button_anim_finish" from="Panel/Back" to="." method="_on_back_button_anim_finish"]

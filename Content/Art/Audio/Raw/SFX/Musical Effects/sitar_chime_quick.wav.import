@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnvi6umk8adaj"
+path="res://.godot/imported/sitar_chime_quick.wav-98066e7a0d4c320f7e259d39b8bed43d.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Musical Effects/sitar_chime_quick.wav"
+dest_files=["res://.godot/imported/sitar_chime_quick.wav-98066e7a0d4c320f7e259d39b8bed43d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

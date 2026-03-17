@@ -1,0 +1,18 @@
+{
+    "godotTools.editorPath.godot4": "d:\\steam\\steamapps\\common\\Godot Engine\\godot.windows.opt.tools.64.exe",
+
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.detectIndentation": false,
+
+    "files.exclude": {
+        "**/*.import/": true,
+        "**/*.uid": true,
+        "**/.godot/": true
+    },
+
+    "workbench.editorAssociations": {
+        "*.md": "default",
+        "*.markdown": "default"
+    }
+}

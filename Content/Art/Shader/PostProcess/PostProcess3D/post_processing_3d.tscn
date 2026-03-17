@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://x3b2mbmf81t6"]
+
+[ext_resource type="Shader" uid="uid://hltap48wr4u1" path="res://Content/Art/Shader/PostProcess/PostProcess3D/Shaders/post_process_outline.gdshader" id="1"]
+[ext_resource type="Script" uid="uid://c7cpludv2a7x4" path="res://Content/Art/Shader/PostProcess/PostProcess3D/post_process_3d_controller.gd" id="2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline"]
+resource_local_to_scene = true
+render_priority = 127
+shader = ExtResource("1")
+shader_parameter/outlineColor = Color(0, 0, 0, 0.78)
+shader_parameter/depth_threshold = 0.025
+shader_parameter/normal_threshold = 0.5
+shader_parameter/normal_smoothing = 0.25
+shader_parameter/max_thickness = 1.3
+shader_parameter/min_thickness = 0.5
+shader_parameter/max_distance = 75.0
+shader_parameter/min_distance = 2.0
+shader_parameter/grazing_fresnel_power = 5.0
+shader_parameter/grazing_angle_mask_power = 1.0
+shader_parameter/grazing_angle_modulation_factor = 50.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_outline"]
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="PostProcessing3D" type="Node3D" unique_id=1574048171]
+script = ExtResource("2")
+Outline_enabled = false
+Outline_outlineColor = Color(0, 0, 0, 0.78)
+Outline_depth_threshold = 0.025
+Outline_normal_threshold = 0.5
+Outline_normal_smoothing = 0.25
+Outline_max_thickness = 1.3
+Outline_min_thickness = 0.5
+Outline_max_distance = 75.0
+Outline_min_distance = 2.0
+Outline_grazing_fresnel_power = 5.0
+Outline_grazing_angle_mask_power = 1.0
+Outline_grazing_angle_modulation_factor = 50.0
+
+[node name="Outline" type="MeshInstance3D" parent="." unique_id=2143560628]
+visible = false
+material_override = SubResource("ShaderMaterial_outline")
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_outline")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bidbojelmljap"
+path="res://.godot/imported/8_bit_mystery.wav-88523cfd8dccd0e4a2d3ec893e3ca293.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Musical Effects/8_bit_mystery.wav"
+dest_files=["res://.godot/imported/8_bit_mystery.wav-88523cfd8dccd0e4a2d3ec893e3ca293.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6f4m5rieka7q"
+path="res://.godot/imported/synth_bass_defeated.wav-2b345ae7b5cf49d2eda2dd53a5c30e35.sample"
+
+[deps]
+
+source_file="res://Content/Art/Audio/Raw/SFX/Musical Effects/synth_bass_defeated.wav"
+dest_files=["res://.godot/imported/synth_bass_defeated.wav-2b345ae7b5cf49d2eda2dd53a5c30e35.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
