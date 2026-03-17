@@ -14,6 +14,7 @@
 - [ ] Debug系统
   - [x] 增强Log（输出元数据）
   - [ ] CheatManager
+  - [ ] Debug环境配置
 - [x] 音频管理器
   - [x] Master Music SFX Voice等多音频总线设置
   - [x] 音频参数配置化
@@ -22,21 +23,27 @@
 - [x] 输入系统
   - [x] 输入配置
   - [x] 输入上下文（一组同时被激活的输入映射）
+  - [ ] 支持长按、双击等特殊按键操作
 - [ ] UI组件库
   - [x] 基本界面
 	- [x] 开始游戏界面
 	- [x] 设置界面
 	- [ ] 存档界面
 	- [x] 制作者名单界面
+	- [x] 暂停界面
   - [ ] 通用UI组件
 	- [x] 按钮
-	- [ ] 滑动条（Feel式）
+	- [x] 复选按钮
+	- [x] 选项按钮
+	- [x] 滑动条
+	- [x] Feel 进度条
   - [ ] 对话框
 - [x] 相机功能（Phantom?）
 - [ ] 视觉特效库
   - [x] shader（VisualShader or GDShader）
 	- [x] 精灵图效果
 	- [x] 后处理效果
+	- [ ] 网格体效果
   - [ ] 粒子
 - [ ] 导表工具
 - [ ] 编辑器工具（更多属性编辑器等）
@@ -45,7 +52,7 @@
   - [ ] 已集成至模板的插件
   - [ ] 可用于特定游戏内容的推荐插件
 
-总体完成度：27/43
+总体完成度：34/51
 
 ---
 
@@ -74,7 +81,7 @@
 
 用于存放历史构建版本。
 
-历史构建版本按照平台、版本号分类，并单独打包到一个文件夹中，文件夹命名格式为 MyProject-win-v0.1.0 。
+历史构建版本按照平台、版本号分类，并单独打包到一个文件夹中，文件夹命名格式为 MyProject-v0.1.0-win 。
 
 有关语义化版本号，可以查看[这个网站](https://semver.org/lang/zh-CN/)（为什么会有一个专门的网站介绍语义化版本号）。
 
@@ -153,13 +160,24 @@ Godot 的命名主要使用 PascalCase 和 snake_case 。
 
 `SceneUtils` 是处理场景相关逻辑的静态工具类。
 
-**核心方法：**
+**实例化方法：**
 
-- `quick_instantiate(parent: Node, p_scene: PackedScene, init_callable = null)` - 快速实例化场景，具有可选的初始化回调函数，接收一个 Node 作为参数
+- `quick_instantiate(parent: Node, p_scene: PackedScene, init_callable = null) -> Node` - 快速实例化 PackedScene，可传入 Callable 对节点进行初始化
 
-- `switch_scene_by_path(from_scene: Node, to_scene_path: String)` - 直接切换场景
+- `quick_instantiate_by_path(parent: Node, scene_path: String, init_callable = null) -> Node` - 通过资源路径快速实例化场景，内部加载 PackedScene 后调用 `quick_instantiate`
 
-- `switch_scene_by_load_control(from_scene: Node, to_scene_path: String, load_scene_path: String, min_load_time: float = -1, confirm_time: float = -1)` - 通过加载界面切换场景
+- `instantiate_scene_by_load_control(parent: Node, scene_path: String, load_scene_path: String, min_load_time: float = -1, confirm_time = -1) -> Node` - 在 parent 节点下通过加载界面**异步**加载并实例化场景
+  - `parent` - 父节点，加载界面和目标场景都将添加到该节点下
+  - `scene_path` - 目标场景的资源路径
+  - `load_scene_path` - 加载界面场景的资源路径（需要继承 `LoadControl`）
+  - `min_load_time` - 最小加载时间（秒），用于确保加载界面至少显示一定时间
+  - `confirm_time` - 加载完成后的确认等待时间（秒）
+
+**场景切换方法：**
+
+- `switch_scene_by_path(from_scene: Node, to_scene_path: String) -> Node` - 释放当前场景，在其父节点下通过路径加载并实例化新场景
+
+- `switch_scene_by_load_control(from_scene: Node, to_scene_path: String, load_scene_path: String, min_load_time: float = -1, confirm_time: float = -1) -> Node` - 释放当前场景，通过加载界面**异步**切换到新场景
   - `from_scene` - 当前场景节点，将被释放
   - `to_scene_path` - 目标场景的资源路径
   - `load_scene_path` - 加载界面场景的资源路径（需要继承 `LoadControl`）
@@ -169,6 +187,11 @@ Godot 的命名主要使用 PascalCase 和 snake_case 。
 ### LoadControl
 
 `LoadControl` 是加载界面的抽象基类，使用 Godot 的多线程资源加载功能实现异步加载。
+
+**导出属性：**
+
+- `min_load_time: float = 0.5` - 最小加载时间（秒），确保加载界面至少显示一定时间，避免闪屏
+- `confirm_time: float = 0.3` - 加载完成后的确认等待时间（秒），给玩家一个缓冲
 
 **核心信号：**
 
@@ -441,7 +464,7 @@ Godot 的命名主要使用 PascalCase 和 snake_case 。
 模板提供了以下预制界面：
 
 **开始游戏界面：** - `Content/Scene/UI/Menus/Start/`
-- 游戏入口界面，包含开始游戏、设置、退出等按钮
+- 游戏入口界面，包含开始游戏、继续游戏、设置、制作者名单、退出等按钮
 
 **设置界面：** - `Content/Scene/UI/Menus/Settings/`
 - 包含音频、视频、输入等设置选项卡
@@ -449,6 +472,12 @@ Godot 的命名主要使用 PascalCase 和 snake_case 。
 
 **制作者名单界面：** - `Content/Scene/UI/Menus/Credit/`
 - 显示游戏制作团队信息
+
+**暂停界面：** - `Content/Scene/UI/Menus/Pause/`
+- 游戏中按 `ui_cancel` 触发暂停，显示暂停菜单
+- 包含继续游戏、设置、游戏说明、返回主菜单等按钮
+- 内嵌独立的设置菜单和游戏说明面板
+- 暂停时 `process_mode` 设为 `PROCESS_MODE_WHEN_PAUSED`，确保暂停期间菜单仍可交互
 
 ### 通用 UI 组件
 
@@ -465,6 +494,52 @@ Godot 的命名主要使用 PascalCase 和 snake_case 。
 **核心信号：**
 
 - `button_anim_finish` - 按钮动画播放完成时发出
+
+#### Common CheckButton
+
+`CommonCheckButton` 是一个预配置的 `CheckButton` 场景预制体，无自定义脚本，可直接实例化使用。（目前没有特殊作用。）
+
+#### Common OptionButton
+
+`CommonOptionButton` 是一个预配置的 `OptionButton` 场景预制体，无自定义脚本，可直接实例化使用。（目前没有特殊作用。）
+
+#### Common HSlider
+
+`CommonHSlider` 是一个预配置的 `HSlider` 场景预制体，无自定义脚本，可直接实例化使用。（目前没有特殊作用。）
+
+#### Feel ProgressBar
+
+`FeelProgressBar` 是一个 Feel 风格的进度条组件，包含主进度条和延迟跟随的过渡条（拖尾效果）。进度增加时，过渡条先预填充到目标值，主条延迟后追上；进度减少时，主条立即缩短，过渡条延迟后追赶。支持在编辑器中实时预览。
+
+参考来源：[Feel Documentaion](https://feel-docs.moremountains.com/)
+
+**导出属性：**
+
+- `value: float` (0.0 ~ 1.0) - 当前进度值
+- `bar_color: Color` - 主进度条颜色
+- `bg_color: Color` - 背景条颜色
+
+**增加过渡：**
+
+- `trail_increase_color: Color` - 过渡条预填充颜色（进度增加时显示）
+- `increase_delay: float` - 主条追赶延迟（秒）
+- `increase_duration: float` - 主条追赶动画时长（秒）
+- `increase_ease_curve: Curve` - 主条追赶缓动曲线（可选）
+
+**减少过渡：**
+
+- `trail_decrease_color: Color` - 过渡条拖尾颜色（进度减少时显示）
+- `decrease_delay: float` - 过渡条追赶延迟（秒）
+- `decrease_duration: float` - 过渡条追赶动画时长（秒）
+- `decrease_ease_curve: Curve` - 过渡条追赶缓动曲线（可选）
+
+**核心方法：**
+
+- `set_value(new_value: float, animated: bool = true)` - 设置进度值，可选择是否播放过渡动画
+
+**核心信号：**
+
+- `anim_finished` - 过渡动画播放完成时发出
 
 ## 视觉特效库
 
