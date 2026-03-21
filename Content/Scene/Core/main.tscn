@@ -8,7 +8,7 @@
 
 [node name="Main" type="Node" unique_id=82085738]
 script = ExtResource("1_mk4ev")
-game_world_path = "uid://b350sxue7g686"
+game_world_path = "uid://ct2cxcgd3o7y0"
 loading_scene_path = "uid://dnyha205h1sve"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=119709579]

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3]
+
+[ext_resource type="Script" path="res://Content/Script/Audio/audio_event.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://Content/Art/Audio/Raw/SFX/UI/pop_1.wav" id="2_stream"]
+
+[resource]
+script = ExtResource("1_script")
+name = &"beat_tick"
+audio_stream = ExtResource("2_stream")
+is_loop = false
+priority = 50
+bus = &"SFX"
+volume = 0.0
+random_volume_range = 0.0
+pitch = 1.0
+random_pitch_range = 0.0
+variants = []

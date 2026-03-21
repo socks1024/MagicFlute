@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://ct4kfyl64iem4"]
+
+[ext_resource type="Script" uid="uid://d3ry5yepx8pk4" path="res://Content/Script/RhythmDungeon/rhythm_lane.gd" id="1_lane"]
+[ext_resource type="PackedScene" path="res://Content/Scene/World2D/falling_note.tscn" id="2_note"]
+
+[node name="RhythmLane" type="Control" unique_id=971769457]
+clip_contents = true
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+offset_bottom = 200.0
+script = ExtResource("1_lane")
+note_scene = ExtResource("2_note")
+
+[node name="LaneBg0" type="ColorRect" parent="." unique_id=1190032955]
+layout_mode = 0
+offset_right = 600.0
+offset_bottom = 50.0
+color = Color(0.1, 0.1, 0.15, 0.8)
+
+[node name="LaneBg1" type="ColorRect" parent="." unique_id=1793916556]
+layout_mode = 0
+offset_top = 50.0
+offset_right = 600.0
+offset_bottom = 100.0
+color = Color(0.12, 0.12, 0.18, 0.8)
+
+[node name="LaneBg2" type="ColorRect" parent="." unique_id=2137734611]
+layout_mode = 0
+offset_top = 100.0
+offset_right = 600.0
+offset_bottom = 150.0
+color = Color(0.1, 0.1, 0.15, 0.8)
+
+[node name="LaneBg3" type="ColorRect" parent="." unique_id=2134392907]
+layout_mode = 0
+offset_top = 150.0
+offset_right = 600.0
+offset_bottom = 200.0
+color = Color(0.12, 0.12, 0.18, 0.8)
+
+[node name="JudgeLine" type="ColorRect" parent="." unique_id=422261649]
+layout_mode = 0
+offset_left = 518.0
+offset_right = 522.0
+offset_bottom = 200.0
+color = Color(1, 1, 1, 0.6)
+
+[node name="LaneLabel0" type="Label" parent="." unique_id=1695925738]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 13.0
+offset_right = 570.0
+offset_bottom = 37.0
+theme_override_colors/font_color = Color(0.3, 0.85, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "W"
+
+[node name="LaneLabel1" type="Label" parent="." unique_id=880074792]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 63.0
+offset_right = 570.0
+offset_bottom = 87.0
+theme_override_colors/font_color = Color(0.3, 1, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "A"
+
+[node name="LaneLabel2" type="Label" parent="." unique_id=796538116]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 113.0
+offset_right = 570.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(1, 0.4, 0.6, 1)
+theme_override_font_sizes/font_size = 20
+text = "S"
+
+[node name="LaneLabel3" type="Label" parent="." unique_id=1181712738]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 163.0
+offset_right = 570.0
+offset_bottom = 187.0
+theme_override_colors/font_color = Color(1, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 20
+text = "D"

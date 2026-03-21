@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bynok26sjmh57"]
+
+[ext_resource type="Script" uid="uid://ui2d4f4mtcjo" path="res://Content/Script/RhythmDungeon/pickup_item.gd" id="1_pickup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pickup"]
+size = Vector2(48, 48)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_pickup"]
+size = Vector2(64, 64)
+
+[node name="PickupItem" type="Area2D" unique_id=16238166]
+collision_layer = 2
+monitorable = false
+script = ExtResource("1_pickup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=529143091]
+shape = SubResource("RectangleShape2D_pickup")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=377829361]
+modulate = Color(1, 0.85, 0.2, 1)
+texture = SubResource("PlaceholderTexture2D_pickup")

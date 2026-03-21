@@ -1,3 +1,42 @@
 [gd_scene format=3 uid="uid://b350sxue7g686"]
 
+[ext_resource type="Script" uid="uid://1ikgqxtpsrjj" path="res://Content/Script/RhythmDungeon/player.gd" id="1_player"]
+[ext_resource type="Resource" uid="uid://dhb014m0yrg4o" path="res://Content/Data/Input/Contexts/move_inputs.tres" id="2_movctx"]
+[ext_resource type="Resource" path="res://Content/Data/Audio/beat_tick.tres" id="3_beattick"]
+[ext_resource type="Texture2D" uid="uid://denb6ti5hyuc6" path="res://Test/icon.svg" id="4_otp5t"]
+[ext_resource type="PackedScene" path="res://Content/Scene/World2D/beat_indicator.tscn" id="5_beatscn"]
+[ext_resource type="Script" uid="uid://gppmvqpv2eet" path="res://Content/Script/RhythmDungeon/pickup_spawner.gd" id="5_spawner"]
+[ext_resource type="PackedScene" uid="uid://bynok26sjmh57" path="res://Content/Scene/World2D/pickup_item.tscn" id="6_pickup"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
+size = Vector2(48, 48)
+
 [node name="Empty" type="Node2D" unique_id=128507855]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1108092855]
+position = Vector2(960, 512)
+script = ExtResource("1_player")
+move_input_context = ExtResource("2_movctx")
+beat_sound = ExtResource("3_beattick")
+sprite_path = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=2000324318]
+shape = SubResource("RectangleShape2D_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1933592699]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_otp5t")
+
+[node name="PickupSpawner" type="Node2D" parent="." unique_id=197587609]
+script = ExtResource("5_spawner")
+pickup_scene = ExtResource("6_pickup")
+player_path = NodePath("../Player")
+max_items = 1
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=751018339]
+layer = 10
+
+[node name="BeatIndicator" parent="HUD" unique_id=1025846431 instance=ExtResource("5_beatscn")]
+player_path = NodePath("../../Player")
+
+[connection signal="item_picked_up" from="PickupSpawner" to="Player" method="on_item_picked_up"]

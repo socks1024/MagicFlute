@@ -97,8 +97,3 @@ jump={
 [internationalization]
 
 locale/translations=PackedStringArray("res://Content/Data/Localization/localization.en.translation", "res://Content/Data/Localization/localization.zh.translation")
-
-[rendering]
-
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
