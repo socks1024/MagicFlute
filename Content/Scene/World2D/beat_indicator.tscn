@@ -14,9 +14,6 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_beatui")
-background_path = NodePath("Margin/Background")
-center_line_path = NodePath("CenterLine")
-cursor_path = NodePath("Cursor")
 cursor_count = 8
 cursor_width = 16.0
 

@@ -1,0 +1,10 @@
+[gd_resource type="TileSet" format=3 uid="uid://0sh7pvtsgcgc"]
+
+[ext_resource type="PackedScene" uid="uid://bynok26sjmh57" path="res://Content/Scene/World2D/pickup_item.tscn" id="1_8yiqv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7qx21"]
+scenes/1/scene = ExtResource("1_8yiqv")
+
+[resource]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetScenesCollectionSource_7qx21")

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="GridSystem" format=3 uid="uid://ck7ixvc3hmgyf"]
-
-[ext_resource type="Script" uid="uid://cvgkdhc1337sy" path="res://Content/Script/Gameplay/grid_system.gd" id="1_script"]
-
-[resource]
-script = ExtResource("1_script")
-columns = 19
-rows = 10
-origin = Vector2(10, 40)

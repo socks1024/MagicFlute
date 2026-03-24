@@ -1,0 +1,17 @@
+[gd_resource type="TileSet" format=3 uid="uid://weqkdnp3lgyk"]
+
+[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="1_85d3c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31cps"]
+texture = ExtResource("1_85d3c")
+texture_region_size = Vector2i(100, 100)
+0:0/next_alternative_id = 5
+0:0/0 = 0
+0:0/0/modulate = Color(0.10872077, 0.10872077, 0.10872076, 0.68235296)
+0:0/0/custom_data_0 = true
+
+[resource]
+tile_size = Vector2i(100, 100)
+custom_data_layer_0/name = "Passable"
+custom_data_layer_0/type = 1
+sources/0 = SubResource("TileSetAtlasSource_31cps")
