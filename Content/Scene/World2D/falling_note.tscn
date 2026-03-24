@@ -1,6 +1,7 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://Content/Script/RhythmDungeon/falling_note.gd" id="1_note"]
+[ext_resource type="Script" uid="uid://bgkrn54pipur" path="res://Content/Script/Gameplay/falling_note.gd" id="1_note"]
+
 
 [node name="FallingNote" type="ColorRect"]
 custom_minimum_size = Vector2(44, 44)

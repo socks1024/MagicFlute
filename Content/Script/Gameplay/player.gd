@@ -21,8 +21,8 @@ signal item_collected
 @export var hit_window_late_sec: float = 0.15
 
 # ── 移动参数 ─────────────────────────────────────────
-## 每次移动的格子大小（像素）
-@export var tile_size: float = 64.0
+## 统一网格系统资源（场景中静态配置）
+@export var grid: GridSystem
 ## 移动补间时长（秒），纯视觉过渡
 @export var move_tween_duration: float = 0.1
 
@@ -99,7 +99,7 @@ func _ready() -> void:
 		_beat_indicator = get_node(beat_indicator_path) as BeatIndicator
 	# 自动启动节拍时钟
 	_start_clock()
-	CLog.o("RhythmPlayer 就绪 | BPM=%.1f  每拍=%.3fs  格子=%dpx" % [bpm, _seconds_per_beat, int(tile_size)])
+	CLog.o("RhythmPlayer 就绪 | BPM=%.1f  每拍=%.3fs  格子=%dpx" % [bpm, _seconds_per_beat, int(grid.cell_size) if grid != null else 0])
 
 
 func _process(delta: float) -> void:
@@ -195,9 +195,15 @@ func _is_in_hit_window() -> bool:
 func _do_beat_move(direction: Vector2) -> void:
 	_is_moving = true
 	_beat_acted = true
-	var target_pos: Vector2 = position + direction * tile_size
+	# 通过网格系统计算目标位置并钳制边界
+	var current_grid: Vector2i = grid.world_to_grid(position)
+	var target_grid: Vector2i = current_grid + Vector2i(int(direction.x), int(direction.y))
+	if not grid.is_in_bounds(target_grid):
+		_is_moving = false
+		return
+	var target_pos: Vector2 = grid.grid_to_world(target_grid)
 	beat_move.emit(direction)
-	CLog.o("Hit! 方向=%s  目标=%s" % [direction, target_pos])
+	CLog.o("Hit! 方向=%s  目标格=%s" % [direction, target_grid])
 
 	if move_tween_duration <= 0.0:
 		position = target_pos

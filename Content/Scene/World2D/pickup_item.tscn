@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bynok26sjmh57"]
 
-[ext_resource type="Script" uid="uid://ui2d4f4mtcjo" path="res://Content/Script/RhythmDungeon/pickup_item.gd" id="1_pickup"]
+[ext_resource type="Script" uid="uid://ui2d4f4mtcjo" path="res://Content/Script/Gameplay/pickup_item.gd" id="1_pickup"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pickup"]
 size = Vector2(48, 48)

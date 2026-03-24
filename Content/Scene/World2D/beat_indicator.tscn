@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dha7k2m4p8bti"]
 
-[ext_resource type="Script" uid="uid://bb5rpw8jd10lv" path="res://Content/Script/RhythmDungeon/beat_indicator.gd" id="1_beatui"]
+[ext_resource type="Script" uid="uid://bb5rpw8jd10lv" path="res://Content/Script/Gameplay/beat_indicator.gd" id="1_beatui"]
+
 
 [node name="BeatIndicator" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ct4kfyl64iem4"]
 
-[ext_resource type="Script" uid="uid://d3ry5yepx8pk4" path="res://Content/Script/RhythmDungeon/rhythm_lane.gd" id="1_lane"]
+[ext_resource type="Script" uid="uid://d3ry5yepx8pk4" path="res://Content/Script/Gameplay/rhythm_lane.gd" id="1_lane"]
 [ext_resource type="PackedScene" path="res://Content/Scene/World2D/falling_note.tscn" id="2_note"]
 
 [node name="RhythmLane" type="Control" unique_id=971769457]
