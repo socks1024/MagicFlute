@@ -1,9 +1,11 @@
 [gd_resource type="TileSet" format=3 uid="uid://0sh7pvtsgcgc"]
 
 [ext_resource type="PackedScene" uid="uid://bynok26sjmh57" path="res://Content/Scene/World2D/pickup_item.tscn" id="1_8yiqv"]
+[ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="2_7qx21"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7qx21"]
 scenes/1/scene = ExtResource("1_8yiqv")
+scenes/2/scene = ExtResource("2_7qx21")
 
 [resource]
 tile_size = Vector2i(100, 100)

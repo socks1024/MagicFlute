@@ -17,6 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="MagicFlute"
 run/main_scene="uid://c3lso300yfoep"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+run/max_fps=120
 config/icon="res://Test/icon.svg"
 
 [audio]

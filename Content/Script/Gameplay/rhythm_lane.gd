@@ -12,7 +12,8 @@ signal note_hit(direction: Vector2)
 ## 音符未命中（飘过判定线）时发出
 signal note_miss(direction: Vector2)
 ## 当前序列的所有音符已结算（命中或 Miss），轨道即将隐藏
-signal sequence_finished
+## is_full_combo: 是否全部命中（无 Miss）
+signal sequence_finished(is_full_combo: bool)
 
 # ── 轨道方向映射 ─────────────────────────────────────
 ## 四条轨道对应的方向与输入动作
@@ -65,6 +66,8 @@ var _current_chart: Array[Dictionary] = []
 var _total_notes_in_sequence: int = 0
 ## 当前序列已结算的音符数（命中 + Miss）
 var _settled_notes_count: int = 0
+## 当前序列的 Miss 次数
+var _miss_count: int = 0
 
 # ── 场景中静态配置的视觉节点 ────────────────────────
 @onready var _judge_line: ColorRect = $JudgeLine
@@ -121,6 +124,7 @@ func start_sequence(chart: Array[Dictionary], scroll_beats: float) -> void:
 	# 初始化序列状态
 	_total_notes_in_sequence = _current_chart.size()
 	_settled_notes_count = 0
+	_miss_count = 0
 	_next_chart_index = 0
 	# 从负的滚动时长开始计时，确保最早的音符也从最左侧完整滚入
 	var scroll_duration: float = _scroll_beats * _seconds_per_beat
@@ -249,6 +253,7 @@ func _check_missed_notes() -> void:
 			note_miss.emit(dir)
 			to_remove.append(note)
 			_settled_notes_count += 1
+			_miss_count += 1
 			CLog.w("音符 Miss! 轨道=%d  beat=%d  (%d/%d)" % [note.lane_index, note.beat_index, _settled_notes_count, _total_notes_in_sequence])
 	for note: FallingNote in to_remove:
 		_active_notes.erase(note)
@@ -270,8 +275,9 @@ func _stop_sequence() -> void:
 	_active = false
 	_cleanup()
 	visible = false
-	sequence_finished.emit()
-	CLog.o("RhythmLane 序列结束，轨道隐藏")
+	var is_full_combo: bool = _miss_count == 0
+	sequence_finished.emit(is_full_combo)
+	CLog.o("RhythmLane 序列结束，轨道隐藏 | Full Combo=%s" % is_full_combo)
 
 
 ## 清理所有活跃音符

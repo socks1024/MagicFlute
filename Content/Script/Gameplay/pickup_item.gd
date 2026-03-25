@@ -1,5 +1,5 @@
 class_name PickupItem
-extends Node2D
+extends GridEntity2D
 ## 拾取物：放置在网格上，玩家踩上去即可拾取
 ##
 ## 由网格系统判断玩家与拾取物的位置重叠，拾取后发出信号并自动销毁。

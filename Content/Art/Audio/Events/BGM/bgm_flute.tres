@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://ce5g6xmc8a3e7"]
+
+[ext_resource type="AudioStream" uid="uid://c80j7p2skdnvi" path="res://Content/Art/Audio/Raw/Music/魔笛循环版.mp3" id="1_a4i7e"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_rgt3m"]
+
+[resource]
+script = ExtResource("2_rgt3m")
+name = &"bgm_flute"
+audio_stream = ExtResource("1_a4i7e")
+is_loop = true
+bus = &"Music"
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"

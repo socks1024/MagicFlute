@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://da26uuyph7uni"]
+
+[ext_resource type="Script" uid="uid://dmyju1buv4xtm" path="res://Content/Script/Gameplay/enemy.gd" id="1_enemy"]
+[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="2_0ny84"]
+
+[sub_resource type="Curve" id="Curve_death_scale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_death_color"]
+colors = PackedColorArray(1, 0.2, 0.2, 1, 1, 0.2, 0.2, 0)
+
+[node name="Enemy" type="Node2D" unique_id=1541572849]
+script = ExtResource("1_enemy")
+spring_position_damping = 0.256
+squash_stretch_amount = 0.7
+spring_rotation_damping = 0.19
+rotation_bump_amount = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=936646376]
+modulate = Color(1, 0.2, 0.2, 1)
+texture = ExtResource("2_0ny84")
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=1127894653]
+emitting = false
+amount = 160
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.6
+explosiveness = 1.0
+randomness = 0.3
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 10.0
+scale_amount_curve = SubResource("Curve_death_scale")
+color_ramp = SubResource("Gradient_death_color")

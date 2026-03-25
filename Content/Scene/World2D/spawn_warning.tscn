@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bk48po8w3n23c"]
+
+[ext_resource type="Script" uid="uid://cmaa3lp7cqrdg" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_warning.gd" id="1_warn"]
+[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="2_tex"]
+
+[node name="SpawnWarning" type="Node2D" unique_id=479965828]
+script = ExtResource("1_warn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=721882729]
+modulate = Color(1, 0.9, 0.2, 0.8)
+texture = ExtResource("2_tex")

@@ -22,11 +22,11 @@ var _scale_spring: SpringVector2
 
 ```gdscript
 func _ready() -> void:
-    # SpringFloat(初始值, 阻尼, 频率)
-    _rotation_spring = SpringFloat.new(0.0, 0.6, 6.0)
+	# SpringFloat(初始值, 阻尼, 频率)
+	_rotation_spring = SpringFloat.new(0.0, 0.6, 6.0)
 
-    # SpringVector2(初始值, 阻尼, 频率)
-    _scale_spring = SpringVector2.new(Vector2.ONE, 0.5, 8.0)
+	# SpringVector2(初始值, 阻尼, 频率)
+	_scale_spring = SpringVector2.new(Vector2.ONE, 0.5, 8.0)
 ```
 
 ### 3. 每帧更新
@@ -35,12 +35,12 @@ func _ready() -> void:
 
 ```gdscript
 func _process(delta: float) -> void:
-    _rotation_spring.update(delta)
-    _scale_spring.update(delta)
+	_rotation_spring.update(delta)
+	_scale_spring.update(delta)
 
-    # 应用到节点
-    rotation = _rotation_spring.current
-    scale = _scale_spring.current
+	# 应用到节点
+	rotation = _rotation_spring.current
+	scale = _scale_spring.current
 ```
 
 ### 4. 触发效果
@@ -86,7 +86,7 @@ _rotation_spring.bump(0.5)
 
 ```gdscript
 func _process(delta: float) -> void:
-    my_spring.update(delta)
+	my_spring.update(delta)
 ```
 
 ---
@@ -200,23 +200,23 @@ var _position_spring: SpringVector2
 var _base_position: Vector2
 
 func _ready() -> void:
-    _scale_spring = SpringVector2.new(Vector2.ONE, 0.5, 8.0)
-    _position_spring = SpringVector2.new(Vector2.ZERO, 0.6, 6.0)
-    _base_position = position
+	_scale_spring = SpringVector2.new(Vector2.ONE, 0.5, 8.0)
+	_position_spring = SpringVector2.new(Vector2.ZERO, 0.6, 6.0)
+	_base_position = position
 
 func _process(delta: float) -> void:
-    _scale_spring.update(delta)
-    _position_spring.update(delta)
+	_scale_spring.update(delta)
+	_position_spring.update(delta)
 
-    scale = _scale_spring.current
-    position = _base_position + _position_spring.current
+	scale = _scale_spring.current
+	position = _base_position + _position_spring.current
 
 ## 被攻击时调用
 func take_damage(from_direction: Vector2) -> void:
-    # 缩放挤压
-    _scale_spring.bump(Vector2(-0.3, 0.3))
-    # 击退抖动
-    _position_spring.bump(from_direction.normalized() * 20.0)
+	# 缩放挤压
+	_scale_spring.bump(Vector2(-0.3, 0.3))
+	# 击退抖动
+	_position_spring.bump(from_direction.normalized() * 20.0)
 ```
 
 ## 完整示例：UI 按钮弹性
@@ -227,23 +227,23 @@ extends Button
 var _scale_spring: SpringVector2
 
 func _ready() -> void:
-    _scale_spring = SpringVector2.new(Vector2.ONE, 0.4, 10.0)
-    mouse_entered.connect(_on_hover)
-    mouse_exited.connect(_on_unhover)
-    pressed.connect(_on_pressed)
+	_scale_spring = SpringVector2.new(Vector2.ONE, 0.4, 10.0)
+	mouse_entered.connect(_on_hover)
+	mouse_exited.connect(_on_unhover)
+	pressed.connect(_on_pressed)
 
 func _process(delta: float) -> void:
-    _scale_spring.update(delta)
-    scale = _scale_spring.current
+	_scale_spring.update(delta)
+	scale = _scale_spring.current
 
 func _on_hover() -> void:
-    _scale_spring.move_to(Vector2(1.1, 1.1))
+	_scale_spring.move_to(Vector2(1.1, 1.1))
 
 func _on_unhover() -> void:
-    _scale_spring.restore_initial()
+	_scale_spring.restore_initial()
 
 func _on_pressed() -> void:
-    _scale_spring.bump(Vector2(-0.2, -0.2))
+	_scale_spring.bump(Vector2(-0.2, -0.2))
 ```
 
 ---
@@ -258,23 +258,23 @@ var _position_spring: SpringVector3
 var _base_position: Vector3
 
 func _ready() -> void:
-    _scale_spring = SpringVector3.new(Vector3.ONE, 0.5, 8.0)
-    _position_spring = SpringVector3.new(Vector3.ZERO, 0.6, 6.0)
-    _base_position = position
+	_scale_spring = SpringVector3.new(Vector3.ONE, 0.5, 8.0)
+	_position_spring = SpringVector3.new(Vector3.ZERO, 0.6, 6.0)
+	_base_position = position
 
 func _process(delta: float) -> void:
-    _scale_spring.update(delta)
-    _position_spring.update(delta)
+	_scale_spring.update(delta)
+	_position_spring.update(delta)
 
-    scale = _scale_spring.current
-    position = _base_position + _position_spring.current
+	scale = _scale_spring.current
+	position = _base_position + _position_spring.current
 
 ## 被攻击时调用
 func take_damage(from_direction: Vector3) -> void:
-    # 缩放挤压
-    _scale_spring.bump(Vector3(-0.2, 0.3, -0.2))
-    # 击退抖动
-    _position_spring.bump(from_direction.normalized() * 15.0)
+	# 缩放挤压
+	_scale_spring.bump(Vector3(-0.2, 0.3, -0.2))
+	# 击退抖动
+	_position_spring.bump(from_direction.normalized() * 15.0)
 ```
 
 ---
