@@ -61,7 +61,7 @@ func _on_placed(_grid_pos: Vector2i) -> void:
 		CLog.e("Enemy 未找到 RhythmConductor")
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_spring_position.update(delta)
 	_spring_scale.update(delta)
 	_spring_rotation.update(delta)
@@ -97,7 +97,6 @@ func _move(direction: Vector2i) -> void:
 	_spring_position.move_to(target_pos)
 	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
 	# 先重置速度，防止连续移动时冲量累加导致 scale 爆炸
-	_spring_scale.velocity = Vector2.ZERO
 	var dir_f: Vector2 = Vector2(direction).normalized()
 	var stretch: Vector2 = Vector2(
 		abs(dir_f.x) * squash_stretch_amount - abs(dir_f.y) * squash_stretch_amount,

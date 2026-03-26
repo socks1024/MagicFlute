@@ -68,8 +68,8 @@ func _on_placed(_grid_pos: Vector2i) -> void:
 		CLog.e("RhythmPlayer 未找到 Conductor")
 
 
-func _process(delta: float) -> void:
-	# 更新弹簧
+func _physics_process(delta: float) -> void:
+	# 在固定时间步长中更新弹簧，确保不同帧率下行为一致
 	_spring_position.update(delta)
 	_spring_scale.update(delta)
 	# 用位移弹簧驱动视觉位置（使用全局坐标，与网格系统坐标一致）
@@ -130,7 +130,6 @@ func _do_beat_move(direction: Vector2) -> void:
 	_spring_position.move_to(target_pos)
 	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
 	# 先重置速度，防止连续移动时冲量累加导致 scale 爆炸
-	_spring_scale.velocity = Vector2.ZERO
 	var stretch: Vector2 = Vector2(
 		absf(direction.x) * squash_stretch_amount - absf(direction.y) * squash_stretch_amount,
 		absf(direction.y) * squash_stretch_amount - absf(direction.x) * squash_stretch_amount
