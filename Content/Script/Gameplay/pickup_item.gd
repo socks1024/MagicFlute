@@ -13,4 +13,4 @@ signal picked_up(item: PickupItem)
 ## 执行拾取：发出信号并销毁自身（由外部网格判定后调用）
 func do_pickup() -> void:
 	picked_up.emit(self)
-	queue_free()
+	remove_and_free()

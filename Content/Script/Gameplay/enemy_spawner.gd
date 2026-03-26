@@ -137,14 +137,11 @@ func _process_random_beat() -> void:
 
 # ── 生成逻辑 ─────────────────────────────────────────
 
-## 判断格子是否可用于生成敌人（可通行且无玩家占用，允许有拾取物）
+## 判断格子是否可用于生成敌人（无空气墙且无玩家占用，允许有拾取物）
 func _is_spawnable(grid_pos: Vector2i) -> bool:
-	if not (_grid.get_cell_custom_data(grid_pos, "Passable", false) as bool):
+	if not _grid.is_cell_empty(grid_pos, GridEntity2D.LAYER_WALL):
 		return false
-	for entity: GridEntity2D in _grid.get_entity_at(grid_pos):
-		if entity is RhythmPlayer:
-			return false
-	return true
+	return _grid.is_cell_empty(grid_pos, GridEntity2D.LAYER_PLAYER)
 
 
 ## 在指定网格位置生成指定种类的敌人（带预警）
@@ -152,10 +149,6 @@ func _spawn_at_pos(grid_pos: Vector2i, enemy_idx: int) -> void:
 	if enemy_scenes.is_empty() or _grid == null:
 		return
 	if _is_over_limit():
-		return
-	# 检查目标格子是否存在
-	if not _grid.has_cell(grid_pos):
-		CLog.o("EnemySpawner 无法在 %s 生成（格子不存在）" % grid_pos)
 		return
 	var scene: PackedScene = _get_enemy_scene(enemy_idx)
 	if scene == null:
@@ -209,10 +202,8 @@ func _do_spawn(grid_pos: Vector2i, scene: PackedScene) -> void:
 	add_child(enemy)
 	# 修正 owner 为场景根节点，使 % 唯一名称可用
 	enemy.owner = owner
-	# 在网格系统中注册敌人占用
+	# 在网格系统中注册敌人占用（place_entity 内部会调用 _on_placed，完成信号连接等初始化）
 	_grid.place_entity(grid_pos, enemy)
-	# 手动调用 _entity_ready（动态生成的实体不经过 EntityLayer 扫描流程）
-	enemy._entity_ready()
 	CLog.o("生成敌人 -> %s（移动拍 #%d）" % [grid_pos, _move_beat_count])
 
 # ── 预警逻辑 ─────────────────────────────────────────

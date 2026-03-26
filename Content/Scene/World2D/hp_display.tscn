@@ -1,25 +1,16 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://Content/Script/Gameplay/hp_display.gd" id="1_script"]
-[ext_resource type="PackedScene" uid="uid://bkqi4nluf1v2n" path="res://Content/Scene/UI/Common/ProgressBar/feel_progress_bar.tscn" id="2_fpbar"]
 
 [node name="HpDisplay" type="MarginContainer"]
 offset_right = 220.0
 offset_bottom = 40.0
 theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 5
 script = ExtResource("1_script")
 
-[node name="FeelProgressBar" parent="." instance=ExtResource("2_fpbar")]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-custom_minimum_size = Vector2(200, 20)
-bar_color = Color(0.85, 0.2, 0.2, 1)
-trail_decrease_color = Color(0.95, 0.5, 0.3, 1)
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 2
-text = "3 / 3"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_constants/separation = 2

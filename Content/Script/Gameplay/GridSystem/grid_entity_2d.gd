@@ -9,7 +9,32 @@ extends Node2D
 ## 实体在网格上占据的尺寸（以格子为单位，默认 1×1）
 @export var cell_size: Vector2i = Vector2i(1, 1)
 
+# ── 网格层常量 ───────────────────────────────────────
+## 网格层位定义（与 @export_flags 中的顺序一一对应）
+const LAYER_PLAYER: int = 1    ## bit 0 - 玩家
+const LAYER_ENEMY: int = 2     ## bit 1 - 敌人
+const LAYER_PICKUP: int = 4    ## bit 2 - 拾取物
+const LAYER_WALL: int = 8      ## bit 3 - 空气墙
+
+# ── 网格层属性 ───────────────────────────────────────
+## 实体所在的网格层（位掩码，表示"我在哪些层"）
+@export_flags("Player", "Enemy", "Pickup", "Wall") var grid_layer: int = 0
+## 实体的阻挡掩码（位掩码，表示"哪些层会阻挡我的移动"）
+@export_flags("Player", "Enemy", "Pickup", "Wall") var block_mask: int = 0
+## 实体的重叠掩码（位掩码，表示"哪些层会与我触发重叠回调"）
+@export_flags("Player", "Enemy", "Pickup", "Wall") var overlap_mask: int = 0
+
+# ── 内部变量 ─────────────────────────────────────────
+## 所属网格系统引用（由 GridSystem2D.place_entity 自动注入，勿手动赋值）
+var _grid_system: GridSystem2D
+
 # ── 公开方法 ─────────────────────────────────────────
+
+## 从网格系统中移除自身并释放节点（所有主动销毁路径的统一入口）
+func remove_and_free() -> void:
+	if _grid_system != null:
+		_grid_system.remove_entity(self)
+	queue_free()
 
 ## 获取实体占据的所有网格坐标（基于锚点格子向右下扩展）
 ## anchor: 实体的锚点网格坐标（左上角格子）
@@ -35,7 +60,17 @@ func is_single_cell() -> bool:
 func _on_placed(_grid_pos: Vector2i) -> void:
 	pass
 
-## 实体注册完成后由 GridSystem2D 调用（owner 已修正，可安全使用 % 唯一名称）
-## 子类可覆写此方法以获取外部节点引用、连接信号等
-func _entity_ready() -> void:
+## 实体从网格中移除时由 GridSystem2D 调用（数据已清除，节点仍存活）
+## 子类可覆写此方法以执行移除相关的逻辑（如断开信号、清理状态等）
+func _on_removed(_grid_pos: Vector2i) -> void:
+	pass
+
+## 移动被阻挡时由 GridSystem2D 调用
+## 子类可覆写此方法以处理被阻挡后的行为（如销毁、反弹等）
+func _on_blocked(_blocker: GridEntity2D) -> void:
+	pass
+
+## 与其他实体重叠时由 GridSystem2D 调用
+## 子类可覆写此方法以处理重叠后的行为（如拾取、伤害等）
+func _on_overlap(_other: GridEntity2D) -> void:
 	pass

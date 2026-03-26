@@ -13,6 +13,10 @@ signal entity_placed(grid_pos: Vector2i, entity: GridEntity2D)
 signal entity_removed(grid_pos: Vector2i, entity: GridEntity2D)
 ## 实体在格子间移动时发出
 signal entity_moved(from: Vector2i, to: Vector2i, entity: GridEntity2D)
+## 实体移动被阻挡时发出
+signal entity_blocked(mover: GridEntity2D, blocker: GridEntity2D)
+## 实体与其他实体重叠时发出
+signal entity_overlapped(mover: GridEntity2D, other: GridEntity2D)
 
 # ── 网格参数 ─────────────────────────────────────────
 ## 格子宽度（像素）
@@ -22,7 +26,9 @@ signal entity_moved(from: Vector2i, to: Vector2i, entity: GridEntity2D)
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 格子占用字典：key = Vector2i（网格坐标），value = Array[GridEntity2D]（占用该格子的实体列表）
-var _cells: Dictionary = {}
+var _cell_to_entities: Dictionary = {}
+## 反向索引：key = GridEntity2D，value = Vector2i（实体锚点坐标），用于 O(1) 查找实体位置
+var _entity_to_cell: Dictionary = {}
 ## 地形层引用（Zone / 地形瓦片）
 @onready var _zone_layer: TileMapLayer = $ZoneLayer
 ## 实体层引用（Scene Collection 场景瓦片）
@@ -57,80 +63,107 @@ func world_to_grid(world_pos: Vector2) -> Vector2i:
 ## 同时监听实体的 tree_exiting 信号，销毁时自动从占用中移除
 ## 以 grid_pos 为锚点，根据实体的 cell_size 占用对应格子
 func place_entity(grid_pos: Vector2i, entity: GridEntity2D) -> void:
-	var positions: Array[Vector2i] = entity.get_occupied_cells(grid_pos)
-	for pos: Vector2i in positions:
-		if not _cells.has(pos):
-			var arr: Array[GridEntity2D] = []
-			_cells[pos] = arr
-		(_cells[pos] as Array[GridEntity2D]).append(entity)
-	if not entity.tree_exiting.is_connected(_on_entity_tree_exiting):
-		entity.tree_exiting.connect(_on_entity_tree_exiting.bind(entity))
+	_write_all_cells_of(entity, grid_pos)
+	entity._grid_system = self
 	entity._on_placed(grid_pos)
 	entity_placed.emit(grid_pos, entity)
 
-## 精确移除指定格子上的某个实体（若为多格实体，会一并清除所有占用格子）
-func remove_entity(grid_pos: Vector2i, entity: GridEntity2D) -> void:
-	if _cells.has(grid_pos):
-		var arr: Array[GridEntity2D] = _cells[grid_pos] as Array[GridEntity2D]
-		if entity in arr:
-			_erase_all_cells_of(entity)
-			entity_removed.emit(grid_pos, entity)
-
 ## 移除指定格子上的所有实体
 func remove_all_entities(grid_pos: Vector2i) -> void:
-	if _cells.has(grid_pos):
-		var arr: Array[GridEntity2D] = (_cells[grid_pos] as Array[GridEntity2D]).duplicate()
+	if _cell_to_entities.has(grid_pos):
+		var arr: Array[GridEntity2D] = (_cell_to_entities[grid_pos] as Array[GridEntity2D]).duplicate()
 		for entity: GridEntity2D in arr:
-			_erase_all_cells_of(entity)
-			entity_removed.emit(grid_pos, entity)
+			remove_entity(entity)
 
 ## 移除指定实体（按实体引用查找并清除所有占用格子）
-func remove_entity_by_ref(entity: GridEntity2D) -> void:
+func remove_entity(entity: GridEntity2D) -> void:
 	var pos: Vector2i = find_entity(entity)
 	if pos != Vector2i(-1, -1):
 		_erase_all_cells_of(entity)
+		entity._grid_system = null
+		entity._on_removed(pos)
 		entity_removed.emit(pos, entity)
 
 ## 将指定实体移动到新的锚点格子（必须传入实体引用，支持多格实体）
-func move_entity(entity: GridEntity2D, to: Vector2i) -> void:
+## 返回 true 表示移动成功，false 表示被阻挡、移动未发生
+func move_entity(entity: GridEntity2D, to: Vector2i) -> bool:
 	var from: Vector2i = find_entity(entity)
 	if from == Vector2i(-1, -1):
-		return
+		return false
+	# ── 阻挡检测：扫描目标格，命中 block_mask 的实体会阻止移动 ──
+	var target_positions: Array[Vector2i] = entity.get_occupied_cells(to)
+	if entity.block_mask != 0:
+		for pos: Vector2i in target_positions:
+			if _cell_to_entities.has(pos):
+				for other: GridEntity2D in (_cell_to_entities[pos] as Array[GridEntity2D]):
+					if other != entity and other.grid_layer & entity.block_mask != 0:
+						entity._on_blocked(other)
+						entity_blocked.emit(entity, other)
+						return false
+	# ── 执行移动 ──
 	_erase_all_cells_of(entity)
-	var new_positions: Array[Vector2i] = entity.get_occupied_cells(to)
-	for pos: Vector2i in new_positions:
-		if not _cells.has(pos):
-			var arr: Array[GridEntity2D] = []
-			_cells[pos] = arr
-		(_cells[pos] as Array[GridEntity2D]).append(entity)
+	_write_all_cells_of(entity, to)
 	entity_moved.emit(from, to, entity)
+	# ── 重叠检测：移动后扫描目标格，命中 overlap_mask 的实体触发回调 ──
+	if entity.overlap_mask != 0:
+		for pos: Vector2i in target_positions:
+			if _cell_to_entities.has(pos):
+				for other: GridEntity2D in (_cell_to_entities[pos] as Array[GridEntity2D]):
+					if other != entity and other.grid_layer & entity.overlap_mask != 0:
+						entity._on_overlap(other)
+						entity_overlapped.emit(entity, other)
+	return true
 
-## 查询指定格子上的所有实体，无实体返回空数组
-func get_entity_at(grid_pos: Vector2i) -> Array[GridEntity2D]:
-	if _cells.has(grid_pos):
-		return _cells[grid_pos] as Array[GridEntity2D]
-	var empty: Array[GridEntity2D] = []
-	return empty
+## 查询指定格子上的实体
+## layer_mask: 层过滤掩码，0 表示不过滤（返回全部），非 0 时只返回 grid_layer 与之有交集的实体
+func get_entity_at(grid_pos: Vector2i, layer_mask: int = 0) -> Array[GridEntity2D]:
+	if not _cell_to_entities.has(grid_pos):
+		var empty: Array[GridEntity2D] = []
+		return empty
+	var all: Array[GridEntity2D] = _cell_to_entities[grid_pos] as Array[GridEntity2D]
+	if layer_mask == 0:
+		return all
+	var filtered: Array[GridEntity2D] = []
+	for entity: GridEntity2D in all:
+		if entity.grid_layer & layer_mask != 0:
+			filtered.append(entity)
+	return filtered
 
-## 判断指定格子是否为空（无实体占用）
-func is_cell_empty(grid_pos: Vector2i) -> bool:
-	if not _cells.has(grid_pos):
+## 判断指定格子是否为空
+## layer_mask: 层过滤掩码，0 表示不过滤（检查全部），非 0 时只检查指定层
+func is_cell_empty(grid_pos: Vector2i, layer_mask: int = 0) -> bool:
+	if not _cell_to_entities.has(grid_pos):
 		return true
-	return (_cells[grid_pos] as Array[GridEntity2D]).is_empty()
+	var all: Array[GridEntity2D] = _cell_to_entities[grid_pos] as Array[GridEntity2D]
+	if all.is_empty():
+		return true
+	if layer_mask == 0:
+		return false
+	for entity: GridEntity2D in all:
+		if entity.grid_layer & layer_mask != 0:
+			return false
+	return true
 
-## 查找指定实体所在的网格坐标，未找到返回 Vector2i(-1, -1)
+## 查找指定实体的锚点网格坐标，未找到返回 Vector2i(-1, -1)（O(1) 反向索引查表）
 func find_entity(entity: GridEntity2D) -> Vector2i:
-	for pos: Vector2i in _cells:
-		var arr: Array[GridEntity2D] = _cells[pos] as Array[GridEntity2D]
-		if entity in arr:
-			return pos
+	if _entity_to_cell.has(entity):
+		return _entity_to_cell[entity] as Vector2i
 	return Vector2i(-1, -1)
 
 ## 获取所有被占用的格子坐标
 func get_occupied_cells() -> Array[Vector2i]:
 	var result: Array[Vector2i] = []
-	for pos: Vector2i in _cells:
+	for pos: Vector2i in _cell_to_entities:
 		result.append(pos)
+	return result
+
+## 获取指定层上的所有实体（通过反向索引天然去重）
+## layer_mask: 层过滤掩码，0 表示返回全部实体
+func get_all_entities(layer_mask: int = 0) -> Array[GridEntity2D]:
+	var result: Array[GridEntity2D] = []
+	for entity: GridEntity2D in _entity_to_cell:
+		if layer_mask == 0 or entity.grid_layer & layer_mask != 0:
+			result.append(entity)
 	return result
 
 # ── 实体层扫描 ───────────────────────────────────────
@@ -146,15 +179,9 @@ func _register_entity_layer_children() -> void:
 			var entity: GridEntity2D = child as GridEntity2D
 			var grid_pos: Vector2i = world_to_grid(entity.global_position)
 			place_entity(grid_pos, entity)
-			entity._entity_ready()
 			CLog.o("EntityLayer 注册: %s -> %s" % [entity.name, grid_pos])
 
-## 实体即将离开场景树时，自动从占用字典中移除（支持多格实体）
-func _on_entity_tree_exiting(entity: GridEntity2D) -> void:
-	var pos: Vector2i = find_entity(entity)
-	if pos != Vector2i(-1, -1):
-		_erase_all_cells_of(entity)
-		entity_removed.emit(pos, entity)
+
 
 # ── 瓦片层查询 ───────────────────────────────────────
 
@@ -169,11 +196,7 @@ func get_cell_custom_data(grid_pos: Vector2i, key: String, default: Variant = nu
 		return default
 	return tile_data.get_custom_data(key)
 
-## 判断格子是否存在（瓦片层中有画瓦片）
-func has_cell(grid_pos: Vector2i) -> bool:
-	return _zone_layer.get_cell_tile_data(grid_pos) != null
-
-## 获取所有已绘制的格子坐标（即关卡的有效区域）
+## 获取所有已绘制的格子坐标
 func get_all_cells() -> Array[Vector2i]:
 	var cells: Array[Vector2i] = []
 	for pos: Vector2i in _zone_layer.get_used_cells():
@@ -194,15 +217,26 @@ func get_filtered_cells(filter: Callable = Callable()) -> Array[Vector2i]:
 
 # ── 内部辅助 ─────────────────────────────────────────
 
-## 从占用字典中清除指定实体占据的所有格子（数组为空时删除 key）
+## 将实体写入占用字典的所有格子（根据锚点和 cell_size 计算占用范围，同时更新反向索引）
+func _write_all_cells_of(entity: GridEntity2D, anchor: Vector2i) -> void:
+	var positions: Array[Vector2i] = entity.get_occupied_cells(anchor)
+	for pos: Vector2i in positions:
+		if not _cell_to_entities.has(pos):
+			var arr: Array[GridEntity2D] = []
+			_cell_to_entities[pos] = arr
+		(_cell_to_entities[pos] as Array[GridEntity2D]).append(entity)
+	_entity_to_cell[entity] = anchor
+
+## 从占用字典中精确清除指定实体占据的所有格子（利用反向索引定位，数组为空时删除 key）
 func _erase_all_cells_of(entity: GridEntity2D) -> void:
-	var keys_to_clean: Array[Vector2i] = []
-	for pos: Vector2i in _cells:
-		var arr: Array[GridEntity2D] = _cells[pos] as Array[GridEntity2D]
-		if entity in arr:
-			keys_to_clean.append(pos)
-	for pos: Vector2i in keys_to_clean:
-		var arr: Array[GridEntity2D] = _cells[pos] as Array[GridEntity2D]
-		arr.erase(entity)
-		if arr.is_empty():
-			_cells.erase(pos)
+	if not _entity_to_cell.has(entity):
+		return
+	var anchor: Vector2i = _entity_to_cell[entity] as Vector2i
+	var positions: Array[Vector2i] = entity.get_occupied_cells(anchor)
+	for pos: Vector2i in positions:
+		if _cell_to_entities.has(pos):
+			var arr: Array[GridEntity2D] = _cell_to_entities[pos] as Array[GridEntity2D]
+			arr.erase(entity)
+			if arr.is_empty():
+				_cell_to_entities.erase(pos)
+	_entity_to_cell.erase(entity)

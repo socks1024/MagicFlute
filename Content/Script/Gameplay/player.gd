@@ -16,7 +16,7 @@ signal died
 ## 最大生命值
 @export var max_hp: int = 3
 
-# ── Spring 参数 ──────────────────────────────────────
+@export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
 @export_range(0.0, 1.0) var spring_position_damping: float = 0.65
 ## 位移弹簧频率（越大弹得越快）
@@ -35,10 +35,8 @@ signal died
 # ── 内部变量（运行时） ───────────────────────────────
 ## 当前生命值
 var _current_hp: int = 0
-## 节拍指挥引用（在 _entity_ready 中获取）
+## 节拍指挥引用（在 _on_placed 中获取）
 var _conductor: RhythmConductor
-## 网格系统引用（在 _entity_ready 中获取）
-var _grid: GridSystem2D
 ## 位移弹簧（纯视觉，实现弹性过冲）
 var _spring_position: SpringVector2
 ## 挤压拉伸弹簧（驱动精灵缩放）
@@ -58,10 +56,9 @@ func _ready() -> void:
 	CLog.o("RhythmPlayer 就绪 | HP=%d/%d" % [_current_hp, max_hp])
 
 
-## 实体注册完成后调用，此时 owner 已修正，可安全使用 % 唯一名称
-func _entity_ready() -> void:
+## 实体被放置到网格时调用，此时 owner 已修正，可安全使用 % 唯一名称
+func _on_placed(_grid_pos: Vector2i) -> void:
 	_conductor = %RhythmConductor as RhythmConductor
-	_grid = %GridSystem2D as GridSystem2D
 	if _conductor != null:
 		_conductor.move_requested.connect(_on_move_requested)
 		_conductor.move_miss.connect(_on_move_miss)
@@ -108,41 +105,26 @@ func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 
 ## 清屏：击杀当前网格上所有敌人并触发震屏
 func _clear_screen() -> void:
-	var enemies: Array[Enemy] = []
-	for pos: Vector2i in _grid._cells:
-		for entity: GridEntity2D in _grid._cells[pos]:
-			if entity is Enemy and entity not in enemies:
-				enemies.append(entity as Enemy)
-	for enemy: Enemy in enemies:
-		enemy.destroy()
+	var entities: Array[GridEntity2D] = _grid_system.get_all_entities(GridEntity2D.LAYER_ENEMY)
+	for entity: GridEntity2D in entities:
+		if is_instance_valid(entity):
+			(entity as Enemy).destroy()
 	# 触发震屏
 	if _screen_shake_emitter != null:
 		_screen_shake_emitter.emit()
-	CLog.o("清屏! 击杀 %d 个敌人" % enemies.size())
 
 # ── 移动执行 ─────────────────────────────────────────
 
-## 判断指定格子是否可通行（读取 TileSet 的 Passable 自定义数据）
-func _is_passable(grid_pos: Vector2i) -> bool:
-	return _grid.get_cell_custom_data(grid_pos, "Passable", false) as bool
-
-
 ## 执行卡点移动（网格逻辑瞬时完成，Spring 只负责视觉过渡）
 func _do_beat_move(direction: Vector2) -> void:
-	# 通过网格系统计算目标位置（以弹簧目标为基准，确保连续移动时网格位置正确）
-	var current_grid: Vector2i = _grid.world_to_grid(_spring_position.target)
+	# 通过反向索引获取当前网格位置
+	var current_grid: Vector2i = _grid_system.find_entity(self)
 	var target_grid: Vector2i = current_grid + Vector2i(int(direction.x), int(direction.y))
 	
-	# 检查目标格子是否可通行，不可通行则不移动
-	if not _is_passable(target_grid):
-		CLog.o("目标格 %s 不可通行，移动取消" % target_grid)
+	# 尝试移动（阻挡/重叠检测由 GridSystem2D 的 block_mask 机制统一处理）
+	if not _grid_system.move_entity(self, target_grid):
 		return
-	
-	var target_pos: Vector2 = _grid.grid_to_world(target_grid)
-	# 检查目标格子是否有拾取物（在移动占位前查询）
-	var target_entities: Array[GridEntity2D] = _grid.get_entity_at(target_grid)
-	# 更新网格系统中的占用状态（逻辑位置瞬时到达）
-	_grid.move_entity(self, target_grid)
+	var target_pos: Vector2 = _grid_system.grid_to_world(target_grid)
 	CLog.o("Hit! 方向=%s  目标格=%s" % [direction, target_grid])
 	# 用位移弹簧驱动视觉过渡（动画未结束时再次调用会自然过渡到新目标）
 	_spring_position.move_to(target_pos)
@@ -152,24 +134,16 @@ func _do_beat_move(direction: Vector2) -> void:
 		absf(direction.y) * squash_stretch_amount - absf(direction.x) * squash_stretch_amount
 	)
 	_spring_scale.bump(stretch)
-	# 同步处理目标格上的实体（移动逻辑是瞬时的，不等动画结束）
-	for entity: GridEntity2D in target_entities:
-		_try_pickup(entity)
-		_try_enemy_contact(entity)
 
-# ── 碰撞处理 ─────────────────────────────────────────
+# ── 重叠回调（由 GridSystem2D 在 move_entity 时自动调用） ────
 
-## 尝试拾取目标实体（如果是拾取物）
-func _try_pickup(entity: GridEntity2D) -> void:
-	if entity is PickupItem:
-		entity.do_pickup()
+## 与其他实体重叠时的处理（拾取物品、敌人接触等）
+func _on_overlap(other: GridEntity2D) -> void:
+	if other is PickupItem:
+		other.do_pickup()
 		_on_pickup_collected()
-
-
-## 尝试与敌人接触（如果是敌人，受到伤害并销毁敌人）
-func _try_enemy_contact(entity: GridEntity2D) -> void:
-	if entity is Enemy:
-		var enemy: Enemy = entity as Enemy
+	elif other is Enemy:
+		var enemy: Enemy = other as Enemy
 		take_damage(enemy.contact_damage)
 		enemy.vanish()
 		CLog.o("玩家碰到敌人，受到 %d 点伤害" % enemy.contact_damage)

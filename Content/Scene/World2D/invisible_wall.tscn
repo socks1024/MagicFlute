@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cth0ecix72u77"]
+
+[ext_resource type="Script" uid="uid://b0dvuy1pbv02i" path="res://Content/Script/Gameplay/invisible_wall.gd" id="1_wall"]
+
+[node name="InvisibleWall" type="Node2D" unique_id=1044690490]
+script = ExtResource("1_wall")
+grid_layer = 8

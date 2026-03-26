@@ -17,11 +17,15 @@ script = ExtResource("1_player")
 spring_position_damping = 0.275
 spring_scale_damping = 0.298
 squash_stretch_amount = 1.0
+grid_layer = 1
+block_mask = 8
+overlap_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000166858]
 texture = ExtResource("2_1lcd3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=132170845]
+top_level = true
 
 [node name="PhantomCameraHost" type="Node2D" parent="Camera2D" unique_id=51714370]
 process_priority = 300

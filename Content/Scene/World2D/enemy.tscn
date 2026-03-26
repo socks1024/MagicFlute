@@ -16,6 +16,9 @@ spring_position_damping = 0.256
 squash_stretch_amount = 0.7
 spring_rotation_damping = 0.19
 rotation_bump_amount = 0.4
+grid_layer = 2
+block_mask = 8
+overlap_mask = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=936646376]
 modulate = Color(1, 0.2, 0.2, 1)

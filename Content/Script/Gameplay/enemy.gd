@@ -2,14 +2,14 @@ class_name Enemy
 extends GridEntity2D
 ## 敌人：在网格上按节拍持续向右移动
 ##
-## 每次收到节拍信号时向右移动一格，到达不可通行的格子或超出网格后自动销毁。
+## 每次收到节拍信号时向右移动一格，超出网格或被空气墙阻挡后自动销毁。
 ## 使用 SpringVector2 实现视觉弹性位移。
 
 # ── 战斗参数 ─────────────────────────────────────────
 ## 接触伤害（碰到玩家时造成的伤害值）
 @export var contact_damage: int = 1
 
-# ── Spring 参数 ──────────────────────────────────────
+@export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
 @export_range(0.0, 1.0) var spring_position_damping: float = 0.65
 ## 位移弹簧频率（越大弹得越快）
@@ -28,9 +28,7 @@ extends GridEntity2D
 @export var rotation_bump_amount: float = 0.15
 
 # ── 内部变量（运行时） ───────────────────────────────
-## 网格系统引用（在 _entity_ready 中获取）
-var _grid: GridSystem2D
-## 节拍指挥引用（在 _entity_ready 中获取）
+## 节拍指挥引用（在 _on_placed 中获取）
 var _conductor: RhythmConductor
 ## 位移弹簧（纯视觉，实现弹性过冲）
 var _spring_position: SpringVector2
@@ -54,9 +52,8 @@ func _ready() -> void:
 	CLog.o("Enemy 就绪")
 
 
-## 实体注册完成后调用，此时 owner 已修正，可安全使用 % 唯一名称
-func _entity_ready() -> void:
-	_grid = %GridSystem2D as GridSystem2D
+## 实体被放置到网格时调用，此时 owner 已修正，可安全使用 % 唯一名称
+func _on_placed(_grid_pos: Vector2i) -> void:
 	_conductor = %RhythmConductor as RhythmConductor
 	if _conductor != null:
 		_conductor.move_beat_tick.connect(_on_move_beat_tick)
@@ -83,28 +80,18 @@ func _on_move_beat_tick(_beat_index: int) -> void:
 
 ## 向指定方向移动一格，不可通行则销毁自身
 func _move(direction: Vector2i) -> void:
-	if _grid == null:
+	if _grid_system == null:
 		return
-	var current_grid: Vector2i = _grid.world_to_grid(_spring_position.target)
+	var current_grid: Vector2i = _grid_system.find_entity(self)
 	var target_grid: Vector2i = current_grid + direction
-	# 目标格子不存在或不可通行，则销毁自身
-	if not _grid.has_cell(target_grid) or not _is_passable(target_grid):
-		CLog.o("Enemy 到达边界 %s，销毁" % target_grid)
+	# 尝试移动（阻挡/重叠检测由 GridSystem2D 统一处理，回调 _on_blocked / _on_overlap）
+	if not _grid_system.move_entity(self, target_grid):
+		# 被空气墙等阻挡时也销毁
+		CLog.o("Enemy 被阻挡于 %s，销毁" % target_grid)
 		vanish()
 		return
-	# 检查目标格是否有玩家
-	var target_entities: Array[GridEntity2D] = _grid.get_entity_at(target_grid)
-	for entity: GridEntity2D in target_entities:
-		if entity is RhythmPlayer:
-			var player: RhythmPlayer = entity as RhythmPlayer
-			player.take_damage(contact_damage)
-			CLog.o("Enemy 碰到玩家，造成 %d 点伤害，销毁自身" % contact_damage)
-			vanish()
-			return
-	# 更新网格占用
-	_grid.move_entity(self, target_grid)
 	# 弹簧驱动视觉位移
-	var target_pos: Vector2 = _grid.grid_to_world(target_grid)
+	var target_pos: Vector2 = _grid_system.grid_to_world(target_grid)
 	_spring_position.move_to(target_pos)
 	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
 	var dir_f: Vector2 = Vector2(direction).normalized()
@@ -121,13 +108,23 @@ func _move(direction: Vector2i) -> void:
 
 ## 消失（并非被杀死）
 func vanish() -> void:
-	queue_free()
+	remove_and_free()
 
 
 ## 销毁(被杀死)
 func destroy() -> void:
 	_emit_death_particles()
-	queue_free()
+	remove_and_free()
+
+# ── 重叠回调（由 GridSystem2D 在 move_entity 时自动调用） ────
+
+## 与玩家重叠时，造成伤害并销毁自身
+func _on_overlap(other: GridEntity2D) -> void:
+	if other is RhythmPlayer:
+		var player: RhythmPlayer = other as RhythmPlayer
+		player.take_damage(contact_damage)
+		CLog.o("Enemy 碰到玩家，造成 %d 点伤害，销毁自身" % contact_damage)
+		vanish()
 
 
 ## 将死亡粒子从自身移出并挂载到父节点，触发发射，确保敌人销毁后粒子仍能播放完毕
@@ -142,8 +139,3 @@ func _emit_death_particles() -> void:
 	particles.emitting = true
 	# 播放完毕后自动清理
 	get_tree().create_timer(particles.lifetime + 0.1).timeout.connect(particles.queue_free)
-
-
-## 判断指定格子是否可通行
-func _is_passable(grid_pos: Vector2i) -> bool:
-	return _grid.get_cell_custom_data(grid_pos, "Passable", false) as bool

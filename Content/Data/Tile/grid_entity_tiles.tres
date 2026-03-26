@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bynok26sjmh57" path="res://Content/Scene/World2D/pickup_item.tscn" id="1_8yiqv"]
 [ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="2_7qx21"]
+[ext_resource type="PackedScene" uid="uid://cth0ecix72u77" path="res://Content/Scene/World2D/invisible_wall.tscn" id="3_vyy0x"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7qx21"]
 scenes/1/scene = ExtResource("1_8yiqv")
 scenes/2/scene = ExtResource("2_7qx21")
+scenes/3/scene = ExtResource("3_vyy0x")
 
 [resource]
 tile_size = Vector2i(100, 100)

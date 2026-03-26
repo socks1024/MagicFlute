@@ -37,13 +37,11 @@ func _on_lane_sequence_finished(_is_full_combo: bool) -> void:
 
 # ── 生成逻辑 ─────────────────────────────────────────
 
-## 判断格子是否可用于生成拾取物（可通行且未被占用）
+## 判断格子是否可用于生成拾取物（无空气墙且无玩家占用）
 func _is_spawnable(grid_pos: Vector2i) -> bool:
-	if not (_grid.get_cell_custom_data(grid_pos, "Passable", false) as bool):
+	if not _grid.is_cell_empty(grid_pos, GridEntity2D.LAYER_WALL):
 		return false
-	if not _grid.get_entity_at(grid_pos).is_empty():
-		return false
-	return true
+	return _grid.is_cell_empty(grid_pos, GridEntity2D.LAYER_PLAYER)
 
 
 ## 生成一个拾取物到随机网格位置
