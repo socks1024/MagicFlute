@@ -15,9 +15,38 @@ extends MarginContainer
 ## 空心颜色
 @export var empty_heart_color: Color = Color(0.3, 0.3, 0.3, 0.6)
 
+# ── 动画导出变量 ─────────────────────────────────────
+@export_group("心形动画")
+## 是否启用心形摇晃动画
+@export var anim_enabled: bool = true
+## 摇晃驱动频率（Hz），控制左右摇晃的快慢
+@export var anim_frequency: float = 1.5
+## 旋转弹簧刚度，值越大弹簧响应越快
+@export var spring_rotation_stiffness: float = 80.0
+## 旋转弹簧阻尼，值越大振荡衰减越快
+@export var spring_rotation_damping: float = 6.0
+## 旋转驱动力幅度（度），控制摇晃角度大小
+@export var rotation_amplitude: float = 15.0
+## 缩放弹簧刚度
+@export var spring_scale_stiffness: float = 60.0
+## 缩放弹簧阻尼
+@export var spring_scale_damping: float = 5.0
+## 缩放驱动力幅度，控制拉伸/压缩程度（0.0 ~ 1.0）
+@export var scale_amplitude: float = 0.15
+## 缩放驱动频率偏移（Hz），让缩放和旋转不完全同步
+@export var scale_frequency_offset: float = 0.3
+## 每颗心的动画相位偏移（度），让相邻心形错开运动
+@export var phase_offset_per_heart: float = 30.0
+
 # ── 内部变量 ──────────────────────────────────────────
 ## 心形 Label 节点列表
 var _hearts: Array[Label] = []
+## 弹簧状态：旋转 [当前值, 速度]
+var _spring_rotations: Array[Array] = []
+## 弹簧状态：缩放 [当前值, 速度]
+var _spring_scales: Array[Array] = []
+## 动画时间累加器
+var _anim_time: float = 0.0
 
 # ── 子节点引用 ────────────────────────────────────────
 @onready var _container: HBoxContainer = $HBoxContainer
@@ -33,6 +62,55 @@ func _ready() -> void:
 	if _container != null:
 		_container.add_theme_constant_override("separation", heart_separation)
 	CLog.o("HpDisplay 就绪（心形模式）")
+
+func _process(delta: float) -> void:
+	if not anim_enabled:
+		return
+	if _hearts.is_empty():
+		return
+
+	_anim_time += delta
+
+	for i: int in range(_hearts.size()):
+		var heart: Label = _hearts[i]
+		if not is_instance_valid(heart):
+			continue
+
+		# 确保弹簧状态数组足够长
+		while _spring_rotations.size() <= i:
+			_spring_rotations.append([0.0, 0.0])
+		while _spring_scales.size() <= i:
+			_spring_scales.append([0.0, 0.0])
+
+		# 每颗心的相位偏移
+		var phase: float = deg_to_rad(phase_offset_per_heart * i)
+
+		# ── 旋转弹簧 ──
+		var rot_target: float = sin(_anim_time * anim_frequency * TAU + phase) * rotation_amplitude
+		var rot_state: Array = _spring_rotations[i]
+		var rot_current: float = rot_state[0]
+		var rot_velocity: float = rot_state[1]
+		# 弹簧加速度 = -刚度 * (当前 - 目标) - 阻尼 * 速度
+		var rot_accel: float = -spring_rotation_stiffness * (rot_current - rot_target) - spring_rotation_damping * rot_velocity
+		rot_velocity += rot_accel * delta
+		rot_current += rot_velocity * delta
+		_spring_rotations[i] = [rot_current, rot_velocity]
+
+		# ── 缩放弹簧 ──
+		var scale_freq: float = anim_frequency + scale_frequency_offset
+		var scale_target: float = sin(_anim_time * scale_freq * TAU + phase) * scale_amplitude
+		var scl_state: Array = _spring_scales[i]
+		var scl_current: float = scl_state[0]
+		var scl_velocity: float = scl_state[1]
+		var scl_accel: float = -spring_scale_stiffness * (scl_current - scale_target) - spring_scale_damping * scl_velocity
+		scl_velocity += scl_accel * delta
+		scl_current += scl_velocity * delta
+		_spring_scales[i] = [scl_current, scl_velocity]
+
+		# 应用变换
+		heart.rotation = deg_to_rad(rot_current)
+		# 拉伸时 X 增大 Y 减小，压缩时反过来，保持面积感
+		heart.scale = Vector2(1.0 + scl_current, 1.0 - scl_current)
 
 # ── 信号回调 ─────────────────────────────────────────
 
@@ -80,5 +158,11 @@ func _ensure_heart_count(max_hp: int) -> void:
 		heart.add_theme_color_override("font_color", full_heart_color)
 		heart.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		heart.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		# 设置旋转锚点为中心
+		heart.pivot_offset = Vector2(heart_font_size * 0.5, heart_font_size * 0.5)
 		_container.add_child(heart)
 		_hearts.append(heart)
+	# 重置弹簧状态
+	_spring_rotations.clear()
+	_spring_scales.clear()
+	_anim_time = 0.0

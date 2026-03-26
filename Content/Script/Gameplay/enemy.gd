@@ -90,6 +90,8 @@ func _move(direction: Vector2i) -> void:
 		CLog.o("Enemy 被阻挡于 %s，销毁" % target_grid)
 		vanish()
 		return
+	if _grid_system == null:
+		return
 	# 弹簧驱动视觉位移
 	var target_pos: Vector2 = _grid_system.grid_to_world(target_grid)
 	_spring_position.move_to(target_pos)
