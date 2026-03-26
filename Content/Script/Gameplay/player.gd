@@ -129,6 +129,8 @@ func _do_beat_move(direction: Vector2) -> void:
 	# 用位移弹簧驱动视觉过渡（动画未结束时再次调用会自然过渡到新目标）
 	_spring_position.move_to(target_pos)
 	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
+	# 先重置速度，防止连续移动时冲量累加导致 scale 爆炸
+	_spring_scale.velocity = Vector2.ZERO
 	var stretch: Vector2 = Vector2(
 		absf(direction.x) * squash_stretch_amount - absf(direction.y) * squash_stretch_amount,
 		absf(direction.y) * squash_stretch_amount - absf(direction.x) * squash_stretch_amount

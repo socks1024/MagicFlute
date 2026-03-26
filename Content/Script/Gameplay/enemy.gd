@@ -96,6 +96,8 @@ func _move(direction: Vector2i) -> void:
 	var target_pos: Vector2 = _grid_system.grid_to_world(target_grid)
 	_spring_position.move_to(target_pos)
 	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
+	# 先重置速度，防止连续移动时冲量累加导致 scale 爆炸
+	_spring_scale.velocity = Vector2.ZERO
 	var dir_f: Vector2 = Vector2(direction).normalized()
 	var stretch: Vector2 = Vector2(
 		abs(dir_f.x) * squash_stretch_amount - abs(dir_f.y) * squash_stretch_amount,
