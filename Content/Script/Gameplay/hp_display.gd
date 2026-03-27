@@ -16,6 +16,8 @@ extends MarginContainer
 ## 空心调制色（变暗半透明表示已失去的 HP）
 @export var empty_heart_modulate: Color = Color(0.3, 0.3, 0.3, 0.4)
 
+@export var sfx_hurt:AudioEvent
+
 @export_group("Beat Animation")
 ## 旋转目标角度（弧度），每拍在 +/- 之间交替 move_to
 @export var rotation_amount: float = 0.15
@@ -97,6 +99,7 @@ func _on_entity_placed(_grid_pos: Vector2i, entity: GridEntity2D) -> void:
 
 ## 血量变化回调：更新心形图标
 func _on_hp_changed(current_hp: int, max_hp: int) -> void:
+	AudioManager.play_sound(sfx_hurt)
 	_ensure_heart_count(max_hp)
 	for i: int in range(_hearts.size()):
 		var heart: TextureRect = _hearts[i]

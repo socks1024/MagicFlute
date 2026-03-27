@@ -33,6 +33,14 @@ func play_audio(in_audio_event:AudioEvent = null) -> void:
 ## 暂停播放音频事件，并保持当前播放位置，等待恢复播放
 func pause_audio() -> void:
 	self.stream_paused = true
+	
+func is_paused()->bool:
+	return stream_paused
+	
+func continue_audio()->void:
+	self.volume_db = self.audio_event.get_random_volume_db()
+	self.stream_paused=false
+
 
 ## 停止播放音频事件，可以清除当前配置的audio_event
 func stop_audio(clear_event:bool = false) -> void:

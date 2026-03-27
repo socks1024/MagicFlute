@@ -108,11 +108,8 @@ func continue_music(track_name:StringName, fade_time:float = 0.5) -> void:
 	
 	var player:AudioEventPlayer = music_track_players[track_name]
 	if player.is_paused():
-		if fade_time <= 0:
-			player.play_audio()
-		else:
-			player.play_audio()
-			player.fade_in(fade_time)
+			player.continue_audio()
+		
 
 #endregion
 
