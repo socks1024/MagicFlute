@@ -28,12 +28,12 @@ func _ready() -> void:
 ## 播放主 BGM
 func play_bgm() -> void:
 	if bgm_music != null:
-		AudioManager.play_music(bgm_music, &"BGM", 0.3)
+		AudioManager.start_music(bgm_music, &"BGM", 0.3)
 
 
 ## 停止主 BGM
 func stop_bgm() -> void:
-	AudioManager.play_music(null, &"BGM", 0.3)
+	AudioManager.start_music(null, &"BGM", 0.3)
 
 # ── Lane 模式信号回调（扩展点） ──────────────────────
 

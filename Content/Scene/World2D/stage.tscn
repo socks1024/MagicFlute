@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://73borrbd2lo2" path="res://Content/Script/Gameplay/lane_stage.gd" id="9_4quhg"]
 [ext_resource type="PackedScene" uid="uid://dha7k2m4p8bti" path="res://Content/Scene/World2D/beat_indicator.tscn" id="9_s8toy"]
 [ext_resource type="Script" uid="uid://c1cs73c4jp6m1" path="res://Content/Script/Gameplay/lane_sequence.gd" id="10_8fjbb"]
-[ext_resource type="Resource" uid="uid://crnc28jd4irta" path="res://Content/Art/Audio/Events/BGM/bgm_flutephase1.tres" id="10_aau2w"]
+[ext_resource type="Resource" path="res://Content/Art/Audio/Events/BGM/bgm_flutephase1.tres" id="10_aau2w"]
 [ext_resource type="TileSet" uid="uid://weqkdnp3lgyk" path="res://Content/Data/Tile/grid_zone_tiles.tres" id="10_grid"]
 [ext_resource type="Script" uid="uid://cpm7se6xcholx" path="res://Content/Script/Gameplay/rhythm_clock.gd" id="11_clock"]
 [ext_resource type="Script" uid="uid://tpl6qhi7y6op" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_chart.gd" id="13_18ekj"]
