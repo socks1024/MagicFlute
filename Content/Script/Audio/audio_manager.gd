@@ -51,6 +51,14 @@ func play_music(event:AudioEvent, track_name:StringName, fade_time:float = 1.0, 
 	
 	var player:AudioEventPlayer = music_track_players[track_name]
 	
+	# event 为 null 时，仅淡出并停止当前轨道
+	if event == null:
+		if player.is_playing():
+			player.fade_out(fade_time, func() -> void:
+				player.stop_audio(true)
+			)
+		return
+	
 	if !player.is_playing():
 		player.play_audio(event)
 		player.fade_in(fade_time)

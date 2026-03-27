@@ -39,9 +39,9 @@ func stop_bgm() -> void:
 
 ## lane 序列开始时的回调（可在此扩展音乐行为）
 func _on_lane_sequence_started() -> void:
-	pass
+	stop_bgm()
 
 
 ## lane 序列结束时的回调（可在此扩展音乐行为）
 func _on_lane_sequence_finished(_is_full_combo: bool) -> void:
-	pass
+	play_bgm()

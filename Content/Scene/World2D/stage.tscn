@@ -25,7 +25,8 @@
 [ext_resource type="Resource" uid="uid://c8g6di542lnwi" path="res://Content/Data/Gameplay/wave3.tres" id="17_2mmnj"]
 [ext_resource type="PackedScene" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
 [ext_resource type="Script" uid="uid://c6pv56k62bu1r" path="res://Content/Script/Gameplay/rhythm_music_manager.gd" id="18_rmm"]
-[ext_resource type="PackedScene" path="res://Content/Scene/World2D/hp_display.tscn" id="19_hpdsp"]
+[ext_resource type="PackedScene" uid="uid://bw186rrtm66mx" path="res://Content/Scene/World2D/hp_display.tscn" id="19_hpdsp"]
+[ext_resource type="PackedScene" uid="uid://g6owaymnd7hv" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_processing_2d.tscn" id="27_aau2w"]
 
 [sub_resource type="Resource" id="Resource_4quhg"]
 script = ExtResource("2_ax35w")
@@ -69,7 +70,7 @@ script = ExtResource("13_18ekj")
 waves = Array[ExtResource("13_s8toy")]([ExtResource("17_2mmnj")])
 metadata/_custom_type_script = "uid://tpl6qhi7y6op"
 
-[node name="Test" type="Node2D" unique_id=1724252415]
+[node name="Stage" type="Node2D" unique_id=1724252415]
 
 [node name="PhantomCamera2D" type="Node2D" parent="." unique_id=1178566054]
 position = Vector2(960, 540)
@@ -155,3 +156,5 @@ offset_bottom = 50.0
 
 [node name="GameOverScreen" parent="." unique_id=768492402 instance=ExtResource("18_gover")]
 visible = false
+
+[node name="PostProcessing" parent="." unique_id=347283282 instance=ExtResource("27_aau2w")]

@@ -31,7 +31,7 @@ func _ready() -> void:
 
 ### 3. 每帧更新
 
-在 `_process()` 或 `_physics_process()` 中调用 `update()`，然后把 `current` 应用到节点属性上：
+在 `_physics_process()` 中调用 `update()`，然后把 `current` 应用到节点属性上：
 
 ```gdscript
 func _process(delta: float) -> void:
@@ -83,9 +83,10 @@ _rotation_spring.bump(0.5)
 ### `update(delta: float) -> void`
 
 每帧调用，驱动弹簧物理。**必须调用，否则弹簧不会动。**
+必须在 `_physics_process()` 中调用，保证稳定的帧率，否则可能会出现意料之外的情况。
 
 ```gdscript
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	my_spring.update(delta)
 ```
 
@@ -204,7 +205,7 @@ func _ready() -> void:
 	_position_spring = SpringVector2.new(Vector2.ZERO, 0.6, 6.0)
 	_base_position = position
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_scale_spring.update(delta)
 	_position_spring.update(delta)
 
@@ -232,7 +233,7 @@ func _ready() -> void:
 	mouse_exited.connect(_on_unhover)
 	pressed.connect(_on_pressed)
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_scale_spring.update(delta)
 	scale = _scale_spring.current
 
@@ -262,7 +263,7 @@ func _ready() -> void:
 	_position_spring = SpringVector3.new(Vector3.ZERO, 0.6, 6.0)
 	_base_position = position
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	_scale_spring.update(delta)
 	_position_spring.update(delta)
 
