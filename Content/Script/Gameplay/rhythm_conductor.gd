@@ -204,7 +204,7 @@ func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 	# 恢复节拍指示器显示
 	if _beat_indicator != null:
 		_beat_indicator.visible = true
-	AudioManager.play_music(null,&"Flute",0.5,true)
+	AudioManager.start_music(null,&"Flute",0.5,true)
 	lane_sequence_finished.emit(is_full_combo)
 
 # ── 输入映射 ─────────────────────────────────────────
