@@ -44,13 +44,13 @@
 - ✅ 正确：
   ```glsl
   void fragment() {
-      COLOR = texture(TEXTURE, UV);
+	  COLOR = texture(TEXTURE, UV);
   }
   ```
 - ❌ 错误：
   ```glsl
   void fragment() {
-      return texture(TEXTURE, UV); // 编译错误：void 函数不能返回值
+	  return texture(TEXTURE, UV); // 编译错误：void 函数不能返回值
   }
   ```
 - 注意：`return;`（不带值的提前返回）在 void 函数中是**允许的**。
@@ -60,7 +60,7 @@
 - 自定义的有返回值的函数可以正常使用 `return`：
   ```glsl
   float my_func(float x) {
-      return x * 2.0;
+	  return x * 2.0;
   }
   ```
 
