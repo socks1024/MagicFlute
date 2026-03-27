@@ -40,8 +40,10 @@ func play_sound(event:AudioEvent) -> void:
 	# 配置并播放音效
 	player.play_audio(event)
 
+#region MUSIC
+
 ## 播放音乐事件，可以指定轨道、淡入时间和是否交叉淡入淡出
-func play_music(event:AudioEvent, track_name:StringName, fade_time:float = 1.0, cross_fade:bool = false) -> void:
+func start_music(event:AudioEvent, track_name:StringName, fade_time:float = 1.0, cross_fade:bool = false) -> void:
 	# 如果指定的音乐轨道不存在，则创建一个新的AudioEventPlayer来播放该轨道的音乐事件
 	if not music_track_players.has(track_name):
 		var new_player = AudioEventPlayer.new()
@@ -84,6 +86,35 @@ func play_music(event:AudioEvent, track_name:StringName, fade_time:float = 1.0, 
 				player.play_audio(event)
 				player.fade_in(fade_time)
 			)
+
+## 暂停指定轨道的音乐，支持淡出效果
+func pause_music(track_name:StringName, fade_time:float = 0.5) -> void:
+	if not music_track_players.has(track_name):
+		CLog.w("暂停音乐失败，指定的音乐轨道不存在")
+	
+	var player:AudioEventPlayer = music_track_players[track_name]
+	if player.is_playing():
+		if fade_time <= 0:
+			player.pause_audio()
+		else:
+			player.fade_out(fade_time, func() -> void:
+				player.pause_audio()
+			)
+
+## 继续播放指定轨道的音乐，支持淡入效果
+func continue_music(track_name:StringName, fade_time:float = 0.5) -> void:
+	if not music_track_players.has(track_name):
+		CLog.w("继续播放音乐失败，指定的音乐轨道不存在")
+	
+	var player:AudioEventPlayer = music_track_players[track_name]
+	if player.is_paused():
+		if fade_time <= 0:
+			player.play_audio()
+		else:
+			player.play_audio()
+			player.fade_in(fade_time)
+
+#endregion
 
 func _get_lowest_priority_sound_player() -> AudioEventPlayer:
 	var lowest_player:AudioEventPlayer = null

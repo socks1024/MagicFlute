@@ -30,7 +30,9 @@ signal died
 
 # ── 震屏 ─────────────────────────────────────────────
 ## 清屏震屏发射器（Player 场景中的子节点）
-@onready var _screen_shake_emitter: PhantomCameraNoiseEmitter2D = $ScreenShakeEmitter
+@onready var _clear_shake_emitter: PhantomCameraNoiseEmitter2D = $ClearShakeEmitter
+## 受伤震屏发射器（轻度震屏）
+@onready var _hurt_shake_emitter: PhantomCameraNoiseEmitter2D = $HurtShakeEmitter
 
 # ── 内部变量（运行时） ───────────────────────────────
 ## 当前生命值
@@ -110,8 +112,8 @@ func _clear_screen() -> void:
 		if is_instance_valid(entity):
 			(entity as Enemy).destroy()
 	# 触发震屏
-	if _screen_shake_emitter != null:
-		_screen_shake_emitter.emit()
+	if _clear_shake_emitter != null:
+		_clear_shake_emitter.emit()
 
 # ── 移动执行 ─────────────────────────────────────────
 
@@ -172,9 +174,25 @@ func heal(amount: int) -> void:
 func take_damage(amount: int) -> void:
 	_current_hp = maxi(_current_hp - amount, 0)
 	hp_changed.emit(_current_hp, max_hp)
+	# 触发受伤震屏
+	if _hurt_shake_emitter != null:
+		_hurt_shake_emitter.emit()
+	# 触发受伤闪白
+	_flash_white()
 	CLog.o("玩家受伤 -%d  HP=%d/%d" % [amount, _current_hp, max_hp])
 	if _current_hp <= 0:
 		_die()
+
+
+## 受伤闪白（通过 color.gdshader 的 color_amount 参数实现）
+func _flash_white() -> void:
+	var mat: ShaderMaterial = _sprite.material as ShaderMaterial
+	if mat == null:
+		return
+	# 瞬间设为全白，然后快速衰减回原色
+	mat.set_shader_parameter("color_amount", 1.0)
+	var tween: Tween = create_tween()
+	tween.tween_property(mat, "shader_parameter/color_amount", 0.0, 0.12)
 
 
 ## 死亡处理

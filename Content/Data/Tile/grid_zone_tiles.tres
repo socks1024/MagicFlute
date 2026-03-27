@@ -1,14 +1,19 @@
 [gd_resource type="TileSet" format=3 uid="uid://weqkdnp3lgyk"]
 
-[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="1_85d3c"]
+[ext_resource type="Texture2D" uid="uid://c76vxiy6j4x46" path="res://Content/Art/Sprite/scene/地板/白.png" id="1_rwca8"]
+[ext_resource type="Texture2D" uid="uid://bcruiteu47qnp" path="res://Content/Art/Sprite/scene/地板/黑.png" id="2_vxggb"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31cps"]
-texture = ExtResource("1_85d3c")
-texture_region_size = Vector2i(100, 100)
-0:0/next_alternative_id = 5
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynoxf"]
+texture = ExtResource("1_rwca8")
+texture_region_size = Vector2i(92, 92)
 0:0/0 = 0
-0:0/0/modulate = Color(0.10872077, 0.10872077, 0.10872076, 0.68235296)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jamwc"]
+texture = ExtResource("2_vxggb")
+texture_region_size = Vector2i(92, 92)
+0:0/0 = 0
 
 [resource]
-tile_size = Vector2i(100, 100)
-sources/0 = SubResource("TileSetAtlasSource_31cps")
+tile_size = Vector2i(92, 92)
+sources/1 = SubResource("TileSetAtlasSource_ynoxf")
+sources/2 = SubResource("TileSetAtlasSource_jamwc")

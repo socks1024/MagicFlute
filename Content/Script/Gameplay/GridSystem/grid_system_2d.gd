@@ -1,3 +1,4 @@
+@tool
 class_name GridSystem2D
 extends Node2D
 ## 统一网格系统：管理空间中的无限网格，承载 Gameplay 信息
@@ -20,9 +21,17 @@ signal entity_overlapped(mover: GridEntity2D, other: GridEntity2D)
 
 # ── 网格参数 ─────────────────────────────────────────
 ## 格子宽度（像素）
-@export var cell_width: float = 100.0
+@export var cell_width: float = 100.0:
+	set(value):
+		cell_width = value
+		if Engine.is_editor_hint():
+			_update_tilemap_tile_sizes()
 ## 格子高度（像素）
-@export var cell_height: float = 100.0
+@export var cell_height: float = 100.0:
+	set(value):
+		cell_height = value
+		if Engine.is_editor_hint():
+			_update_tilemap_tile_sizes()
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 格子占用字典：key = Vector2i（网格坐标），value = Array[GridEntity2D]（占用该格子的实体列表）
@@ -240,3 +249,29 @@ func _erase_all_cells_of(entity: GridEntity2D) -> void:
 			if arr.is_empty():
 				_cell_to_entities.erase(pos)
 	_entity_to_cell.erase(entity)
+
+# ── 编辑器工具功能 ───────────────────────────────────
+
+## 更新所有TileMapLayer子节点的TileSet的TileSize属性
+func _update_tilemap_tile_sizes() -> void:
+	if not Engine.is_editor_hint():
+		return
+	
+	# 获取所有TileMapLayer子节点
+	var tilemap_layers: Array[Node] = []
+	for child: Node in get_children():
+		if child is TileMapLayer:
+			tilemap_layers.append(child)
+	
+	# 更新每个TileMapLayer的TileSet
+	for tilemap_layer: TileMapLayer in tilemap_layers:
+		var tile_set: TileSet = tilemap_layer.tile_set
+		if tile_set != null:
+			tile_set.tile_size = Vector2i(int(cell_width), int(cell_height))
+
+## 编辑器中的属性变化回调
+func _set(property: StringName, _value: Variant) -> bool:
+	if property == "cell_width" or property == "cell_height":
+		if Engine.is_editor_hint():
+			_update_tilemap_tile_sizes()
+	return false

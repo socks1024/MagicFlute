@@ -4,4 +4,5 @@
 
 [node name="InvisibleWall" type="Node2D" unique_id=1044690490]
 script = ExtResource("1_wall")
+draw_size = Vector2(64, 64)
 grid_layer = 8

@@ -1,16 +1,28 @@
 [gd_scene format=3 uid="uid://5xec5ie0txqm"]
 
 [ext_resource type="Script" uid="uid://1ikgqxtpsrjj" path="res://Content/Script/Gameplay/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="2_1lcd3"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="3_noise"]
+[ext_resource type="Texture2D" uid="uid://03hs3u12xtwk" path="res://Content/Art/Sprite/scene/谱子/音符.png" id="3_npcrf"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_emitter"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_pcam_host"]
+[ext_resource type="Shader" uid="uid://dvbw1qfgow638" path="res://Content/Art/Shader/Sprite/Color/color.gdshader" id="6_color_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_flash"]
+shader = ExtResource("6_color_shader")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/color_amount = 0.0
 
 [sub_resource type="Resource" id="Resource_shake"]
 script = ExtResource("3_noise")
 amplitude = 281.306
 frequency = 7.849
 noise_seed = 768
+
+[sub_resource type="Resource" id="Resource_hurt_shake"]
+script = ExtResource("3_noise")
+amplitude = 80.0
+frequency = 10.0
+noise_seed = 512
 
 [node name="Player" type="Node2D" unique_id=925869519]
 script = ExtResource("1_player")
@@ -22,7 +34,8 @@ block_mask = 8
 overlap_mask = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000166858]
-texture = ExtResource("2_1lcd3")
+material = SubResource("ShaderMaterial_flash")
+texture = ExtResource("3_npcrf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=132170845]
 top_level = true
@@ -32,8 +45,14 @@ process_priority = 300
 process_physics_priority = 300
 script = ExtResource("5_pcam_host")
 
-[node name="ScreenShakeEmitter" type="Node2D" parent="." unique_id=133522110]
+[node name="ClearShakeEmitter" type="Node2D" parent="." unique_id=133522110]
 script = ExtResource("4_emitter")
 noise = SubResource("Resource_shake")
 duration = 0.2
 decay_time = 0.3
+
+[node name="HurtShakeEmitter" type="Node2D" parent="." unique_id=605071867]
+script = ExtResource("4_emitter")
+noise = SubResource("Resource_hurt_shake")
+duration = 0.15
+decay_time = 0.2
