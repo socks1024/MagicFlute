@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://bynok26sjmh57"]
 
 [ext_resource type="Script" uid="uid://ui2d4f4mtcjo" path="res://Content/Script/Gameplay/pickup_item.gd" id="1_pickup"]
-[ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="2_0ftrm"]
+[ext_resource type="Texture2D" uid="uid://2be7axfaws7y" path="res://Content/Art/Sprite/camp/马戏团资源/道具ui.PNG" id="2_0ftrm"]
 
 [node name="PickupItem" type="Node2D" unique_id=16238166]
 script = ExtResource("1_pickup")
 grid_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=377829361]
-modulate = Color(0, 0.99837047, 0.8403393, 1)
 texture = ExtResource("2_0ftrm")
