@@ -65,6 +65,7 @@ func _on_placed(_grid_pos: Vector2i) -> void:
 		_conductor.move_requested.connect(_on_move_requested)
 		_conductor.move_miss.connect(_on_move_miss)
 		_conductor.lane_note_hit.connect(_on_lane_note_hit)
+		_conductor.lane_sequence_started.connect(_on_lane_sequence_started)
 		_conductor.lane_sequence_finished.connect(_on_lane_sequence_finished)
 	else:
 		CLog.e("RhythmPlayer 未找到 Conductor")
@@ -98,14 +99,21 @@ func _on_lane_note_hit(_direction: Vector2) -> void:
 	CLog.o("轨道命中! 方向=%s" % _direction)
 
 
-## 轨道序列结束回调
+## 轨道序列开始回调：进入音游模式时暗角加深
+func _on_lane_sequence_started() -> void:
+	_set_vignette(true, 0.6, 0.6)
+
+
+## 轨道序列结束回调：恢复暗角并处理清屏
 func _on_lane_sequence_finished(is_full_combo: bool) -> void:
+	# 恢复暗角到当前 HP 对应的状态
+	_update_vignette_by_hp()
 	if is_full_combo:
 		_clear_screen()
 	CLog.o("轨道序列结束，恢复移动 | Full Combo=%s" % is_full_combo)
 
 
-## 清屏：击杀当前网格上所有敌人并触发震屏
+## 清屏：击杀当前网格上所有敌人并触发震屏 + 暗角呼吸
 func _clear_screen() -> void:
 	var entities: Array[GridEntity2D] = _grid_system.get_all_entities(GridEntity2D.LAYER_ENEMY)
 	for entity: GridEntity2D in entities:
@@ -114,6 +122,8 @@ func _clear_screen() -> void:
 	# 触发震屏
 	if _clear_shake_emitter != null:
 		_clear_shake_emitter.emit()
+	# 暗角呼吸：瞬间放开 → 缓慢恢复
+	_vignette_breathe()
 
 # ── 移动执行 ─────────────────────────────────────────
 
@@ -167,6 +177,7 @@ func _on_pickup_collected() -> void:
 func heal(amount: int) -> void:
 	_current_hp = mini(_current_hp + amount, max_hp)
 	hp_changed.emit(_current_hp, max_hp)
+	_update_vignette_by_hp()
 	CLog.o("玩家恢复 +%d  HP=%d/%d" % [amount, _current_hp, max_hp])
 
 
@@ -179,6 +190,8 @@ func take_damage(amount: int) -> void:
 		_hurt_shake_emitter.emit()
 	# 触发受伤闪白
 	_flash_white()
+	# 更新暗角
+	_update_vignette_by_hp()
 	CLog.o("玩家受伤 -%d  HP=%d/%d" % [amount, _current_hp, max_hp])
 	if _current_hp <= 0:
 		_die()
@@ -199,3 +212,48 @@ func _flash_white() -> void:
 func _die() -> void:
 	died.emit()
 	CLog.o("玩家死亡!")
+
+
+## 控制暗角效果
+func _set_vignette(enabled: bool, strength: float = 0.4, radius: float = 0.8) -> void:
+	var pp: PostProcess2DController = %PostProcessing as PostProcess2DController
+	if pp == null:
+		return
+	if enabled:
+		pp.enable_effect("Vignette")
+		pp.set_effect_param("Vignette", "vignette_strength", strength)
+		pp.set_effect_param("Vignette", "vignette_radius", radius)
+	else:
+		pp.disable_effect("Vignette")
+
+
+## 低 HP 时暗角收紧（满血时关闭暗角）
+func _update_vignette_by_hp() -> void:
+	var hp_ratio: float = float(_current_hp) / float(max_hp)
+	if hp_ratio >= 1.0:
+		_set_vignette(false)
+		return
+	var target_strength: float = 0.4 + (1.0 - hp_ratio) * 0.3  # 0.4 ~ 0.7
+	var target_radius: float = 0.8 - (1.0 - hp_ratio) * 0.2    # 0.8 ~ 0.6
+	_set_vignette(true, target_strength, target_radius)
+
+
+## 清屏暗角呼吸：瞬间放开（减弱）再缓慢恢复到当前 HP 状态
+func _vignette_breathe() -> void:
+	var pp: PostProcess2DController = %PostProcessing as PostProcess2DController
+	if pp == null:
+		return
+	# 瞬间放开暗角（强度降低、半径增大）
+	pp.enable_effect("Vignette")
+	pp.set_effect_param("Vignette", "vignette_strength", 0.1)
+	pp.set_effect_param("Vignette", "vignette_radius", 1.0)
+	# 用 Tween 缓慢恢复到当前 HP 对应的暗角状态
+	var hp_ratio: float = float(_current_hp) / float(max_hp)
+	var restore_strength: float = 0.4 + (1.0 - hp_ratio) * 0.3
+	var restore_radius: float = 0.8 - (1.0 - hp_ratio) * 0.2
+	var mat: ShaderMaterial = pp.get_effect_material("Vignette")
+	if mat == null:
+		return
+	var tween: Tween = create_tween().set_parallel(true)
+	tween.tween_property(mat, "shader_parameter/vignette_strength", restore_strength, 0.5)
+	tween.tween_property(mat, "shader_parameter/vignette_radius", restore_radius, 0.5)

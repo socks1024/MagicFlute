@@ -172,3 +172,4 @@ offset_bottom = 50.0
 visible = false
 
 [node name="PostProcessing" parent="." unique_id=347283282 instance=ExtResource("27_aau2w")]
+unique_name_in_owner = true
