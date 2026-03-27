@@ -33,6 +33,10 @@ extends Node2D
 ## 每隔多少个移动拍生成一个敌人（仅随机模式）
 @export var beats_per_spawn: int = 4
 
+@export_group("开局延迟")
+## 游戏开始后前几个移动拍不刷怪（0 = 无延迟）
+@export var start_delay_beats: int = 0
+
 # ── 内部变量 ─────────────────────────────────────────
 ## 当前阶段索引（对应 spawn_charts 中的下标）
 var _current_stage: int = 0
@@ -47,7 +51,7 @@ var _wave_max_beat: int = 0
 ## 波次结束时的全局移动拍号（用于计算间隔等待）
 var _wave_end_beat: int = -1
 ## 待生成队列：存储预警中尚未到期的生成信息
-## 每个元素为字典 { "grid_pos": Vector2i, "enemy_idx": int, "warning": SpawnWarning, "remaining_beats": int }
+## 每个元素为字典 { "grid_pos": Vector2i, "enemy": Enemy, "warnings": Array[SpawnWarning], "remaining_beats": int }
 var _pending_spawns: Array[Dictionary] = []
 
 ## 网格系统引用（通过唯一名称获取）
@@ -79,6 +83,10 @@ func _on_stage_advanced(stage_index: int) -> void:
 func _spawn_deferred() -> void:
 	# 先推进所有预警的剩余拍数
 	_tick_pending_warnings()
+	# 开局延迟期间跳过生成
+	if _move_beat_count < start_delay_beats:
+		_move_beat_count += 1
+		return
 	if _get_current_chart() != null:
 		_process_chart_beat()
 	else:
@@ -193,10 +201,15 @@ func _spawn_one_random() -> void:
 		_do_spawn(grid_pos, enemy_scenes[0])
 
 
-## 执行实际的敌人实例化和放置
+## 从场景实例化敌人并放置（无预警时的直接生成路径）
 func _do_spawn(grid_pos: Vector2i, scene: PackedScene) -> void:
-	var world_pos: Vector2 = _grid.grid_to_world(grid_pos)
 	var enemy: Enemy = scene.instantiate() as Enemy
+	_do_spawn_enemy(grid_pos, enemy)
+
+
+## 将敌人节点加入场景树并放置到网格（预警和直接生成的共用入口）
+func _do_spawn_enemy(grid_pos: Vector2i, enemy: Enemy) -> void:
+	var world_pos: Vector2 = _grid.grid_to_world(grid_pos)
 	enemy.position = world_pos
 	enemy.add_to_group("enemies")
 	add_child(enemy)
@@ -209,20 +222,33 @@ func _do_spawn(grid_pos: Vector2i, scene: PackedScene) -> void:
 # ── 预警逻辑 ─────────────────────────────────────────
 
 ## 在指定位置生成预警提示，剩余拍数由 _tick_pending_warnings 递减
+## 预先实例化敌人（不加入场景树），根据其 cell_size 在所有占据格子上生成预警标识
 func _spawn_warning(grid_pos: Vector2i, enemy_idx: int) -> void:
-	var world_pos: Vector2 = _grid.grid_to_world(grid_pos)
-	var warning: SpawnWarning = warn_scene.instantiate() as SpawnWarning
-	warning.position = world_pos
-	add_child(warning)
-	# 记录待生成信息（含剩余拍数）
+	var scene: PackedScene = _get_enemy_scene(enemy_idx)
+	if scene == null:
+		return
+	# 预先实例化敌人（游离节点，不加入场景树，不触发 _ready）
+	var enemy: Enemy = scene.instantiate() as Enemy
+	# 根据敌人的 cell_size 在所有占据格子上生成预警标识
+	var enemy_cell_size: Vector2i = enemy.cell_size
+	var warnings: Array[SpawnWarning] = []
+	for x: int in range(enemy_cell_size.x):
+		for y: int in range(enemy_cell_size.y):
+			var cell: Vector2i = grid_pos + Vector2i(x, y)
+			var world_pos: Vector2 = _grid.grid_to_world(cell)
+			var warning: SpawnWarning = warn_scene.instantiate() as SpawnWarning
+			warning.position = world_pos
+			add_child(warning)
+			warnings.append(warning)
+	# 记录待生成信息（含预实例化的敌人、所有预警节点和剩余拍数）
 	var spawn_info: Dictionary = {
 		"grid_pos": grid_pos,
-		"enemy_idx": enemy_idx,
-		"warning": warning,
+		"enemy": enemy,
+		"warnings": warnings,
 		"remaining_beats": warn_beats,
 	}
 	_pending_spawns.append(spawn_info)
-	CLog.o("预警显示 -> %s（%d 拍后生成）" % [grid_pos, warn_beats])
+	CLog.o("预警显示 -> %s（%d 拍后生成，覆盖 %dx%d 格）" % [grid_pos, warn_beats, enemy_cell_size.x, enemy_cell_size.y])
 
 
 ## 每个移动拍推进所有预警的剩余拍数，到 0 时实际生成敌人
@@ -238,24 +264,26 @@ func _tick_pending_warnings() -> void:
 		i -= 1
 
 
-## 预警倒计时结束，结束预警节点并尝试实际生成敌人
+## 预警倒计时结束，结束所有预警节点并尝试实际生成敌人
 func _resolve_warning(spawn_info: Dictionary) -> void:
-	# 结束预警视觉效果
-	var warning: SpawnWarning = spawn_info["warning"] as SpawnWarning
-	if warning != null and is_instance_valid(warning):
-		warning.finish()
+	# 结束所有预警视觉效果
+	var warnings: Array = spawn_info["warnings"] as Array
+	for w: Variant in warnings:
+		var warning: SpawnWarning = w as SpawnWarning
+		if warning != null and is_instance_valid(warning):
+			warning.finish()
 	var grid_pos: Vector2i = spawn_info["grid_pos"] as Vector2i
-	var enemy_idx: int = spawn_info["enemy_idx"] as int
+	var enemy: Enemy = spawn_info["enemy"] as Enemy
 	if _is_over_limit():
 		CLog.o("预警结束但超出上限，取消生成 %s" % grid_pos)
+		enemy.free()
 		return
 	if not _is_spawnable(grid_pos):
 		CLog.o("预警结束但格子不可用，取消生成 %s" % grid_pos)
+		enemy.free()
 		return
-	var scene: PackedScene = _get_enemy_scene(enemy_idx)
-	if scene == null:
-		return
-	_do_spawn(grid_pos, scene)
+	# 将预实例化的敌人加入场景树并放置到网格
+	_do_spawn_enemy(grid_pos, enemy)
 
 # ── 辅助方法 ─────────────────────────────────────────
 

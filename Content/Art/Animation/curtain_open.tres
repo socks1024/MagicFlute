@@ -1,0 +1,210 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cm2tid00e7s5d"]
+
+[ext_resource type="Texture2D" uid="uid://r1itcsspn85o" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0001.png" id="1_fe84g"]
+[ext_resource type="Texture2D" uid="uid://dte7cqllgwiym" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0002.png" id="2_o4esw"]
+[ext_resource type="Texture2D" uid="uid://dp48mw7pepky" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0003.png" id="3_exjdr"]
+[ext_resource type="Texture2D" uid="uid://5cothkuikcr1" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0004.png" id="4_gauhu"]
+[ext_resource type="Texture2D" uid="uid://b3n6724kcbplm" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0005.png" id="5_5ugfl"]
+[ext_resource type="Texture2D" uid="uid://bp4navddjey4m" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0006.png" id="6_6cl05"]
+[ext_resource type="Texture2D" uid="uid://b6vaq1mumxee7" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0007.png" id="7_vefjf"]
+[ext_resource type="Texture2D" uid="uid://7f42t8rti03v" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0008.png" id="8_g243w"]
+[ext_resource type="Texture2D" uid="uid://c5uvqs8bp07jx" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0009.png" id="9_tapws"]
+[ext_resource type="Texture2D" uid="uid://df7hri6o1c0es" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0010.png" id="10_phflk"]
+[ext_resource type="Texture2D" uid="uid://bdvgkjuubvv2t" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0011.png" id="11_viwcf"]
+[ext_resource type="Texture2D" uid="uid://dh5yh51ymm5dv" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0012.png" id="12_myoxt"]
+[ext_resource type="Texture2D" uid="uid://d3rfx2081s4mj" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0013.png" id="13_1mnwl"]
+[ext_resource type="Texture2D" uid="uid://c73cg7723lp72" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0014.png" id="14_g2jcy"]
+[ext_resource type="Texture2D" uid="uid://bt8jhcjko73u0" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0015.png" id="15_n6pb4"]
+[ext_resource type="Texture2D" uid="uid://0poftpls1vb7" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0016.png" id="16_evn5k"]
+[ext_resource type="Texture2D" uid="uid://3kb6dsvvo6kn" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0017.png" id="17_h7247"]
+[ext_resource type="Texture2D" uid="uid://chpo480byort2" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0018.png" id="18_xhngm"]
+[ext_resource type="Texture2D" uid="uid://cg1cnota12tqq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0019.png" id="19_rhpkf"]
+[ext_resource type="Texture2D" uid="uid://qbowasfivklg" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0020.png" id="20_l3ft3"]
+[ext_resource type="Texture2D" uid="uid://dghwp43yu3ffp" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0021.png" id="21_kd1yt"]
+[ext_resource type="Texture2D" uid="uid://ienj411nug46" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0022.png" id="22_0cecn"]
+[ext_resource type="Texture2D" uid="uid://t0o2568srudl" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0023.png" id="23_78ehn"]
+[ext_resource type="Texture2D" uid="uid://rwn62k52ualu" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0024.png" id="24_yjq1h"]
+[ext_resource type="Texture2D" uid="uid://d1cs08najomii" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0025.png" id="25_vb61g"]
+[ext_resource type="Texture2D" uid="uid://ccioqydivj0sd" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0026.png" id="26_yv7c0"]
+[ext_resource type="Texture2D" uid="uid://bke6afnt4cyw" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0027.png" id="27_s4yew"]
+[ext_resource type="Texture2D" uid="uid://bb3bkoynbisdo" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0028.png" id="28_ivd1v"]
+[ext_resource type="Texture2D" uid="uid://clbu6b6ki7hxk" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0029.png" id="29_u0sjo"]
+[ext_resource type="Texture2D" uid="uid://1tnoma4ere80" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0030.png" id="30_8yuek"]
+[ext_resource type="Texture2D" uid="uid://b0ypw46ayqr2v" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0031.png" id="31_mxoos"]
+[ext_resource type="Texture2D" uid="uid://cx0swvhcschcy" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0032.png" id="32_bdhn8"]
+[ext_resource type="Texture2D" uid="uid://e3y2mov7hy2w" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0033.png" id="33_dx1xk"]
+[ext_resource type="Texture2D" uid="uid://b5et83eupogdc" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0034.png" id="34_4ryd3"]
+[ext_resource type="Texture2D" uid="uid://2caaqidvajd1" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0035.png" id="35_a58s4"]
+[ext_resource type="Texture2D" uid="uid://b35v5r0bpu4am" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0036.png" id="36_lomxx"]
+[ext_resource type="Texture2D" uid="uid://cbdu2uaopoaxq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0037.png" id="37_vevnq"]
+[ext_resource type="Texture2D" uid="uid://dvvo27hn51q05" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0038.png" id="38_gmjk8"]
+[ext_resource type="Texture2D" uid="uid://b7htq6d2qhig8" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0039.png" id="39_flxps"]
+[ext_resource type="Texture2D" uid="uid://dfv7jox3nfedo" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0040.png" id="40_elesq"]
+[ext_resource type="Texture2D" uid="uid://csw3d7a5pmnqm" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0041.png" id="41_bucqw"]
+[ext_resource type="Texture2D" uid="uid://cwtrdlctk6t0d" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0042.png" id="42_4xqjm"]
+[ext_resource type="Texture2D" uid="uid://bhcdgp7q1r7nf" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0043.png" id="43_55k4v"]
+[ext_resource type="Texture2D" uid="uid://bes3eov75jhxy" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0044.png" id="44_v3v3r"]
+[ext_resource type="Texture2D" uid="uid://cllio3d001xhj" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0045.png" id="45_tj7a7"]
+[ext_resource type="Texture2D" uid="uid://wt4v4j0eltyp" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0046.png" id="46_leuj8"]
+[ext_resource type="Texture2D" uid="uid://dbpqov2lt5k1x" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0047.png" id="47_1o8u2"]
+[ext_resource type="Texture2D" uid="uid://br1b6f4a5o5pt" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0048.png" id="48_4vu4w"]
+[ext_resource type="Texture2D" uid="uid://hhc5vb7slrjs" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0049.png" id="49_bw4jq"]
+[ext_resource type="Texture2D" uid="uid://c82f0oj0dsmx8" path="res://Content/Art/Sprite/scene/帘子/帘子动画/入场/帘幕入场0050.png" id="50_7m8pr"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fe84g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o4esw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_exjdr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gauhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5ugfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6cl05")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vefjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g243w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tapws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_phflk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_viwcf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_myoxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_1mnwl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_g2jcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_n6pb4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_evn5k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h7247")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_xhngm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_rhpkf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_l3ft3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_kd1yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0cecn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_78ehn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_yjq1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vb61g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_yv7c0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_s4yew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_ivd1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_u0sjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8yuek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_mxoos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_bdhn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_dx1xk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_4ryd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_a58s4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_lomxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_vevnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_gmjk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_flxps")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_elesq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_bucqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_4xqjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_55k4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_v3v3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_tj7a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_leuj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_1o8u2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_4vu4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_bw4jq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_7m8pr")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

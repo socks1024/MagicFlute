@@ -2,10 +2,11 @@
 
 [ext_resource type="Script" uid="uid://1ikgqxtpsrjj" path="res://Content/Script/Gameplay/player.gd" id="1_player"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="3_noise"]
-[ext_resource type="Texture2D" uid="uid://03hs3u12xtwk" path="res://Content/Art/Sprite/scene/谱子/音符.png" id="3_npcrf"]
+[ext_resource type="Texture2D" uid="uid://gx38nvm7ln5q" path="res://Content/Art/Sprite/camp/马戏团资源/主角小狗.PNG" id="3_npcrf"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_emitter"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_pcam_host"]
 [ext_resource type="Shader" uid="uid://dvbw1qfgow638" path="res://Content/Art/Shader/Sprite/Color/color.gdshader" id="6_color_shader"]
+[ext_resource type="Texture2D" uid="uid://bca7hrd1gw6m6" path="res://Content/Art/Sprite/camp/马戏团资源/拿到道具的小狗.PNG" id="7_lane_sprite"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flash"]
 shader = ExtResource("6_color_shader")
@@ -15,7 +16,7 @@ shader_parameter/color_amount = 0.0
 [sub_resource type="Resource" id="Resource_shake"]
 script = ExtResource("3_noise")
 amplitude = 281.306
-frequency = 7.849
+frequency = 10.0
 noise_seed = 768
 
 [sub_resource type="Resource" id="Resource_hurt_shake"]
@@ -26,9 +27,17 @@ noise_seed = 512
 
 [node name="Player" type="Node2D" unique_id=925869519]
 script = ExtResource("1_player")
+max_hp = 5
+texture_normal = ExtResource("3_npcrf")
+texture_lane = ExtResource("7_lane_sprite")
 spring_position_damping = 0.275
 spring_scale_damping = 0.298
 squash_stretch_amount = 1.0
+rotation_bump_amount = 1.0
+spring_rotation_damping = 0.2
+zoom_beat_bump = 0.07
+zoom_clear_bump = 0.1
+spring_zoom_damping = 0.4
 grid_layer = 1
 block_mask = 8
 overlap_mask = 6
@@ -39,6 +48,10 @@ texture = ExtResource("3_npcrf")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=132170845]
 top_level = true
+limit_left = -135
+limit_top = -77
+limit_right = 2054
+limit_bottom = 1157
 
 [node name="PhantomCameraHost" type="Node2D" parent="Camera2D" unique_id=51714370]
 process_priority = 300

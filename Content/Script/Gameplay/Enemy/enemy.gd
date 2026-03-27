@@ -11,7 +11,7 @@ extends GridEntity2D
 
 @export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
-@export_range(0.0, 1.0) var spring_position_damping: float = 0.65
+@export_range(0.0, 1.0) var spring_position_damping: float = 0.25
 ## 位移弹簧频率（越大弹得越快）
 @export_range(1.0, 20.0) var spring_position_frequency: float = 8.0
 ## 挤压拉伸弹簧阻尼
@@ -19,13 +19,13 @@ extends GridEntity2D
 ## 挤压拉伸弹簧频率
 @export_range(1.0, 20.0) var spring_scale_frequency: float = 10.0
 ## 挤压拉伸 bump 幅度（移动方向轴拉伸，垂直方向压缩）
-@export var squash_stretch_amount: float = 0.3
+@export var squash_stretch_amount: float = 0.7
 ## 旋转弹簧阻尼
-@export_range(0.0, 1.0) var spring_rotation_damping: float = 0.5
+@export_range(0.0, 1.0) var spring_rotation_damping: float = 0.2
 ## 旋转弹簧频率
 @export_range(1.0, 20.0) var spring_rotation_frequency: float = 8.0
 ## 旋转 bump 幅度（弧度）
-@export var rotation_bump_amount: float = 0.15
+@export var rotation_bump_amount: float = 0.4
 
 # ── 内部变量（运行时） ───────────────────────────────
 ## 节拍指挥引用（在 _on_placed 中获取）

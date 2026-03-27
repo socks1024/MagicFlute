@@ -1,0 +1,250 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cvii0gvuirn5x"]
+
+[ext_resource type="Texture2D" uid="uid://doxamnw2cxnoq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0001.png" id="1_suek3"]
+[ext_resource type="Texture2D" uid="uid://bjwn4ojujrtxu" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0002.png" id="2_5x1fi"]
+[ext_resource type="Texture2D" uid="uid://l5qfijj6kt7v" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0003.png" id="3_v65p7"]
+[ext_resource type="Texture2D" uid="uid://enfkuvqahrwo" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0004.png" id="4_dtcic"]
+[ext_resource type="Texture2D" uid="uid://cns850pv4kta7" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0005.png" id="5_2elwg"]
+[ext_resource type="Texture2D" uid="uid://clgevdtd3s8sm" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0006.png" id="6_0jryv"]
+[ext_resource type="Texture2D" uid="uid://bxxnolm0xkbhq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0007.png" id="7_8nv5b"]
+[ext_resource type="Texture2D" uid="uid://dkj55kgso8fc7" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0008.png" id="8_77sa0"]
+[ext_resource type="Texture2D" uid="uid://dvk1qrekcyebv" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0009.png" id="9_lw74t"]
+[ext_resource type="Texture2D" uid="uid://ch71h8xsc82fv" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0010.png" id="10_ovfbj"]
+[ext_resource type="Texture2D" uid="uid://b4xb1h65wqhrh" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0011.png" id="11_70oiw"]
+[ext_resource type="Texture2D" uid="uid://cm7f3kncv0mdm" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0012.png" id="12_f4cti"]
+[ext_resource type="Texture2D" uid="uid://bq44nk0latvcy" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0013.png" id="13_f82vg"]
+[ext_resource type="Texture2D" uid="uid://chfl3y0d0y4j8" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0014.png" id="14_l5bfo"]
+[ext_resource type="Texture2D" uid="uid://b4crb5t28hh7s" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0015.png" id="15_m4okd"]
+[ext_resource type="Texture2D" uid="uid://dlphfvv7s53qn" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0016.png" id="16_pvk3x"]
+[ext_resource type="Texture2D" uid="uid://cqmfsiymjyfil" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0017.png" id="17_m02lx"]
+[ext_resource type="Texture2D" uid="uid://7ep6so3xmdn6" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0018.png" id="18_pxcou"]
+[ext_resource type="Texture2D" uid="uid://bq60n0ikeot2c" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0019.png" id="19_kdq2v"]
+[ext_resource type="Texture2D" uid="uid://csshr5lswc410" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0020.png" id="20_214hs"]
+[ext_resource type="Texture2D" uid="uid://dgctyvtl76g4f" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0021.png" id="21_lun8y"]
+[ext_resource type="Texture2D" uid="uid://sqj2ca8q5b7r" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0022.png" id="22_b3get"]
+[ext_resource type="Texture2D" uid="uid://dg0mtbyyfscnp" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0023.png" id="23_32uv3"]
+[ext_resource type="Texture2D" uid="uid://bihjl6pm0eu25" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0024.png" id="24_ey7dl"]
+[ext_resource type="Texture2D" uid="uid://b4414fge6t05a" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0025.png" id="25_gnyi5"]
+[ext_resource type="Texture2D" uid="uid://6sjouo0ogl7t" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0026.png" id="26_8511v"]
+[ext_resource type="Texture2D" uid="uid://car3ojijlw715" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0027.png" id="27_p6f6n"]
+[ext_resource type="Texture2D" uid="uid://c82x5o6twfucx" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0028.png" id="28_0edk7"]
+[ext_resource type="Texture2D" uid="uid://eyimh2inn5ac" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0029.png" id="29_nkbkv"]
+[ext_resource type="Texture2D" uid="uid://b4vc1scowwe1j" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0030.png" id="30_huhnm"]
+[ext_resource type="Texture2D" uid="uid://bw702fjughbhq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0031.png" id="31_uh68v"]
+[ext_resource type="Texture2D" uid="uid://dlrss2rjoulou" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0032.png" id="32_7ruw8"]
+[ext_resource type="Texture2D" uid="uid://bchtf3d1pq36l" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0033.png" id="33_ua77k"]
+[ext_resource type="Texture2D" uid="uid://boi80qqo5dcqw" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0034.png" id="34_j3gx2"]
+[ext_resource type="Texture2D" uid="uid://dcbu5fpeskdj6" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0035.png" id="35_6wrf6"]
+[ext_resource type="Texture2D" uid="uid://ceru1hwpigik3" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0036.png" id="36_idfas"]
+[ext_resource type="Texture2D" uid="uid://bmjpn1ifmlqi6" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0037.png" id="37_2o1kh"]
+[ext_resource type="Texture2D" uid="uid://b5dv6v7j3tmk8" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0038.png" id="38_uxhov"]
+[ext_resource type="Texture2D" uid="uid://c52hdf21usq4u" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0039.png" id="39_dfxn4"]
+[ext_resource type="Texture2D" uid="uid://jbm4qrf071br" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0040.png" id="40_m1la5"]
+[ext_resource type="Texture2D" uid="uid://wwevb34fb01n" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0041.png" id="41_50usm"]
+[ext_resource type="Texture2D" uid="uid://bj7fii0x86jlk" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0042.png" id="42_vfpu1"]
+[ext_resource type="Texture2D" uid="uid://bs15m45l4h40k" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0043.png" id="43_82gcr"]
+[ext_resource type="Texture2D" uid="uid://b1i7via1upi0r" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0044.png" id="44_lhkkw"]
+[ext_resource type="Texture2D" uid="uid://t0q8bg144488" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0045.png" id="45_0qwyg"]
+[ext_resource type="Texture2D" uid="uid://bcvbhu5doet48" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0046.png" id="46_r2qv0"]
+[ext_resource type="Texture2D" uid="uid://bqqvgvr8cgdtw" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0047.png" id="47_637tx"]
+[ext_resource type="Texture2D" uid="uid://ba86hqg5rtnod" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0048.png" id="48_t15nj"]
+[ext_resource type="Texture2D" uid="uid://d357qr622b7cy" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0049.png" id="49_ltlx8"]
+[ext_resource type="Texture2D" uid="uid://th4c6f3f0q41" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0050.png" id="50_62ugc"]
+[ext_resource type="Texture2D" uid="uid://d0ljkaqyv68o3" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0051.png" id="51_476cw"]
+[ext_resource type="Texture2D" uid="uid://bga3tqb0ymetm" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0052.png" id="52_dgbyx"]
+[ext_resource type="Texture2D" uid="uid://cas0rj2fsj4bv" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0053.png" id="53_jjycg"]
+[ext_resource type="Texture2D" uid="uid://cp28tk8pytjlk" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0054.png" id="54_2k5pk"]
+[ext_resource type="Texture2D" uid="uid://g2yw5rtm0lp3" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0055.png" id="55_oas1t"]
+[ext_resource type="Texture2D" uid="uid://8dbmfm66xr4r" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0056.png" id="56_7d2vh"]
+[ext_resource type="Texture2D" uid="uid://br2nebgu8vkfu" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0057.png" id="57_8pfdj"]
+[ext_resource type="Texture2D" uid="uid://qgfwx5gc4ko1" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0058.png" id="58_dlti3"]
+[ext_resource type="Texture2D" uid="uid://bphu2sk0ogpnq" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0059.png" id="59_ax087"]
+[ext_resource type="Texture2D" uid="uid://demgpbkycqhja" path="res://Content/Art/Sprite/scene/帘子/帘子动画/循环/帘幕循环0060.png" id="60_g3pfn"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_suek3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5x1fi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v65p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dtcic")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2elwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0jryv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8nv5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_77sa0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_lw74t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ovfbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_70oiw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_f4cti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f82vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l5bfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_m4okd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_pvk3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m02lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_pxcou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_kdq2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_214hs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_lun8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_b3get")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_32uv3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_ey7dl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_gnyi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_8511v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_p6f6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_0edk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_nkbkv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_huhnm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_uh68v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_7ruw8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ua77k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_j3gx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_6wrf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_idfas")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_2o1kh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_uxhov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_dfxn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_m1la5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_50usm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_vfpu1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_82gcr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_lhkkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_0qwyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_r2qv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_637tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_t15nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ltlx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_62ugc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_476cw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_dgbyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_jjycg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_2k5pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_oas1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_7d2vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_8pfdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_dlti3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_ax087")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_g3pfn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]

@@ -1,22 +1,23 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bors2mstsog80"]
 
-[ext_resource type="Script" path="res://Content/Script/Gameplay/game_over_screen.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://gqivcubgibbx" path="res://Content/Script/Gameplay/game_over_screen.gd" id="1_script"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_title"]
 font_size = 72
 
-[node name="GameOverScreen" type="CanvasLayer"]
+[node name="GameOverScreen" type="CanvasLayer" unique_id=952328629]
 layer = 100
 script = ExtResource("1_script")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=806334991]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Panel"]
+[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1842490504]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.7)
 
-[node name="Label" type="Label" parent="Panel"]
+[node name="Label" type="Label" parent="Panel" unique_id=948982886]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

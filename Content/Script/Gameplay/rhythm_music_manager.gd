@@ -8,6 +8,10 @@ extends Node
 # ── 导出属性 ─────────────────────────────────────────
 ## 主 BGM 音乐事件（场景中静态配置 AudioEvent 资源）
 @export var bgm_music: AudioEvent
+## Lane 序列全连音效
+@export var lane_full_combo_sfx: AudioEvent
+## Lane 序列失败音效
+@export var lane_fail_sfx: AudioEvent
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 指挥引用
@@ -43,5 +47,9 @@ func _on_lane_sequence_started() -> void:
 
 
 ## lane 序列结束时的回调（可在此扩展音乐行为）
-func _on_lane_sequence_finished(_is_full_combo: bool) -> void:
+func _on_lane_sequence_finished(is_full_combo: bool) -> void:
+	if is_full_combo and lane_full_combo_sfx != null:
+		AudioManager.play_sound(lane_full_combo_sfx)
+	elif not is_full_combo and lane_fail_sfx != null:
+		AudioManager.play_sound(lane_fail_sfx)
 	play_bgm()

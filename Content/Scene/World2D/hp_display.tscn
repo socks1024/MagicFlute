@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bw186rrtm66mx"]
 
 [ext_resource type="Script" uid="uid://dw6ncq2f4nbnj" path="res://Content/Script/Gameplay/hp_display.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dfl45dp20kua6" path="res://Content/Art/Sprite/scene/血条.png" id="2_p4swd"]
 
 [node name="HpDisplay" type="MarginContainer" unique_id=277671511]
 offset_right = 220.0
@@ -10,6 +11,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 script = ExtResource("1_script")
+heart_texture = ExtResource("2_p4swd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2079619870]
 layout_mode = 2

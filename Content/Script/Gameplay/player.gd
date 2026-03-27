@@ -16,6 +16,12 @@ signal died
 ## 最大生命值
 @export var max_hp: int = 3
 
+@export_group("Sprite")
+## 普通行走模式精灵图
+@export var texture_normal: Texture2D
+## Lane 音游模式精灵图
+@export var texture_lane: Texture2D
+
 @export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
 @export_range(0.0, 1.0) var spring_position_damping: float = 0.65
@@ -27,12 +33,30 @@ signal died
 @export_range(1.0, 20.0) var spring_scale_frequency: float = 10.0
 ## 挤压拉伸 bump 幅度（移动方向轴）
 @export var squash_stretch_amount: float = 0.3
+## 旋转 bump 幅度（弧度）
+@export var rotation_bump_amount: float = 0.15
+## 旋转弹簧阻尼
+@export_range(0.0, 1.0) var spring_rotation_damping: float = 0.5
+## 旋转弹簧频率
+@export_range(1.0, 20.0) var spring_rotation_frequency: float = 10.0
+
+@export_group("Camera Zoom Pulse")
+## 每拍 Zoom 脉动幅度（正值 = zoom in）
+@export var zoom_beat_bump: float = 0.005
+## 清屏 Zoom 脉动幅度（负值方向 = zoom out）
+@export var zoom_clear_bump: float = 0.03
+## Zoom 弹簧阻尼
+@export_range(0.0, 1.0) var spring_zoom_damping: float = 0.5
+## Zoom 弹簧频率
+@export_range(1.0, 20.0) var spring_zoom_frequency: float = 8.0
 
 # ── 震屏 ─────────────────────────────────────────────
 ## 清屏震屏发射器（Player 场景中的子节点）
 @onready var _clear_shake_emitter: PhantomCameraNoiseEmitter2D = $ClearShakeEmitter
 ## 受伤震屏发射器（轻度震屏）
 @onready var _hurt_shake_emitter: PhantomCameraNoiseEmitter2D = $HurtShakeEmitter
+## PhantomCamera 宿主（用于获取当前活跃的 PCam）
+@onready var _pcam_host: Node = $Camera2D/PhantomCameraHost
 
 # ── 内部变量（运行时） ───────────────────────────────
 ## 当前生命值
@@ -43,6 +67,10 @@ var _conductor: RhythmConductor
 var _spring_position: SpringVector2
 ## 挤压拉伸弹簧（驱动精灵缩放）
 var _spring_scale: SpringVector2
+## Zoom 弹簧（驱动相机 Zoom 脉动）
+var _spring_zoom: SpringFloat
+## 旋转弹簧（驱动精灵旋转抖动）
+var _spring_rotation: SpringFloat
 
 # ── @onready 引用 ────────────────────────────────────
 ## 精灵节点引用
@@ -55,6 +83,13 @@ func _ready() -> void:
 	# 初始化弹簧系统（使用全局坐标，确保与 GridSystem2D 的坐标转换一致）
 	_spring_position = SpringVector2.new(global_position, spring_position_damping, spring_position_frequency)
 	_spring_scale = SpringVector2.new(Vector2.ONE, spring_scale_damping, spring_scale_frequency)
+	# 初始化 Zoom 弹簧（基础 zoom 从活跃 PCam 读取，若无则默认 1.0）
+	var base_zoom: float = 1.0
+	var active_pcam: Node = _pcam_host.get_active_pcam()
+	if active_pcam != null:
+		base_zoom = active_pcam.zoom.x
+	_spring_zoom = SpringFloat.new(base_zoom, spring_zoom_damping, spring_zoom_frequency)
+	_spring_rotation = SpringFloat.new(0.0, spring_rotation_damping, spring_rotation_frequency)
 	CLog.o("RhythmPlayer 就绪 | HP=%d/%d" % [_current_hp, max_hp])
 
 
@@ -67,6 +102,7 @@ func _on_placed(_grid_pos: Vector2i) -> void:
 		_conductor.lane_note_hit.connect(_on_lane_note_hit)
 		_conductor.lane_sequence_started.connect(_on_lane_sequence_started)
 		_conductor.lane_sequence_finished.connect(_on_lane_sequence_finished)
+		_conductor.beat_tick.connect(_on_beat_zoom_pulse)
 	else:
 		CLog.e("RhythmPlayer 未找到 Conductor")
 
@@ -75,11 +111,18 @@ func _physics_process(delta: float) -> void:
 	# 在固定时间步长中更新弹簧，确保不同帧率下行为一致
 	_spring_position.update(delta)
 	_spring_scale.update(delta)
+	_spring_zoom.update(delta)
+	_spring_rotation.update(delta)
 	# 用位移弹簧驱动视觉位置（使用全局坐标，与网格系统坐标一致）
 	global_position = _spring_position.current
 	# 用缩放弹簧驱动精灵缩放
 	if _sprite != null:
 		_sprite.scale = _spring_scale.current
+		_sprite.rotation = _spring_rotation.current
+	# 用 Zoom 弹簧驱动相机 Zoom
+	var active_pcam: Node = _pcam_host.get_active_pcam()
+	if active_pcam != null:
+		active_pcam.zoom = Vector2.ONE * _spring_zoom.current
 
 # ── 信号回调（来自 Conductor） ───────────────────────
 
@@ -88,26 +131,51 @@ func _on_move_requested(direction: Vector2) -> void:
 	_do_beat_move(direction)
 
 
+## 每拍 Zoom 脉动回调
+## 直接将 current 偏移到峰值，让弹簧从峰值回弹，
+## 这样拍点时刻恰好是 zoom 最大值，而非从零加速产生延迟。
+func _on_beat_zoom_pulse(_beat_index: int) -> void:
+	_spring_zoom.current += zoom_beat_bump
+	_spring_zoom.velocity = 0.0
+	_spring_zoom.is_resting = false
+
+
 ## 收到 Miss 通知
 func _on_move_miss() -> void:
 	beat_miss.emit()
+	_play_miss_feedback()
 	CLog.w("Miss!")
 
 
 ## 轨道音符命中回调
 func _on_lane_note_hit(_direction: Vector2) -> void:
+	# 挤压拉伸 bump：沿命中方向拉伸，垂直方向压缩
+	var stretch: Vector2 = Vector2(
+		absf(_direction.x) * squash_stretch_amount - absf(_direction.y) * squash_stretch_amount,
+		absf(_direction.y) * squash_stretch_amount - absf(_direction.x) * squash_stretch_amount
+	)
+	_spring_scale.bump(stretch)
+	# 旋转 bump：根据方向决定旋转符号
+	var rot_sign: float = sign(_direction.x + _direction.y)
+	_spring_rotation.bump(rotation_bump_amount * rot_sign)
 	CLog.o("轨道命中! 方向=%s" % _direction)
 
 
 ## 轨道序列开始回调：进入音游模式时暗角加深
 func _on_lane_sequence_started() -> void:
 	_set_vignette(true, 0.6, 0.6)
+	# 切换到 lane 模式精灵图
+	if texture_lane != null and _sprite != null:
+		_sprite.texture = texture_lane
 
 
 ## 轨道序列结束回调：恢复暗角并处理清屏
 func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 	# 恢复暗角到当前 HP 对应的状态
 	_update_vignette_by_hp()
+	# 切换回普通模式精灵图
+	if texture_normal != null and _sprite != null:
+		_sprite.texture = texture_normal
 	if is_full_combo:
 		_clear_screen()
 	CLog.o("轨道序列结束，恢复移动 | Full Combo=%s" % is_full_combo)
@@ -122,6 +190,10 @@ func _clear_screen() -> void:
 	# 触发震屏
 	if _clear_shake_emitter != null:
 		_clear_shake_emitter.emit()
+	# Zoom out 弹回（直接偏移到峰值，拍点时刻即最大效果）
+	_spring_zoom.current -= zoom_clear_bump
+	_spring_zoom.velocity = 0.0
+	_spring_zoom.is_resting = false
 	# 暗角呼吸：瞬间放开 → 缓慢恢复
 	_vignette_breathe()
 
@@ -135,6 +207,7 @@ func _do_beat_move(direction: Vector2) -> void:
 	
 	# 尝试移动（阻挡/重叠检测由 GridSystem2D 的 block_mask 机制统一处理）
 	if not _grid_system.move_entity(self, target_grid):
+		_play_miss_feedback()
 		return
 	var target_pos: Vector2 = _grid_system.grid_to_world(target_grid)
 	CLog.o("Hit! 方向=%s  目标格=%s" % [direction, target_grid])
@@ -147,6 +220,15 @@ func _do_beat_move(direction: Vector2) -> void:
 		absf(direction.y) * squash_stretch_amount - absf(direction.x) * squash_stretch_amount
 	)
 	_spring_scale.bump(stretch)
+	# 旋转 bump：根据移动方向决定旋转符号（右/下为正，左/上为负）
+	var rot_sign: float = sign(direction.x + direction.y)
+	_spring_rotation.bump(rotation_bump_amount * rot_sign)
+
+## Miss / 撞墙反馈：随机方向摇头 + 均匀缩一下
+func _play_miss_feedback() -> void:
+	var rot_sign: float = [-1.0, 1.0].pick_random()
+	_spring_rotation.bump(rotation_bump_amount * 1.5 * rot_sign)
+	_spring_scale.bump(Vector2(-squash_stretch_amount * 0.5, -squash_stretch_amount * 0.5))
 
 # ── 重叠回调（由 GridSystem2D 在 move_entity 时自动调用） ────
 

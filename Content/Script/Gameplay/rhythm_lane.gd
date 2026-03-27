@@ -240,27 +240,20 @@ func _on_note_hit(note: FallingNote) -> void:
 
 
 ## 检查飘过判定线且超出判定窗口的音符，判为 Miss
+## 一旦出现 Miss 立即结束整段序列（is_full_combo = false）
 func _check_missed_notes() -> void:
-	var to_remove: Array[FallingNote] = []
 	for note: FallingNote in _active_notes:
 		if not is_instance_valid(note):
-			to_remove.append(note)
 			continue
 		var beat_time: float = _get_beat_time(note.beat_index)
-		# 若音符已过判定线且超出判定窗口
+		# 若音符已过判定线且超出判定窗口 → Miss，直接结束序列
 		if _song_time_sec - beat_time > _hit_window_sec:
 			var dir: Vector2 = LANE_DIRECTIONS[note.lane_index]
 			note_miss.emit(dir)
-			to_remove.append(note)
-			_settled_notes_count += 1
 			_miss_count += 1
-			CLog.w("音符 Miss! 轨道=%d  beat=%d  (%d/%d)" % [note.lane_index, note.beat_index, _settled_notes_count, _total_notes_in_sequence])
-	for note: FallingNote in to_remove:
-		_active_notes.erase(note)
-		if is_instance_valid(note):
-			note.queue_free()
-	if to_remove.size() > 0:
-		_check_sequence_complete()
+			CLog.w("音符 Miss! 轨道=%d  beat=%d → 序列中断" % [note.lane_index, note.beat_index])
+			_stop_sequence()
+			return
 
 # ── 序列结束检查 ─────────────────────────────────────
 
