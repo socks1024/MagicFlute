@@ -204,6 +204,7 @@ func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 	# 恢复节拍指示器显示
 	if _beat_indicator != null:
 		_beat_indicator.visible = true
+	AudioManager.play_music(null,&"Flute",0.5,true)
 	lane_sequence_finished.emit(is_full_combo)
 
 # ── 输入映射 ─────────────────────────────────────────
@@ -229,6 +230,7 @@ func _build_chart_for_trigger() -> Array[Dictionary]:
 	var chart: Array[Dictionary] = []
 	for beat_idx: int in range(seq.notes.size()):
 		chart.append({"beat": beat_idx, "lane": seq.notes[beat_idx] as int})
+	AudioManager.play_music(seq.Playmusic,&"Flute",0.5,true)	
 	return chart
 
 

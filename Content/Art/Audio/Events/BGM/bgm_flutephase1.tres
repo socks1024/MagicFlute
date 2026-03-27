@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://crnc28jd4irta"]
+
+[ext_resource type="AudioStream" uid="uid://8ki7b1xrw2hr" path="res://Content/Art/Audio/Raw/Music/魔笛演奏版片段1_.mp3" id="1_u35ce"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_w3sis"]
+
+[resource]
+script = ExtResource("2_w3sis")
+name = &"BGMLoop135"
+audio_stream = ExtResource("1_u35ce")
+bus = &"Music"
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"

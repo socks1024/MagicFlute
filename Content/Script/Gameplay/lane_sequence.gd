@@ -14,3 +14,6 @@ enum Direction {
 
 ## 本序列的方向列表
 @export var notes: Array[Direction] = []
+
+##序列对应的音乐
+@export var Playmusic:AudioEvent 
