@@ -8,8 +8,8 @@ extends Node
 signal beat_tick(beat_index: int)
 ## 玩家踩点成功，请求移动（方向）
 signal move_requested(direction: Vector2)
-## 玩家踩点失败（Miss）
-signal move_miss
+## 玩家踩点失败（Miss），携带输入方向
+signal move_miss(direction: Vector2)
 ## 轨道音符命中时转发
 signal lane_note_hit(direction: Vector2)
 ## 轨道音符 Miss 时转发
@@ -127,7 +127,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		move_requested.emit(dir)
 		flash_hit()
 	else:
-		move_miss.emit()
+		move_miss.emit(dir)
 		flash_miss()
 
 

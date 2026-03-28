@@ -14,7 +14,9 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="MagicFlute"
+config/name="Rhyhuahua"
+config/description="节奏吉娃娃"
+config/version="0.1.0"
 run/main_scene="uid://c3lso300yfoep"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=120

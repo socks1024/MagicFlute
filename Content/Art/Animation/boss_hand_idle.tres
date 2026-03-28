@@ -1,0 +1,130 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://c2lfowytce1ft"]
+
+[ext_resource type="Texture2D" uid="uid://d1op38ux641kl" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0001.png" id="1_v5jgm"]
+[ext_resource type="Texture2D" uid="uid://da7c8r0f0wouk" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0002.png" id="2_tawda"]
+[ext_resource type="Texture2D" uid="uid://d0s77bmcfqfdj" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0003.png" id="3_15pir"]
+[ext_resource type="Texture2D" uid="uid://4d1rthjcjtkt" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0004.png" id="4_iwhpo"]
+[ext_resource type="Texture2D" uid="uid://ddxl3n0aec472" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0005.png" id="5_511iw"]
+[ext_resource type="Texture2D" uid="uid://dnl0cj0myc1jw" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0006.png" id="6_l3121"]
+[ext_resource type="Texture2D" uid="uid://eh2huwj7jgov" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0007.png" id="7_jsgjb"]
+[ext_resource type="Texture2D" uid="uid://kaxor6dtff18" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0008.png" id="8_cq3cs"]
+[ext_resource type="Texture2D" uid="uid://bfwshmswglxy2" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0009.png" id="9_hh6q5"]
+[ext_resource type="Texture2D" uid="uid://3uuauva62nhk" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0010.png" id="10_t6ex5"]
+[ext_resource type="Texture2D" uid="uid://ckn23lqesqof0" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0011.png" id="11_k0ld2"]
+[ext_resource type="Texture2D" uid="uid://dl55wrcpt43qi" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0012.png" id="12_23rj5"]
+[ext_resource type="Texture2D" uid="uid://b0nleskfujw2j" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0013.png" id="13_8ntnb"]
+[ext_resource type="Texture2D" uid="uid://cfa4ugev2bsri" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0014.png" id="14_44pvl"]
+[ext_resource type="Texture2D" uid="uid://ow1fbda2ese2" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0015.png" id="15_d1ltb"]
+[ext_resource type="Texture2D" uid="uid://ch57s5p1noblu" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0016.png" id="16_8bcxj"]
+[ext_resource type="Texture2D" uid="uid://d370lqkmojl1i" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0017.png" id="17_kpkdm"]
+[ext_resource type="Texture2D" uid="uid://dfsnublwqe3jq" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0018.png" id="18_20ny5"]
+[ext_resource type="Texture2D" uid="uid://been2dcf8kr8r" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0019.png" id="19_hkgrh"]
+[ext_resource type="Texture2D" uid="uid://dp4qn34gggibj" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0020.png" id="20_02pap"]
+[ext_resource type="Texture2D" uid="uid://c5artn7fad6x0" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0021.png" id="21_u4p3p"]
+[ext_resource type="Texture2D" uid="uid://c8lf7iu01a0b6" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0022.png" id="22_sdphi"]
+[ext_resource type="Texture2D" uid="uid://bsemlnw2i7drq" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0023.png" id="23_cosdg"]
+[ext_resource type="Texture2D" uid="uid://dxu7lp4v7ro20" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0024.png" id="24_go0a5"]
+[ext_resource type="Texture2D" uid="uid://7nsjft2v76lj" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0025.png" id="25_p3ohl"]
+[ext_resource type="Texture2D" uid="uid://bisc5qoh0rqeb" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0026.png" id="26_7i4vn"]
+[ext_resource type="Texture2D" uid="uid://3fnh7h7108rf" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0027.png" id="27_q25gf"]
+[ext_resource type="Texture2D" uid="uid://4cy23nvfe3mx" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0028.png" id="28_3ohom"]
+[ext_resource type="Texture2D" uid="uid://ueiixo40iff" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0029.png" id="29_klfsc"]
+[ext_resource type="Texture2D" uid="uid://db2t7ppdl6g3w" path="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0030.png" id="30_lfu8d"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v5jgm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tawda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_15pir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iwhpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_511iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_l3121")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jsgjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_cq3cs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hh6q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t6ex5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_k0ld2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_23rj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_8ntnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_44pvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_d1ltb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_8bcxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_kpkdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_20ny5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_hkgrh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_02pap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_u4p3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_sdphi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_cosdg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_go0a5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_p3ohl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7i4vn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_q25gf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_3ohom")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_klfsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_lfu8d")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]

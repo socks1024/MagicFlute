@@ -24,11 +24,13 @@
 [ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="13_s8toy"]
 [ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="14_w4ako"]
 [ext_resource type="PackedScene" uid="uid://bk48po8w3n23c" path="res://Content/Scene/World2D/spawn_warning.tscn" id="14_warn"]
+[ext_resource type="SpriteFrames" uid="uid://c2lfowytce1ft" path="res://Content/Art/Animation/boss_hand_idle.tres" id="15_q6inv"]
 [ext_resource type="Resource" uid="uid://c1lc7w4ja46t0" path="res://Content/Data/Gameplay/wave1.tres" id="15_wfkcj"]
 [ext_resource type="Resource" uid="uid://cmcyyf7lceqvv" path="res://Content/Data/Gameplay/wave2.tres" id="16_0mb5s"]
 [ext_resource type="PackedScene" uid="uid://cth0ecix72u77" path="res://Content/Scene/World2D/invisible_wall.tscn" id="16_ah7ky"]
+[ext_resource type="SpriteFrames" uid="uid://cpyy6t0on42x2" path="res://Content/Art/Animation/boss_head_idle.tres" id="16_q6inv"]
 [ext_resource type="Resource" uid="uid://c8g6di542lnwi" path="res://Content/Data/Gameplay/wave3.tres" id="17_2mmnj"]
-[ext_resource type="PackedScene" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
+[ext_resource type="PackedScene" uid="uid://bors2mstsog80" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
 [ext_resource type="Script" uid="uid://c6pv56k62bu1r" path="res://Content/Script/Gameplay/rhythm_music_manager.gd" id="18_rmm"]
 [ext_resource type="PackedScene" uid="uid://cvl0mwpum6uh1" path="res://Content/Scene/World2D/Enemy/sun_enemy.tscn" id="18_w4ako"]
 [ext_resource type="Resource" uid="uid://n8ntksgpn5k1" path="res://Content/Art/Audio/Events/SFX/sfx_lane_full_combo.tres" id="19_fc_sfx"]
@@ -37,12 +39,11 @@
 [ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="25_bo2u5"]
 [ext_resource type="PackedScene" uid="uid://g6owaymnd7hv" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_processing_2d.tscn" id="27_aau2w"]
 [ext_resource type="SpriteFrames" uid="uid://cvii0gvuirn5x" path="res://Content/Art/Animation/curtain_move.tres" id="34_l56ef"]
-[ext_resource type="Texture2D" uid="uid://b23gi6qw3a53j" path="res://Content/Art/Sprite/camp/马戏团资源/boss的头.PNG" id="35_4hwqu"]
 [ext_resource type="SpriteFrames" uid="uid://cm2tid00e7s5d" path="res://Content/Art/Animation/curtain_open.tres" id="35_rk33d"]
-[ext_resource type="Script" path="res://Content/Script/Gameplay/curtain_controller.gd" id="36_cctrl"]
+[ext_resource type="Script" uid="uid://dmjv1wwg2ij4r" path="res://Content/Script/Gameplay/curtain_controller.gd" id="36_cctrl"]
 [ext_resource type="Resource" uid="uid://dr56365ljksi7" path="res://Content/Art/Audio/Events/SFX/sfx_doggy_hurt.tres" id="39_12x1l"]
 [ext_resource type="Texture2D" uid="uid://f3qvb5r4ib0y" path="res://Content/Art/Sprite/camp/马戏团资源/boss的脖子套.PNG" id="46_q155y"]
-[ext_resource type="Texture2D" uid="uid://dss2qnpni5b53" path="res://Content/Art/Sprite/camp/马戏团资源/boss的手.PNG" id="47_un7u5"]
+[ext_resource type="Script" path="res://Content/Script/Gameplay/boss_joker.gd" id="47_bjkr"]
 
 [sub_resource type="Resource" id="Resource_ww6io"]
 script = ExtResource("10_8fjbb")
@@ -132,6 +133,7 @@ lane_full_combo_sfx = ExtResource("19_fc_sfx")
 lane_fail_sfx = ExtResource("19_fl_sfx")
 
 [node name="BG" type="Sprite2D" parent="." unique_id=1369863712]
+z_index = -2
 position = Vector2(960, 540)
 texture = ExtResource("1_yq7bf")
 
@@ -142,30 +144,39 @@ visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_0cby3")
 
-[node name="Joker" type="Node2D" parent="." unique_id=1240223137]
+[node name="BossJoker" type="Node2D" parent="." unique_id=1240223137]
+script = ExtResource("47_bjkr")
 
-[node name="JokerBody" type="Sprite2D" parent="Joker" unique_id=339204036]
+[node name="JokerBody" type="Sprite2D" parent="BossJoker" unique_id=339204036]
 z_index = -1
 position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("13_q6inv")
 
-[node name="JokerNeck" type="Sprite2D" parent="Joker" unique_id=1771148387]
+[node name="JokerNeck" type="Sprite2D" parent="BossJoker" unique_id=1771148387]
 position = Vector2(960, 540)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("46_q155y")
 
-[node name="JokerHand" type="Sprite2D" parent="Joker" unique_id=962034103]
-z_index = 1
-position = Vector2(960, 540)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("47_un7u5")
+[node name="JokerRightHand" type="AnimatedSprite2D" parent="BossJoker" unique_id=1434760399]
+position = Vector2(146, 670)
+sprite_frames = ExtResource("15_q6inv")
+frame = 9
+frame_progress = 0.78524905
 
-[node name="JokerHead" type="Sprite2D" parent="Joker" unique_id=2076290802]
+[node name="JokerLeftHand" type="AnimatedSprite2D" parent="BossJoker" unique_id=1681667910]
+position = Vector2(1740, 657)
+sprite_frames = ExtResource("15_q6inv")
+frame = 9
+frame_progress = 0.78524905
+flip_h = true
+
+[node name="JokerHead" type="AnimatedSprite2D" parent="BossJoker" unique_id=2030756588]
 z_index = 1
-position = Vector2(960, 540)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("35_4hwqu")
+position = Vector2(960, 241)
+sprite_frames = ExtResource("16_q6inv")
+frame = 13
+frame_progress = 0.00408222
 
 [node name="GridSystem2D" type="Node2D" parent="." unique_id=1020475358]
 unique_name_in_owner = true

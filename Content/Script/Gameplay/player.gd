@@ -7,8 +7,8 @@ extends GridEntity2D
 signal beat_miss
 ## 拾取物品时发出
 signal item_collected
-## HP 变化时发出（current_hp, max_hp）
-signal hp_changed(current_hp: int, max_hp: int)
+## HP 变化时发出（current_hp, max_hp, delta）
+signal hp_changed(current_hp: int, max_hp: int, delta: int)
 ## 玩家死亡时发出
 signal died
 
@@ -71,6 +71,8 @@ var _spring_scale: SpringVector2
 var _spring_zoom: SpringFloat
 ## 旋转弹簧（驱动精灵旋转抖动）
 var _spring_rotation: SpringFloat
+## 当前是否朝左（默认朝左）
+var _facing_left: bool = true
 
 # ── @onready 引用 ────────────────────────────────────
 ## 精灵节点引用
@@ -140,8 +142,9 @@ func _on_beat_zoom_pulse(_beat_index: int) -> void:
 	_spring_zoom.is_resting = false
 
 
-## 收到 Miss 通知
-func _on_move_miss() -> void:
+## 收到 Miss 通知（携带输入方向，用于翻转朝向）
+func _on_move_miss(direction: Vector2) -> void:
+	_face_direction(direction)
 	beat_miss.emit()
 	_play_miss_feedback()
 	CLog.w("Miss!")
@@ -213,20 +216,30 @@ func _do_beat_move(direction: Vector2) -> void:
 	CLog.o("Hit! 方向=%s  目标格=%s" % [direction, target_grid])
 	# 用位移弹簧驱动视觉过渡（动画未结束时再次调用会自然过渡到新目标）
 	_spring_position.move_to(target_pos)
-	# 挤压拉伸：沿移动方向拉伸，垂直方向压缩
-	# 先重置速度，防止连续移动时冲量累加导致 scale 爆炸
+	_face_direction(direction)
+	# 挤压拉伸：沿移动方向拉伸	
 	var stretch: Vector2 = Vector2(
 		absf(direction.x) * squash_stretch_amount - absf(direction.y) * squash_stretch_amount,
 		absf(direction.y) * squash_stretch_amount - absf(direction.x) * squash_stretch_amount
 	)
 	_spring_scale.bump(stretch)
-	# 旋转 bump：根据移动方向决定旋转符号（右/下为正，左/上为负）
-	var rot_sign: float = sign(direction.x + direction.y)
+	# 旋转 bump：方向与当前朝向一致（朝左为负，朝右为正）
+	var rot_sign: float = -1.0 if _facing_left else 1.0
 	_spring_rotation.bump(rotation_bump_amount * rot_sign)
 
-## Miss / 撞墙反馈：随机方向摇头 + 均匀缩一下
+## 根据输入方向翻转精灵朝向（仅响应左右方向）
+func _face_direction(direction: Vector2) -> void:
+	if direction.x < 0:
+		_facing_left = true
+		_sprite.flip_h = false
+	elif direction.x > 0:
+		_facing_left = false
+		_sprite.flip_h = true
+
+
+## Miss / 撞墙反馈：朝向方向摇头 + 均匀缩一下
 func _play_miss_feedback() -> void:
-	var rot_sign: float = [-1.0, 1.0].pick_random()
+	var rot_sign: float = -1.0 if _facing_left else 1.0
 	_spring_rotation.bump(rotation_bump_amount * 1.5 * rot_sign)
 	_spring_scale.bump(Vector2(-squash_stretch_amount * 0.5, -squash_stretch_amount * 0.5))
 
@@ -257,16 +270,18 @@ func _on_pickup_collected() -> void:
 
 ## 恢复生命值
 func heal(amount: int) -> void:
+	var old_hp: int = _current_hp
 	_current_hp = mini(_current_hp + amount, max_hp)
-	hp_changed.emit(_current_hp, max_hp)
+	hp_changed.emit(_current_hp, max_hp, _current_hp - old_hp)
 	_update_vignette_by_hp()
 	CLog.o("玩家恢复 +%d  HP=%d/%d" % [amount, _current_hp, max_hp])
 
 
 ## 受到伤害
 func take_damage(amount: int) -> void:
+	var old_hp: int = _current_hp
 	_current_hp = maxi(_current_hp - amount, 0)
-	hp_changed.emit(_current_hp, max_hp)
+	hp_changed.emit(_current_hp, max_hp, _current_hp - old_hp)
 	# 触发受伤震屏
 	if _hurt_shake_emitter != null:
 		_hurt_shake_emitter.emit()

@@ -93,13 +93,15 @@ func _on_entity_placed(_grid_pos: Vector2i, entity: GridEntity2D) -> void:
 		var player: RhythmPlayer = entity as RhythmPlayer
 		if not player.hp_changed.is_connected(_on_hp_changed):
 			player.hp_changed.connect(_on_hp_changed)
-			# 初始化显示
-			_on_hp_changed(player._current_hp, player.max_hp)
+			# 初始化显示（delta 为 0 表示非实际变化）
+			_on_hp_changed(player._current_hp, player.max_hp, 0)
 
 
 ## 血量变化回调：更新心形图标
-func _on_hp_changed(current_hp: int, max_hp: int) -> void:
-	AudioManager.play_sound(sfx_hurt)
+func _on_hp_changed(current_hp: int, max_hp: int, delta: int) -> void:
+	# 只在受伤时播放音效（delta < 0）
+	if delta < 0:
+		AudioManager.play_sound(sfx_hurt)
 	_ensure_heart_count(max_hp)
 	for i: int in range(_hearts.size()):
 		var heart: TextureRect = _hearts[i]

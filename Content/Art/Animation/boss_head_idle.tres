@@ -1,0 +1,130 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cpyy6t0on42x2"]
+
+[ext_resource type="Texture2D" uid="uid://bjjbb4ls7p1h7" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0001.png" id="1_8c20c"]
+[ext_resource type="Texture2D" uid="uid://1ug8tmogcrpn" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0002.png" id="2_pc0g5"]
+[ext_resource type="Texture2D" uid="uid://dsjdvwco84ang" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0003.png" id="3_0u2lt"]
+[ext_resource type="Texture2D" uid="uid://dif8hbp7b4ys" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0004.png" id="4_lykpg"]
+[ext_resource type="Texture2D" uid="uid://cxsegxsw18fpk" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0005.png" id="5_y2uan"]
+[ext_resource type="Texture2D" uid="uid://dsuntmk8r33jt" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0006.png" id="6_23ip7"]
+[ext_resource type="Texture2D" uid="uid://bg3naeqp7tlq3" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0007.png" id="7_gemv7"]
+[ext_resource type="Texture2D" uid="uid://cdw0mhlbt72yt" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0008.png" id="8_5eql6"]
+[ext_resource type="Texture2D" uid="uid://btewdo6nrl1iw" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0009.png" id="9_3o6mj"]
+[ext_resource type="Texture2D" uid="uid://b8u48fo6m23rj" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0010.png" id="10_xleqv"]
+[ext_resource type="Texture2D" uid="uid://cm6c7f2goi2xi" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0011.png" id="11_5nccc"]
+[ext_resource type="Texture2D" uid="uid://p02qcfhcadji" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0012.png" id="12_fuxfn"]
+[ext_resource type="Texture2D" uid="uid://s54itm4wvtc4" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0013.png" id="13_y5q48"]
+[ext_resource type="Texture2D" uid="uid://cxwl4on0fqvpn" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0014.png" id="14_sic22"]
+[ext_resource type="Texture2D" uid="uid://cjw2lu6ng1hap" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0015.png" id="15_vm0hg"]
+[ext_resource type="Texture2D" uid="uid://ca250yj6sycl4" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0016.png" id="16_rk1vu"]
+[ext_resource type="Texture2D" uid="uid://d06xr1hnaxr3t" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0017.png" id="17_chj66"]
+[ext_resource type="Texture2D" uid="uid://cgyfgutt1i2hh" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0018.png" id="18_kxxuf"]
+[ext_resource type="Texture2D" uid="uid://coubuj8oon5ax" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0019.png" id="19_0strc"]
+[ext_resource type="Texture2D" uid="uid://b2r8tcrub60pe" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0020.png" id="20_wt1l4"]
+[ext_resource type="Texture2D" uid="uid://jo84sqcep5ih" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0021.png" id="21_rpf42"]
+[ext_resource type="Texture2D" uid="uid://c1rpmc08xcbko" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0022.png" id="22_udb8e"]
+[ext_resource type="Texture2D" uid="uid://cp4p2xv36rx4r" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0023.png" id="23_samc2"]
+[ext_resource type="Texture2D" uid="uid://bsbqja6jwv3mx" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0024.png" id="24_h3uya"]
+[ext_resource type="Texture2D" uid="uid://b27465cnxkrw1" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0025.png" id="25_vhncj"]
+[ext_resource type="Texture2D" uid="uid://wyoe05xnqdnm" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0026.png" id="26_snpyj"]
+[ext_resource type="Texture2D" uid="uid://5lahd21scqgq" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0027.png" id="27_5vfjy"]
+[ext_resource type="Texture2D" uid="uid://bcgpjs0onn1wn" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0028.png" id="28_cpkfi"]
+[ext_resource type="Texture2D" uid="uid://op0umnepsmll" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0029.png" id="29_2y41a"]
+[ext_resource type="Texture2D" uid="uid://bcaicb7akba8j" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0030.png" id="30_8cr8r"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8c20c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pc0g5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0u2lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lykpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y2uan")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_23ip7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gemv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5eql6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3o6mj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xleqv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5nccc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fuxfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_y5q48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_sic22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vm0hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_rk1vu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_chj66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_kxxuf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_0strc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_wt1l4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_rpf42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_udb8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_samc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_h3uya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_vhncj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_snpyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5vfjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_cpkfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_2y41a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_8cr8r")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
