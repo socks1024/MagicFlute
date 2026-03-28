@@ -4,7 +4,7 @@ extends Node2D
 ##
 ## 支持两种模式：
 ## 1. 谱面模式：配置了 spawn_charts 时，按当前阶段索引从对应谱面的波次池中
-##    随机选取一波执行，波次结束后等待 wave_interval 拍再随机选取下一波。
+##    随机选取一波执行，波次结束后等待谱面定义的 next_wave_interval 拍再随机选取下一波。
 ##    阶段由外部通过 set_stage() / next_stage() 切换。
 ## 2. 随机节拍模式：未配置谱面时，每隔 beats_per_spawn 个移动拍在最左列随机生成
 ##
@@ -26,8 +26,6 @@ extends Node2D
 @export_group("谱面模式")
 ## 出怪阶段谱面列表（每个元素代表一个阶段的波次池，为空时使用随机节拍模式）
 @export var spawn_charts: Array[SpawnChart] = []
-## 前一波结束后等待多少拍再开始下一波
-@export var wave_interval: int = 4
 
 @export_group("随机节拍模式")
 ## 每隔多少个移动拍生成一个敌人（仅随机模式）
@@ -103,7 +101,7 @@ func _process_chart_beat() -> void:
 	# 如果没有正在执行的波次，尝试开始新波次
 	if _current_wave == null:
 		# 首次或等待间隔结束后开始新波次
-		if _wave_end_beat < 0 or _move_beat_count >= _wave_end_beat + wave_interval:
+		if _wave_end_beat < 0 or _move_beat_count >= _wave_end_beat + chart.next_wave_interval:
 			_start_random_wave()
 		return
 	# 当前波次正在执行：计算相对拍号并生成对应敌人

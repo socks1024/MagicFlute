@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2qoafgl22ffi"
-path="res://.godot/imported/音符.png-288ef1f722f42e6e1fdf4dd07252b55b.ctex"
+uid="uid://dp2qo4mb7bl11"
+path="res://.godot/imported/吐0018.png-9e940bc21284347d14e8494c6783d3d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Art/Sprite/scene/谱子/音符.png"
-dest_files=["res://.godot/imported/音符.png-288ef1f722f42e6e1fdf4dd07252b55b.ctex"]
+source_file="res://Content/Art/Sprite/boss动画/头吐怪/吐0018.png"
+dest_files=["res://.godot/imported/吐0018.png-9e940bc21284347d14e8494c6783d3d6.ctex"]
 
 [params]
 

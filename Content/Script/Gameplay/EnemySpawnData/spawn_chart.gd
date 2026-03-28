@@ -7,3 +7,5 @@ extends Resource
 
 ## 波次列表（每个 SpawnWave 包含一组 SpawnEntry）
 @export var waves: Array[SpawnWave] = []
+## 本谱面的一波结束后等待多少拍再开始下一波
+@export var next_wave_interval: int = 4

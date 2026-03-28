@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2qoafgl22ffi"
-path="res://.godot/imported/音符.png-288ef1f722f42e6e1fdf4dd07252b55b.ctex"
+uid="uid://dl55wrcpt43qi"
+path="res://.godot/imported/手待机0030.png0012.png-d7fb5892ca66a4283393d9ac463f4d77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Art/Sprite/scene/谱子/音符.png"
-dest_files=["res://.godot/imported/音符.png-288ef1f722f42e6e1fdf4dd07252b55b.ctex"]
+source_file="res://Content/Art/Sprite/boss动画/手待机/手待机0030.png0012.png"
+dest_files=["res://.godot/imported/手待机0030.png0012.png-d7fb5892ca66a4283393d9ac463f4d77.ctex"]
 
 [params]
 
