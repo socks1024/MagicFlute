@@ -1,15 +1,18 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://6pihc4mmw4ps"]
 
+[ext_resource type="Texture2D" uid="uid://2qoafgl22ffi" path="res://Content/Art/Sprite/scene/谱子/音符.png" id="1_dpu88"]
 [ext_resource type="Script" uid="uid://bgkrn54pipur" path="res://Content/Script/Gameplay/falling_note.gd" id="1_note"]
 
-
-[node name="FallingNote" type="ColorRect"]
+[node name="FallingNote" type="TextureRect" unique_id=676456302]
 custom_minimum_size = Vector2(44, 44)
-size = Vector2(44, 44)
-color = Color(1, 1, 1, 1)
+offset_right = 44.0
+offset_bottom = 44.0
+rotation = 1.5707964
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("1_dpu88")
 script = ExtResource("1_note")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=932274102]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

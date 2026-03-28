@@ -1,5 +1,5 @@
 class_name FallingNote
-extends ColorRect
+extends TextureRect
 ## 单个下落音符
 ##
 ## 由 RhythmLane 动态实例化并管理位置，

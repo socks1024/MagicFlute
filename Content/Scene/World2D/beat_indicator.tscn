@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dha7k2m4p8bti"]
 
 [ext_resource type="Script" uid="uid://bb5rpw8jd10lv" path="res://Content/Script/Gameplay/beat_indicator.gd" id="1_beatui"]
-[ext_resource type="Texture2D" uid="uid://dlywi7mhccpyb" path="res://Content/Art/Sprite/gamefeel/节奏板.png" id="2_jyid3"]
+[ext_resource type="Texture2D" uid="uid://lwmxuqpjnur7" path="res://Content/Art/Sprite/demo.jpg" id="2_til1y"]
+[ext_resource type="Texture2D" uid="uid://2qoafgl22ffi" path="res://Content/Art/Sprite/scene/谱子/音符.png" id="3_qcswp"]
 [ext_resource type="Texture2D" uid="uid://b4wglsnwfjwfl" path="res://Content/Art/Sprite/gamefeel/节奏按键.png" id="3_uqpd2"]
-[ext_resource type="Texture2D" uid="uid://rkfshk4psk10" path="res://Content/Art/Sprite/gamefeel/音符.png" id="4_qcswp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qcswp"]
+load_path = "res://.godot/imported/节奏板.png-255cefe5f1d3cb2b818748436bf52015.ctex"
 
 [node name="BeatIndicator" type="Control" unique_id=1865335184]
 layout_mode = 3
@@ -11,13 +14,25 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
 offset_top = -60.0
+offset_right = 2.0
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 2
 script = ExtResource("1_beatui")
 cursor_count = 8
-cursor_width = 16.0
+cursor_width = 20.0
+cursor_height = 5.0
+cursor_default_color = Color(1, 1, 1, 1)
+cursor_hit_color = Color(1, 0.9490196, 1, 0.16078432)
+cursor_miss_color = Color(0.30588236, 0, 0.02745098, 1)
+cursor_texture = ExtResource("3_qcswp")
+
+[node name="Demo" type="Sprite2D" parent="." unique_id=465435811]
+visible = false
+position = Vector2(960, -480)
+texture = ExtResource("2_til1y")
 
 [node name="Margin" type="MarginContainer" parent="." unique_id=925082190]
 layout_mode = 1
@@ -35,34 +50,35 @@ theme_override_constants/margin_bottom = 10
 [node name="Background" type="ColorRect" parent="Margin" unique_id=729593463]
 layout_mode = 2
 mouse_filter = 2
-color = Color(0.12, 0.12, 0.15, 0.85)
+color = Color(0.12156863, 0.12156863, 0.14901961, 0)
 
 [node name="节奏板" type="Sprite2D" parent="Margin/Background" unique_id=537813206]
-position = Vector2(572, -3)
-scale = Vector2(0.67349875, 0.67349887)
-texture = ExtResource("2_jyid3")
+z_index = -1
+position = Vector2(574.00006, -54.999992)
+scale = Vector2(0.95, 0.95)
+texture = SubResource("CompressedTexture2D_qcswp")
 
 [node name="CenterLine" type="ColorRect" parent="." unique_id=474988008]
+z_index = 2
 layout_mode = 0
+offset_left = 977.0
+offset_top = -57.0
+offset_right = 977.0
+offset_bottom = -57.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0.6)
 
-[node name="节奏按键" type="Sprite2D" parent="CenterLine" unique_id=876257441]
-position = Vector2(0, 22.999998)
-scale = Vector2(0.21, 0.21)
+[node name="节奏按键" type="Sprite2D" parent="CenterLine" unique_id=1930554895]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_uqpd2")
 
-[node name="Cursor" type="ColorRect" parent="." unique_id=1258744529]
-z_index = -1
-layout_mode = 0
-offset_top = 21.0
-offset_bottom = 21.0
-scale = Vector2(1, 1.2)
-mouse_filter = 2
-color = Color(0.3019608, 0.8509804, 1, 0)
-
-[node name="音符" type="Sprite2D" parent="Cursor" unique_id=1866615293]
+[node name="Cursor" type="TextureRect" parent="." unique_id=667148065]
 z_index = 1
-position = Vector2(0, 10.00004)
-scale = Vector2(0.605, 0.685)
-texture = ExtResource("4_qcswp")
+layout_mode = 0
+offset_left = -0.9999999
+offset_top = -107.0
+offset_right = 454.0
+offset_bottom = 355.0
+scale = Vector2(0.245, 0.289)
+mouse_filter = 2
+texture = ExtResource("3_qcswp")

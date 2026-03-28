@@ -1,6 +1,6 @@
 class_name RhythmLane
 extends Control
-## 横向 FNF 式音游轨道
+## 横向 FNF 式音游轨道（支持通用音符贴图）
 ##
 ## 平时隐藏，外部调用 start_sequence() 后显示并播放一段谱面。
 ## 所有音符结算后自动隐藏并发出 sequence_finished 信号。
@@ -34,6 +34,31 @@ const LANE_COLORS: Array[Color] = [
 # ── 布局参数（纯视觉） ──────────────────────────────
 ## 音符大小（像素）
 @export var note_size: float = 44.0
+
+# ── 轨道位置自定义 ──────────────────────────────────
+## 是否显示轨道轨迹线（仅在编辑器中可见）
+@export var show_track_lines: bool = true:
+	set(value):
+		show_track_lines = value
+		queue_redraw()
+
+## 轨道 Y 坐标（像素），可以手动调整每条轨道的 Y 中心位置
+@export var track_y_positions: Array[float] = [80.0, 160.0, 240.0, 320.0]:
+	set(value):
+		track_y_positions = value
+		_update_lane_centers()
+		queue_redraw()
+
+## 是否使用自定义轨道位置（false 时自动计算）
+@export var use_custom_track_positions: bool = true:
+	set(value):
+		use_custom_track_positions = value
+		_update_lane_centers()
+		queue_redraw()
+
+# ── 音符贴图资源（通用）─────────────────────────────
+## 通用音符贴图（所有方向使用同一张贴图）
+@export var note_texture: Texture2D
 
 # ── 音符场景 ─────────────────────────────────────────
 ## 音符场景资源（FallingNote）
@@ -77,10 +102,8 @@ var _miss_count: int = 0
 func _ready() -> void:
 	# 从判定线节点位置推算判定 X（取判定线中心）
 	_judge_x = _judge_line.position.x + _judge_line.size.x * 0.5
-	# 从自身尺寸计算每条轨道的 Y 中心
-	var lane_h: float = size.y / 4.0
-	for i: int in range(4):
-		_lane_centers.append(lane_h * i + lane_h * 0.5)
+	# 初始化轨道位置
+	_update_lane_centers()
 	# 初始隐藏
 	visible = false
 	CLog.o("RhythmLane 就绪 | 判定线X=%.0f" % _judge_x)
@@ -95,6 +118,71 @@ func _process(_delta: float) -> void:
 	_update_note_positions()
 	# 检查飘过判定线的音符（Miss）
 	_check_missed_notes()
+
+
+func _draw() -> void:
+	# 绘制轨道轨迹线（仅在编辑器中显示，用于可视化调整）
+	if not Engine.is_editor_hint() and not show_track_lines:
+		return
+	
+	# 绘制判定线位置的辅助线（垂直线）
+	var judge_line_x: float = _judge_line.position.x + _judge_line.size.x * 0.5
+	draw_line(Vector2(judge_line_x, 0), Vector2(judge_line_x, size.y), Color(1.0, 1.0, 0.0, 0.5), 2.0)
+	
+	# 绘制每条轨道的轨迹线
+	for i: int in range(_lane_centers.size()):
+		var y_center: float = _lane_centers[i]
+		var y_top: float = y_center - note_size * 0.5
+		var y_bottom: float = y_center + note_size * 0.5
+		var lane_color: Color = LANE_COLORS[i]
+		lane_color.a = 0.3  # 半透明
+		
+		# 绘制轨道区域（矩形）
+		var rect: Rect2 = Rect2(0, y_top, size.x, note_size)
+		draw_rect(rect, lane_color, false, 2.0)
+		
+		# 绘制轨道中心线
+		draw_line(Vector2(0, y_center), Vector2(size.x, y_center), lane_color, 1.0)
+		
+		# 绘制轨道标签文字（仅在编辑器中）
+		if Engine.is_editor_hint():
+			var label_text: String = LANE_LABELS[i]
+			var font: Font = ThemeDB.fallback_font
+			var font_size: int = 16
+			var text_size: Vector2 = font.get_string_size(label_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size)
+			var text_pos: Vector2 = Vector2(5, y_center - text_size.y * 0.5)
+			draw_string(font, text_pos, label_text, HORIZONTAL_ALIGNMENT_LEFT, -1, font_size, lane_color)
+
+
+## 更新轨道中心位置
+func _update_lane_centers() -> void:
+	_lane_centers.clear()
+	
+	if use_custom_track_positions and track_y_positions.size() == 4:
+		# 使用自定义位置
+		for i: int in range(4):
+			_lane_centers.append(track_y_positions[i])
+	else:
+		# 自动计算位置（平分高度）
+		var lane_h: float = size.y / 4.0
+		for i: int in range(4):
+			_lane_centers.append(lane_h * i + lane_h * 0.5)
+	
+	# 输出调试信息
+	CLog.o("轨道位置已更新: %s" % _lane_centers)
+
+
+func _resized() -> void:
+	# 当节点大小改变时重新计算轨道位置
+	if not use_custom_track_positions:
+		_update_lane_centers()
+	queue_redraw()
+
+# ── 辅助函数 ─────────────────────────────────────────
+
+## 获取通用音符贴图
+func _get_note_texture() -> Texture2D:
+	return note_texture
 
 # ── 外部接口 ─────────────────────────────────────────
 
@@ -183,16 +271,35 @@ func _spawn_pending_notes() -> void:
 		var note: FallingNote = note_scene.instantiate() as FallingNote
 		note.lane_index = lane_idx
 		note.beat_index = beat_idx
-		note.color = LANE_COLORS[lane_idx]
+		# 设置大小
 		note.custom_minimum_size = Vector2(note_size, note_size)
 		note.size = Vector2(note_size, note_size)
-		# 设置初始位置
+		
+		# 设置通用音符贴图
+		var note_texture_common: Texture2D = _get_note_texture()
+		if note_texture_common != null:
+			# 如果 FallingNote 是 TextureRect，直接设置 texture 属性
+			if note is TextureRect:
+				note.texture = note_texture_common
+			# 或者如果有 texture 属性
+			elif "texture" in note:
+				note.texture = note_texture_common
+		
+		# 设置标签文字
+		if note.label:
+			note.label.text = LANE_LABELS[lane_idx]
+			# 如果使用了贴图，可以隐藏文字
+			if note_texture_common != null:
+				note.label.visible = false
+			else:
+				note.label.visible = true
+		
+		# 设置初始位置 - 使用更新后的轨道中心
 		var x: float = _get_note_x(beat_time)
 		var y: float = _lane_centers[lane_idx] - note_size * 0.5
 		note.position = Vector2(x, y)
 		add_child(note)
-		# @onready 的 label 在 add_child 后才可用
-		note.label.text = LANE_LABELS[lane_idx]
+		
 		_active_notes.append(note)
 		_next_chart_index += 1
 

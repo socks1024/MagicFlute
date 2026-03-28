@@ -9,7 +9,7 @@ extends Control
 # ── 子节点引用（场景中静态配置） ─────────────────────
 @onready var _background: ColorRect = $Margin/Background
 @onready var _center_line: ColorRect = $CenterLine
-@onready var _cursor_template: ColorRect = $Cursor
+@onready var _cursor_template: TextureRect = $Cursor  # 改为 TextureRect
 
 # ── 光标参数 ──────────────────────────────────────
 ## 同时在条上流动的光标数量（也是光标走完全程所需的拍数）
@@ -20,12 +20,16 @@ extends Control
 @export var cursor_height: float = 0.0
 
 # ── 闪烁颜色 ─────────────────────────────────────────
-## 光标默认颜色
-@export var cursor_default_color: Color = Color(0.3, 0.85, 1.0, 1.0)
+## 光标默认颜色（与贴图混合，白色表示完全显示贴图原色）
+@export var cursor_default_color: Color = Color(1.0, 1.0, 1.0, 0.0)  # 透明，不可见
 ## 光标命中时闪烁色
 @export var cursor_hit_color: Color = Color(1.0, 0.95, 0.2, 1.0)
 ## 光标 Miss 时闪烁色
 @export var cursor_miss_color: Color = Color(1.0, 0.2, 0.2, 1.0)
+
+# ── 贴图资源 ─────────────────────────────────────────
+## 光标贴图
+@export var cursor_texture: Texture2D
 
 # ── 内部变量（由外部通过方法传入） ─────────────────
 ## 每拍时长（秒）
@@ -35,10 +39,8 @@ var _song_time_sec: float = 0.0
 ## 当前拍点时间（秒）
 var _current_beat_time: float = 0.0
 
-
-
 ## 所有光标竖条节点（包括模板 + 克隆）
-var _cursors: Array[ColorRect] = []
+var _cursors: Array[TextureRect] = []  # 改为 TextureRect
 ## 光标闪烁计时器
 var _flash_timer: float = 0.0
 ## 闪烁持续时长（秒）
@@ -49,21 +51,29 @@ var _flash_color: Color = Color.TRANSPARENT
 # ── 生命周期 ───────────────────────────────────────
 
 func _ready() -> void:
+	# 设置光标贴图
+	if _cursor_template != null and cursor_texture != null:
+		_cursor_template.texture = cursor_texture
+	
 	# 使用模板光标克隆出额外的光标
 	if _cursor_template != null:
 		_cursors.append(_cursor_template)
 		for i: int in range(1, cursor_count):
-			var clone: ColorRect = _cursor_template.duplicate() as ColorRect
+			var clone: TextureRect = _cursor_template.duplicate() as TextureRect
 			clone.name = "Cursor%d" % i
 			add_child(clone)
 			_cursors.append(clone)
+		
+		# 设置所有光标的贴图
+		for cur in _cursors:
+			cur.texture = cursor_texture
 
 	# 设置自身不拦截鼠标
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	# 当背景条尺寸变化时重新布局（由容器驱动）
 	if _background != null:
 		_background.resized.connect(_setup_layout)
-	# 初始化子节点尺寸
+	# 初始化子节点尺寸（只设置大小和水平位置，不改变Y坐标）
 	_setup_layout()
 
 
@@ -109,19 +119,19 @@ func _setup_layout() -> void:
 	# 将 Background 的局部坐标转换为 BeatIndicator 本地坐标
 	var bar_pos: Vector2 = _background.get_global_rect().position - get_global_rect().position
 	var bar_size: Vector2 = _background.size
-	var center_x: float = bar_pos.x + bar_size.x * 0.5
 
-	# ── 中心拍点线：2px 宽，比背景条上下各多 2px ──
+	# ── 中心拍点线：保留场景中摆放的位置，不重新定位 ──
+	# 只设置中心线的大小，不修改位置
 	if _center_line != null:
-		var line_w: float = 2.0
-		_center_line.position = Vector2(center_x - line_w * 0.5, bar_pos.y - 2.0)
-		_center_line.size = Vector2(line_w, bar_size.y + 4.0)
+		# 只设置宽度和高度，位置完全保留你在场景中设置的
+		_center_line.size = Vector2(2.0, bar_size.y + 4.0)
 
-	# ── 所有光标竖条的尺寸和垂直位置 ──
+	# ── 所有光标竖条的尺寸 ──
+	# 只设置大小，不修改任何位置（包括X和Y）
 	var ch: float = cursor_height if cursor_height > 0.0 else bar_size.y
-	for cur: ColorRect in _cursors:
+	for cur: TextureRect in _cursors:
 		cur.size = Vector2(cursor_width, ch)
-		cur.position.y = bar_pos.y + (bar_size.y - ch) * 0.5
+		# 完全不修改位置，保留场景中摆放的X和Y坐标
 
 # ── 光标更新 ──────────────────────────────────────
 
@@ -133,7 +143,7 @@ func _update_cursors() -> void:
 	var bar_x: float = _background.get_global_rect().position.x - get_global_rect().position.x
 	var bar_w: float = _background.size.x
 
-	# 计算当前颜色
+	# 计算当前颜色（用于 modulate，实现闪烁效果）
 	var cur_color: Color = cursor_default_color
 	if _flash_timer > 0.0:
 		var flash_alpha: float = _flash_timer / _flash_duration
@@ -141,10 +151,10 @@ func _update_cursors() -> void:
 
 	for i: int in range(_cursors.size()):
 		var progress: float = _get_cursor_progress(i)
-		var cur: ColorRect = _cursors[i]
+		var cur: TextureRect = _cursors[i]
 		# 光标中心 = bar_x + progress * bar_w
 		cur.position.x = bar_x + progress * bar_w - cur.size.x * 0.5
-		cur.color = cur_color
+		cur.modulate = cur_color  # TextureRect 使用 modulate 而不是 color
 		# 超出背景条范围时隐藏
 		cur.visible = (progress >= 0.0 and progress <= 1.0)
 
