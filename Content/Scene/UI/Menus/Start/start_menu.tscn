@@ -2,32 +2,753 @@
 
 [ext_resource type="PackedScene" uid="uid://bkjowivgs5uon" path="res://Content/Scene/UI/Common/Button/common_button.tscn" id="1_i6emh"]
 [ext_resource type="Script" uid="uid://clgp4bfhaunuw" path="res://Content/Scene/UI/Menus/Start/start_menu.gd" id="1_scefs"]
+[ext_resource type="Texture2D" uid="uid://ikvbmxhraso7" path="res://Content/Art/Sprite/开始界面/play.png" id="3_mgepj"]
+[ext_resource type="Texture2D" uid="uid://ciq52ocp2vw0e" path="res://Content/Art/Sprite/开始界面/总.png" id="4_exk2g"]
+[ext_resource type="Script" uid="uid://ck4on2pb34x4" path="res://Content/Scene/UI/Common/Button/common_texture_button.gd" id="4_r4neo"]
+[ext_resource type="Resource" uid="uid://b7tq72k7uildv" path="res://Content/Art/Audio/Events/UI/common_button_pressed.tres" id="5_r4neo"]
+[ext_resource type="Texture2D" uid="uid://cptj0gqlkty87" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20001.png" id="8_vkly4"]
+[ext_resource type="Texture2D" uid="uid://c61ui3gmx64a3" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20002.png" id="9_w6uo1"]
+[ext_resource type="Texture2D" uid="uid://d3eicfwk7tstx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20003.png" id="10_jccxx"]
+[ext_resource type="Texture2D" uid="uid://co457je0qvlxp" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20004.png" id="11_we3m0"]
+[ext_resource type="Texture2D" uid="uid://c447kovqyfavx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20005.png" id="12_ue8ch"]
+[ext_resource type="Texture2D" uid="uid://dwyafcyu3lg1s" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20006.png" id="13_xnak8"]
+[ext_resource type="Texture2D" uid="uid://xko5u5mq40u7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20007.png" id="14_jkvp1"]
+[ext_resource type="Texture2D" uid="uid://g6i2ndva5ywu" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20008.png" id="15_ia4oe"]
+[ext_resource type="Texture2D" uid="uid://bth0uv188upqb" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20009.png" id="16_vh07d"]
+[ext_resource type="Texture2D" uid="uid://crtcqe115h25w" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20010.png" id="17_mjbwx"]
+[ext_resource type="Texture2D" uid="uid://cgxqn5ddh04ww" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20011.png" id="18_8sdbh"]
+[ext_resource type="Texture2D" uid="uid://pjempyur6f0k" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20012.png" id="19_geml4"]
+[ext_resource type="Texture2D" uid="uid://bgno5hnw7gvmv" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20013.png" id="20_7bi6n"]
+[ext_resource type="Texture2D" uid="uid://brh3wl60lx2u5" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20014.png" id="21_y1hpj"]
+[ext_resource type="Texture2D" uid="uid://6i3raaper7ma" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20015.png" id="22_xnqty"]
+[ext_resource type="Texture2D" uid="uid://f0iiqqu5yy0r" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20016.png" id="23_nlcod"]
+[ext_resource type="Texture2D" uid="uid://dkredc87lfx6x" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20017.png" id="24_33rej"]
+[ext_resource type="Texture2D" uid="uid://bc4l64u8ynf1g" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20018.png" id="25_3348q"]
+[ext_resource type="Texture2D" uid="uid://ck6dbmkhjdb2a" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20019.png" id="26_7gv8c"]
+[ext_resource type="Texture2D" uid="uid://hue8y315pxel" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20020.png" id="27_5m66i"]
+[ext_resource type="Texture2D" uid="uid://u4cb5o80wbjh" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20021.png" id="28_b2al1"]
+[ext_resource type="Texture2D" uid="uid://cythwviipn7hi" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20022.png" id="29_br22h"]
+[ext_resource type="Texture2D" uid="uid://dxc122sdjh1jo" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20023.png" id="30_segel"]
+[ext_resource type="Texture2D" uid="uid://dku7jy2y5vbc0" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20024.png" id="31_vo2c8"]
+[ext_resource type="Texture2D" uid="uid://gaw70w6og5i3" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20025.png" id="32_0nudl"]
+[ext_resource type="Texture2D" uid="uid://prr4bci22bgt" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20026.png" id="33_8a0x8"]
+[ext_resource type="Texture2D" uid="uid://dimwu7li1au5q" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20027.png" id="34_w42oi"]
+[ext_resource type="Texture2D" uid="uid://cdol4gvkuvm82" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20028.png" id="35_os22m"]
+[ext_resource type="Texture2D" uid="uid://cqty8073bojxm" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20029.png" id="36_g2l8q"]
+[ext_resource type="Texture2D" uid="uid://bpx8ki8p0uby3" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20030.png" id="37_hhc6f"]
+[ext_resource type="Texture2D" uid="uid://df50g0gcsc6wx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20031.png" id="38_ghuib"]
+[ext_resource type="Texture2D" uid="uid://b8lbryp64n4id" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20032.png" id="39_bsiox"]
+[ext_resource type="Texture2D" uid="uid://c8pjdmlowxqo8" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20033.png" id="40_m1g2g"]
+[ext_resource type="Texture2D" uid="uid://cscpx5juuj4jm" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20034.png" id="41_s1kk0"]
+[ext_resource type="Texture2D" uid="uid://cgpoih8vcui4o" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20035.png" id="42_yejwv"]
+[ext_resource type="Texture2D" uid="uid://bas3bykhxysmh" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20036.png" id="43_6o0g2"]
+[ext_resource type="Texture2D" uid="uid://c80udargxthph" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20037.png" id="44_24xf3"]
+[ext_resource type="Texture2D" uid="uid://bf163lb22m1e8" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20038.png" id="45_egd8f"]
+[ext_resource type="Texture2D" uid="uid://7ayh72niuk5m" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20039.png" id="46_b55bs"]
+[ext_resource type="Texture2D" uid="uid://dnfrq6pw6gprv" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20040.png" id="47_nvasn"]
+[ext_resource type="Texture2D" uid="uid://bnh2bv8fg3tga" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20041.png" id="48_d81j3"]
+[ext_resource type="Texture2D" uid="uid://bq4yevang1g30" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20042.png" id="49_slb47"]
+[ext_resource type="Texture2D" uid="uid://debfj6byno8pl" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20043.png" id="50_ll07p"]
+[ext_resource type="Texture2D" uid="uid://cjb0admxokmre" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20044.png" id="51_7ccpw"]
+[ext_resource type="Texture2D" uid="uid://c2jlhrmqipwtc" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20045.png" id="52_qc10k"]
+[ext_resource type="Texture2D" uid="uid://cvnmhvwsmthdr" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20046.png" id="53_dbfpb"]
+[ext_resource type="Texture2D" uid="uid://nhsid1x3yuvb" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20047.png" id="54_5gv10"]
+[ext_resource type="Texture2D" uid="uid://dsmatm05go2df" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20048.png" id="55_ke726"]
+[ext_resource type="Texture2D" uid="uid://ot8lfsf0tjg7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20049.png" id="56_acoor"]
+[ext_resource type="Texture2D" uid="uid://bd1hmo41koexq" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20050.png" id="57_v86jb"]
+[ext_resource type="Texture2D" uid="uid://bwpdbtupno62n" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20051.png" id="58_7eio2"]
+[ext_resource type="Texture2D" uid="uid://8s8sptmnrqmi" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20052.png" id="59_q7685"]
+[ext_resource type="Texture2D" uid="uid://cy1okv5leo01r" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20053.png" id="60_nwple"]
+[ext_resource type="Texture2D" uid="uid://bquhgcoo8pjv0" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20054.png" id="61_310h0"]
+[ext_resource type="Texture2D" uid="uid://crlbril7ohpf7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20055.png" id="62_q4twn"]
+[ext_resource type="Texture2D" uid="uid://6iani8kdegg2" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20056.png" id="63_syl85"]
+[ext_resource type="Texture2D" uid="uid://cafmymmqwgmhp" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20057.png" id="64_e3yjd"]
+[ext_resource type="Texture2D" uid="uid://bqksq3i6asu1m" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20058.png" id="65_0un03"]
+[ext_resource type="Texture2D" uid="uid://b1kuncgsye5n1" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0001.png" id="65_a73bh"]
+[ext_resource type="Texture2D" uid="uid://es2j722f50e6" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0002.png" id="66_3s7hy"]
+[ext_resource type="Texture2D" uid="uid://dcrg82akbgfy3" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20059.png" id="66_6e4eh"]
+[ext_resource type="Texture2D" uid="uid://diulp2evrbi46" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架待机/界面待机20060.png" id="67_fko6u"]
+[ext_resource type="Texture2D" uid="uid://drp8s32ckj4oy" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0003.png" id="67_jl2vl"]
+[ext_resource type="Texture2D" uid="uid://cmda0y1b3sy3p" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0004.png" id="68_6uvrm"]
+[ext_resource type="Texture2D" uid="uid://heqqbj880tcm" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0005.png" id="69_lnmna"]
+[ext_resource type="Texture2D" uid="uid://dc5mchimwj4n" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0006.png" id="70_jd5bf"]
+[ext_resource type="Texture2D" uid="uid://bdasqjitqh8vv" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0007.png" id="71_dn78e"]
+[ext_resource type="Texture2D" uid="uid://cegbrmeqw1ipg" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0008.png" id="72_05imu"]
+[ext_resource type="Texture2D" uid="uid://4ahd6k25h417" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0009.png" id="73_0n5vp"]
+[ext_resource type="Texture2D" uid="uid://vyu254tu3goa" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0010.png" id="74_e5w8k"]
+[ext_resource type="Texture2D" uid="uid://dul8btah3sraw" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0011.png" id="75_6oytr"]
+[ext_resource type="Texture2D" uid="uid://btvnikae4murt" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0012.png" id="76_gu7km"]
+[ext_resource type="Texture2D" uid="uid://b3n4omfkux447" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0013.png" id="77_e0n6p"]
+[ext_resource type="Texture2D" uid="uid://b6breb2medqjx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0014.png" id="78_18j3a"]
+[ext_resource type="Texture2D" uid="uid://cmk48asf7wjk7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0015.png" id="79_beav6"]
+[ext_resource type="Texture2D" uid="uid://bm031v7ssk7ht" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0016.png" id="80_4x7ki"]
+[ext_resource type="Texture2D" uid="uid://dnctjlccislaq" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0017.png" id="81_e5o0q"]
+[ext_resource type="Texture2D" uid="uid://d3gh2u5jdjfmx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0018.png" id="82_oi8sf"]
+[ext_resource type="Texture2D" uid="uid://7gsvmrtmepre" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0019.png" id="83_n8lwh"]
+[ext_resource type="Texture2D" uid="uid://bmry7fr2rmnpx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0020.png" id="84_nfyhp"]
+[ext_resource type="Texture2D" uid="uid://dj1y0r28tbk1o" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0021.png" id="85_q1qov"]
+[ext_resource type="Texture2D" uid="uid://nkf1j4lorqfm" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0022.png" id="86_tfbej"]
+[ext_resource type="Texture2D" uid="uid://dgo754em8o6cy" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0023.png" id="87_3k8yd"]
+[ext_resource type="Texture2D" uid="uid://c2btlc1lbf7sf" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0024.png" id="88_i87fn"]
+[ext_resource type="Texture2D" uid="uid://djxwu0ayew7fb" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0025.png" id="89_uobrx"]
+[ext_resource type="Texture2D" uid="uid://djy7csnk2aesu" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0026.png" id="90_x0iq0"]
+[ext_resource type="Texture2D" uid="uid://clkn25gka70rq" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0027.png" id="91_5cwhs"]
+[ext_resource type="Texture2D" uid="uid://cb81b07bc48rq" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0028.png" id="92_gbfg1"]
+[ext_resource type="Texture2D" uid="uid://dhgtxhpf03rpa" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0029.png" id="93_unel8"]
+[ext_resource type="Texture2D" uid="uid://vxqedvxvsooy" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0030.png" id="94_qjtcm"]
+[ext_resource type="Texture2D" uid="uid://blrgo8acoatsm" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0031.png" id="95_n56kg"]
+[ext_resource type="Texture2D" uid="uid://crg3hi334wj1j" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0032.png" id="96_7o5pk"]
+[ext_resource type="Texture2D" uid="uid://mv6vv6xlbgji" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0033.png" id="97_1nwj6"]
+[ext_resource type="Texture2D" uid="uid://dxq688b03odj0" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0034.png" id="98_5mhn1"]
+[ext_resource type="Texture2D" uid="uid://c5j5vxskq80r0" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0035.png" id="99_e1cl6"]
+[ext_resource type="Texture2D" uid="uid://crfevqbcter6h" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0036.png" id="100_a2s1a"]
+[ext_resource type="Texture2D" uid="uid://dlmjkhm0a2dpx" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0037.png" id="101_5iaxt"]
+[ext_resource type="Texture2D" uid="uid://cxkopltiw1kem" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0038.png" id="102_e8b5v"]
+[ext_resource type="Texture2D" uid="uid://b2ke17cnjs0h6" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0039.png" id="103_327ns"]
+[ext_resource type="Texture2D" uid="uid://ba5dtbbebslxt" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0040.png" id="104_orjx5"]
+[ext_resource type="Texture2D" uid="uid://bdwaeel1eyhy7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0041.png" id="105_2fo8h"]
+[ext_resource type="Texture2D" uid="uid://bjdfkp04nf8hn" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0042.png" id="106_hxfxw"]
+[ext_resource type="Texture2D" uid="uid://cgb24ho6rttdi" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0043.png" id="107_ghb7r"]
+[ext_resource type="Texture2D" uid="uid://qowb6m2wj50j" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0044.png" id="108_8ioay"]
+[ext_resource type="Texture2D" uid="uid://dcmkane8nm7n7" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0045.png" id="109_qoemg"]
+[ext_resource type="Texture2D" uid="uid://cdjxsnwfta2lr" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0046.png" id="110_yvgy5"]
+[ext_resource type="Texture2D" uid="uid://defuy66kv4ii5" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0047.png" id="111_56p3g"]
+[ext_resource type="Texture2D" uid="uid://dkjxfkbpk50kg" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0048.png" id="112_rotyu"]
+[ext_resource type="Texture2D" uid="uid://bprr6uqgls8vo" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0049.png" id="113_eg4t2"]
+[ext_resource type="Texture2D" uid="uid://opowtn8r80hs" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0050.png" id="114_aggye"]
+[ext_resource type="Texture2D" uid="uid://d21diibd52uov" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0051.png" id="115_q2qn5"]
+[ext_resource type="Texture2D" uid="uid://c6ibeflkheh1i" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0052.png" id="116_n5ox3"]
+[ext_resource type="Texture2D" uid="uid://cpqarqbr08n28" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0053.png" id="117_elww8"]
+[ext_resource type="Texture2D" uid="uid://chru8dnfenayt" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0054.png" id="118_kbxft"]
+[ext_resource type="Texture2D" uid="uid://dycvakhxcmq2l" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0055.png" id="119_3ayum"]
+[ext_resource type="Texture2D" uid="uid://117tqygekeke" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0056.png" id="120_p2q1e"]
+[ext_resource type="Texture2D" uid="uid://cip4kqyfdtn1e" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0057.png" id="121_on5a4"]
+[ext_resource type="Texture2D" uid="uid://bn2yssw5417x0" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0058.png" id="122_4bdr1"]
+[ext_resource type="Texture2D" uid="uid://cd1ek2p26n04f" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0059.png" id="123_iriy3"]
+[ext_resource type="Texture2D" uid="uid://6ow8jvyhx7yr" path="res://Content/Art/Sprite/开始界面/开始动画/车架/车架过场/过场0060.png" id="124_rc63r"]
 
-[sub_resource type="Curve" id="Curve_scefs"]
+[sub_resource type="Curve" id="Curve_fko6u"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="Curve" id="Curve_ikp7q"]
+[sub_resource type="Curve" id="Curve_a73bh"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
-[sub_resource type="Curve" id="Curve_bn61v"]
+[sub_resource type="Curve" id="Curve_3s7hy"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 4
+
+[sub_resource type="Curve" id="Curve_jl2vl"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_6uvrm"]
+resource_local_to_scene = true
+_limits = [-0.5, 0.5, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Shader" id="Shader_fko6u"]
+code = "shader_type canvas_item;
+
+// ==================== 幕布综合着色器 ====================
+// 合并了飘动效果和拉开效果。
+// progress = 0.0 时为纯飘动状态，progress = 1.0 时幕布完全收拢到左侧。
+// 过渡过程中飘动自然减弱，拉开褶皱逐渐增强。
+// ====================================================
+
+// ---------- 拉开控制 ----------
+
+// 拉开进度（0.0 = 完全展开/飘动，1.0 = 完全收拢到左侧）
+uniform float progress : hint_range(0.0, 1.0) = 0.0;
+
+// 上下进度差异（值越大，上方比下方拉得越快，右侧弧线越弯）
+uniform float curve_strength : hint_range(0.0, 1.0) = 0.5;
+
+// ---------- 飘动波浪参数 ----------
+
+// 水平波浪幅度（值越大，左右摆动越明显）
+uniform float wave_amplitude : hint_range(0.0, 0.1) = 0.02;
+
+// 水平波浪频率（值越大，波浪越密集）
+uniform float wave_frequency : hint_range(1.0, 20.0) = 8.0;
+
+// 波浪流动速度
+uniform float wave_speed : hint_range(0.0, 10.0) = 2.0;
+
+// 垂直波浪幅度（模拟上下起伏）
+uniform float vertical_amplitude : hint_range(0.0, 0.05) = 0.005;
+
+// ---------- 飘动褶皱参数 ----------
+
+// 飘动褶皱强度
+uniform float sway_fold_intensity : hint_range(0.0, 1.0) = 0.3;
+
+// 飘动褶皱频率
+uniform float sway_fold_frequency : hint_range(1.0, 30.0) = 12.0;
+
+// ---------- 拉开褶皱参数 ----------
+
+// 拉开褶皱数量
+uniform float pull_fold_count : hint_range(2.0, 15.0) = 5.0;
+
+// 拉开褶皱强度
+uniform float pull_fold_intensity : hint_range(0.0, 1.5) = 0.8;
+
+// ---------- 通用参数 ----------
+
+// 褶皱阴影颜色
+uniform vec4 fold_shadow_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
+
+// 褶皱高光颜色
+uniform vec4 fold_highlight_color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+
+// 顶部固定权重（值越大，顶部越固定）
+uniform float top_weight : hint_range(0.5, 3.0) = 1.5;
+
+// 底部下垂程度（拉开时生效）
+uniform float sag_amount : hint_range(0.0, 0.1) = 0.02;
+
+// 是否启用顶部固定（飘动时使用）
+uniform bool pin_top = true;
+
+// 简易伪随机哈希函数
+float hash(float n) {
+	return fract(sin(n * 127.1) * 43758.5453);
+}
+
+void fragment() {
+	vec2 uv = UV;
+
+	// 飘动效果的衰减因子：progress 越大飘动越弱
+	float sway_factor = 1.0 - smoothstep(0.0, 0.5, progress);
+
+	// 拉开效果的增强因子
+	float pull_factor = smoothstep(0.0, 0.1, progress);
+
+	// ============ 飘动部分（progress 小时主导） ============
+
+	// 根据垂直位置计算摆动权重（越靠下摆动越大）
+	float sway_weight = 1.0;
+	if (pin_top) {
+		sway_weight = pow(uv.y, top_weight);
+	}
+
+	// 主波浪
+	float main_wave = sin(uv.y * wave_frequency + TIME * wave_speed) * wave_amplitude;
+	// 次波浪
+	float secondary_wave = sin(uv.y * wave_frequency * 2.3 + TIME * wave_speed * 1.7 + 1.0) * wave_amplitude * 0.3;
+	// 第三层波浪
+	float tertiary_wave = sin(uv.y * wave_frequency * 4.1 + TIME * wave_speed * 0.8 + 2.5) * wave_amplitude * 0.1;
+
+	// 合并水平偏移（乘以衰减因子）
+	float total_horizontal = (main_wave + secondary_wave + tertiary_wave) * sway_weight * sway_factor;
+
+	// 垂直起伏（乘以衰减因子）
+	float vertical_wave = sin(uv.x * wave_frequency * 0.7 + TIME * wave_speed * 0.6) * vertical_amplitude * sway_weight * sway_factor;
+
+	// 应用飘动UV偏移
+	uv.x += total_horizontal;
+	uv.y += vertical_wave;
+
+	// ============ 拉开部分（progress 大时主导） ============
+
+	// 每行独立的可见宽度：上方拉得快，下方拉得慢
+	float y_factor = 1.0 - pow(uv.y, 1.5);
+	float local_progress = progress * (1.0 + curve_strength * y_factor) / (1.0 + curve_strength * 0.5);
+	local_progress = clamp(local_progress, 0.0, 1.0);
+
+	// 当前行的可见宽度
+	float visible_width = 1.0 - local_progress;
+
+	// 超出可见区域或飘动越界的像素设为透明
+	if (uv.x < 0.0 || uv.y < 0.0 || uv.y > 1.0 || uv.x > visible_width) {
+		COLOR = vec4(0.0);
+	} else {
+		// 将可见区域的 UV 映射回完整纹理
+		// progress=0 时 visible_width=1，mapped_x = uv.x（无变形）
+		// progress>0 时进行压缩映射
+		float mapped_x = uv.x / max(visible_width, 0.001);
+		float mapped_y = uv.y;
+
+		// --- 拉开褶皱形变（仅 progress>0 时生效）---
+		float fold_strength = local_progress;
+
+		float pull_fold_wave = 0.0;
+		if (pull_factor > 0.0) {
+			float phase1 = hash(floor(mapped_x * pull_fold_count)) * 6.28;
+			float phase2 = hash(floor(mapped_x * pull_fold_count * 0.7 + 3.7)) * 6.28;
+			pull_fold_wave = sin(mapped_x * pull_fold_count * 3.14159 + phase1) * 0.7
+							+ sin(mapped_x * pull_fold_count * 1.7 * 3.14159 + phase2) * 0.3;
+			pull_fold_wave = pull_fold_wave * fold_strength * 0.04 * sway_weight;
+		}
+		mapped_y += pull_fold_wave;
+
+		// 底部下垂
+		float edge_proximity = mapped_x;
+		float sag_offset = sag_amount * local_progress * edge_proximity * sway_weight;
+		mapped_y += sag_offset;
+
+		// 边界安全检查
+		mapped_x = clamp(mapped_x, 0.0, 1.0);
+		mapped_y = clamp(mapped_y, 0.0, 1.0);
+
+		// 采样纹理
+		vec4 original_color = texture(TEXTURE, vec2(mapped_x, mapped_y));
+
+		// ============ 褶皱光影混合 ============
+
+		vec3 final_rgb = original_color.rgb;
+
+		// --- 飘动褶皱光影（sway_factor 控制强度）---
+		if (sway_factor > 0.0) {
+			float sway_fold_value = cos(uv.y * sway_fold_frequency + TIME * wave_speed) * 0.5
+								  + cos(uv.y * sway_fold_frequency * 2.1 + TIME * wave_speed * 1.5 + 0.8) * 0.3
+								  + cos(uv.y * sway_fold_frequency * 3.7 + TIME * wave_speed * 0.9 + 1.6) * 0.2;
+			sway_fold_value = clamp(sway_fold_value * sway_weight, -1.0, 1.0);
+
+			float sway_intensity = sway_fold_intensity * sway_factor;
+			if (sway_fold_value < 0.0) {
+				final_rgb = mix(final_rgb, fold_shadow_color.rgb, abs(sway_fold_value) * sway_intensity);
+			} else {
+				final_rgb = mix(final_rgb, fold_highlight_color.rgb, sway_fold_value * sway_intensity * 0.5);
+			}
+		}
+
+		// --- 拉开褶皱光影（pull_factor 控制强度）---
+		if (pull_factor > 0.0) {
+			float vertical_fold_weight = mix(1.0, 0.3, uv.y);
+
+			float fp1 = hash(floor(mapped_x * pull_fold_count + 0.5)) * 6.28;
+			float fp2 = hash(floor(mapped_x * pull_fold_count * 0.6 + 7.1)) * 6.28;
+			float pull_fold_value = cos(mapped_x * pull_fold_count * 3.14159 * 2.0 + fp1) * 0.65
+								  + cos(mapped_x * pull_fold_count * 2.9 * 3.14159 + fp2) * 0.35;
+
+			pull_fold_value = clamp(pull_fold_value, -1.0, 1.0) * fold_strength * vertical_fold_weight;
+
+			// 靠近收拢边缘的褶皱加深
+			float edge_deepen = smoothstep(0.5, 1.0, edge_proximity) * local_progress * 0.4;
+			float edge_fold = cos(edge_proximity * pull_fold_count * 2.0 * 3.14159 + 1.0) * edge_deepen;
+			pull_fold_value = clamp(pull_fold_value + edge_fold, -1.0, 1.0);
+
+			float current_intensity = pull_fold_intensity * fold_strength;
+			if (pull_fold_value < 0.0) {
+				final_rgb = mix(final_rgb, fold_shadow_color.rgb, abs(pull_fold_value) * current_intensity);
+			} else {
+				final_rgb = mix(final_rgb, fold_highlight_color.rgb, pull_fold_value * current_intensity * 0.6);
+			}
+
+			// 收拢边缘阴影
+			float edge_shadow = smoothstep(visible_width - 0.03, visible_width, uv.x) * local_progress * 0.35;
+			final_rgb = mix(final_rgb, fold_shadow_color.rgb, edge_shadow);
+		}
+
+		COLOR = vec4(final_rgb, original_color.a);
+	}
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66qfl"]
+shader = SubResource("Shader_fko6u")
+shader_parameter/progress = 0.0
+shader_parameter/curve_strength = 0.5
+shader_parameter/wave_amplitude = 0.02
+shader_parameter/wave_frequency = 8.0
+shader_parameter/wave_speed = 2.0
+shader_parameter/vertical_amplitude = 0.005
+shader_parameter/sway_fold_intensity = 0.3
+shader_parameter/sway_fold_frequency = 12.0
+shader_parameter/pull_fold_count = 5.0
+shader_parameter/pull_fold_intensity = 0.8
+shader_parameter/fold_shadow_color = Color(0, 0, 0, 1)
+shader_parameter/fold_highlight_color = Color(1, 1, 1, 1)
+shader_parameter/top_weight = 1.5
+shader_parameter/sag_amount = 0.02
+shader_parameter/pin_top = true
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jd5bf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_vkly4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_w6uo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jccxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_we3m0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ue8ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xnak8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jkvp1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ia4oe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_vh07d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_mjbwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_8sdbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_geml4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_7bi6n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_y1hpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xnqty")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_nlcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_33rej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_3348q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7gv8c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_5m66i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_b2al1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_br22h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_segel")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vo2c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_0nudl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_8a0x8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_w42oi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_os22m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_g2l8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_hhc6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_ghuib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_bsiox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_m1g2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_s1kk0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_yejwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_6o0g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_24xf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_egd8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_b55bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_nvasn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_d81j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_slb47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ll07p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_7ccpw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_qc10k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_dbfpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_5gv10")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_ke726")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_acoor")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_v86jb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_7eio2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_q7685")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_nwple")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_310h0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_q4twn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_syl85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_e3yjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_0un03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_6e4eh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_fko6u")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("65_a73bh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_3s7hy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_jl2vl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_6uvrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_lnmna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_jd5bf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_dn78e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_05imu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_0n5vp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_e5w8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_6oytr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_gu7km")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_e0n6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_18j3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_beav6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_4x7ki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_e5o0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_oi8sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_n8lwh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_nfyhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_q1qov")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_tfbej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_3k8yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_i87fn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_uobrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_x0iq0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_5cwhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_gbfg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_unel8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_qjtcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_n56kg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_7o5pk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_1nwj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_5mhn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_e1cl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_a2s1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_5iaxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_e8b5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_327ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_orjx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_2fo8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_hxfxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_ghb7r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_8ioay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_qoemg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_yvgy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_56p3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_rotyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_eg4t2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_aggye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_q2qn5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_n5ox3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_elww8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_kbxft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_3ayum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_p2q1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_on5a4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_4bdr1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_iriy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_rc63r")
+}],
+"loop": false,
+"name": &"open",
+"speed": 30.0
+}]
 
 [sub_resource type="Curve" id="Curve_r4neo"]
-resource_local_to_scene = true
-_limits = [-0.5, 0.5, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
-[sub_resource type="Curve" id="Curve_mgepj"]
 resource_local_to_scene = true
 _limits = [-0.5, 0.5, 0.0, 1.0]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2, 0.4), 0.0, 0.0, 0, 0, Vector2(0.6, -0.15), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -51,6 +772,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=2079655913]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -80,30 +802,75 @@ theme_override_constants/separation = 20
 [node name="NewGame" parent="Panel/VBoxContainer/Buttons" unique_id=962221927 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "NEW_GAME"
-ease_curve = SubResource("Curve_scefs")
+ease_curve = SubResource("Curve_fko6u")
 
 [node name="Continue" parent="Panel/VBoxContainer/Buttons" unique_id=132687649 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "CONTINUE_GAME"
-ease_curve = SubResource("Curve_ikp7q")
+ease_curve = SubResource("Curve_a73bh")
 
 [node name="Settings" parent="Panel/VBoxContainer/Buttons" unique_id=966228876 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "SETTINGS"
-ease_curve = SubResource("Curve_bn61v")
+ease_curve = SubResource("Curve_3s7hy")
 
 [node name="Credits" parent="Panel/VBoxContainer/Buttons" unique_id=819866585 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "CREDITS"
-ease_curve = SubResource("Curve_r4neo")
+ease_curve = SubResource("Curve_jl2vl")
 
 [node name="Exit" parent="Panel/VBoxContainer/Buttons" unique_id=792682864 instance=ExtResource("1_i6emh")]
 layout_mode = 2
 text = "EXIT_GAME"
-ease_curve = SubResource("Curve_mgepj")
+ease_curve = SubResource("Curve_6uvrm")
+
+[node name="StartCurtain" type="Control" parent="." unique_id=1899000232]
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Curtain" type="TextureRect" parent="StartCurtain" unique_id=1758390947]
+material = SubResource("ShaderMaterial_66qfl")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1108.0
+offset_top = -607.0
+offset_right = 1109.0
+offset_bottom = 694.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_exk2g")
+
+[node name="Car" type="Control" parent="StartCurtain" unique_id=681167877]
+anchors_preset = 0
+offset_top = 744.0
+offset_right = 40.0
+offset_bottom = 784.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="StartCurtain/Car" unique_id=1632731542]
+position = Vector2(960, 161)
+sprite_frames = SubResource("SpriteFrames_jd5bf")
+
+[node name="TextureButton" type="TextureButton" parent="StartCurtain/Car" unique_id=1938856362]
+layout_mode = 0
+offset_left = 816.0
+offset_top = 172.0
+offset_right = 1110.0006
+offset_bottom = 251.00012
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("3_mgepj")
+script = ExtResource("4_r4neo")
+duration = 0.3
+ease_curve = SubResource("Curve_r4neo")
+press_sound = ExtResource("5_r4neo")
 
 [connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/NewGame" to="." method="_on_new_game_button_anim_finish"]
 [connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Continue" to="." method="_on_continue_button_anim_finish"]
 [connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Settings" to="." method="_on_settings_button_anim_finish"]
 [connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Credits" to="." method="_on_credits_button_anim_finish"]
 [connection signal="button_anim_finish" from="Panel/VBoxContainer/Buttons/Exit" to="." method="_on_exit_button_anim_finish"]
+[connection signal="button_anim_finish" from="StartCurtain/Car/TextureButton" to="." method="_on_new_game_button_anim_finish"]

@@ -22,6 +22,8 @@ signal lane_sequence_finished(is_full_combo: bool)
 signal move_beat_tick(beat_index: int)
 ## 阶段推进时发出（新阶段索引）
 signal stage_advanced(stage_index: int)
+## 所有轨道阶段全部通关时发出
+signal all_stages_cleared
 
 # ── 导出属性 ─────────────────────────────────────────
 @export_group("轨道序列")
@@ -160,9 +162,6 @@ func start_lane_sequence() -> void:
 	_lane_time_sec = -scroll_duration
 	_rhythm_lane.start_sequence(chart, scroll_beats)
 	lane_sequence_started.emit()
-	# 隐藏节拍指示器
-	if _beat_indicator != null:
-		_beat_indicator.visible = false
 	CLog.o("RhythmConductor 轨道序列启动 | 阶段=%d 序列=%d 音符数=%d" % [_current_stage, _stage_seq_index, chart.size()])
 
 
@@ -201,9 +200,6 @@ func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 		CLog.o("序列推进 → 阶段=%d 序列=%d" % [_current_stage, _stage_seq_index])
 	else:
 		CLog.o("未通关，下次重复当前序列 | 阶段=%d 序列=%d" % [_current_stage, _stage_seq_index])
-	# 恢复节拍指示器显示
-	if _beat_indicator != null:
-		_beat_indicator.visible = true
 	AudioManager.start_music(null,&"Flute",0.5,true)
 	lane_sequence_finished.emit(is_full_combo)
 
@@ -248,9 +244,13 @@ func _resolve_current_sequence() -> LaneSequence:
 	return last_stage.sequences[last_stage.sequences.size() - 1]
 
 
-## 推进到下一阶段，重置阶段内序列计数器
+## 推进到下一阶段，重置阶段内序列计数器；若所有阶段已完成则发出胜利信号
 func _advance_stage() -> void:
 	_current_stage += 1
 	_stage_seq_index = 0
-	stage_advanced.emit(_current_stage)
-	CLog.o("RhythmConductor 阶段推进 → #%d" % _current_stage)
+	if _current_stage >= lane_stages.size():
+		CLog.o("RhythmConductor 所有阶段通关！")
+		all_stages_cleared.emit()
+	else:
+		stage_advanced.emit(_current_stage)
+		CLog.o("RhythmConductor 阶段推进 → #%d" % _current_stage)

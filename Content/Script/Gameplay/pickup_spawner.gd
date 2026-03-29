@@ -27,6 +27,7 @@ func _ready() -> void:
 	# 监听 lane 序列结束信号，在结束后延迟补充拾取物
 	if _conductor != null:
 		_conductor.lane_sequence_finished.connect(_on_lane_sequence_finished)
+		_conductor.all_stages_cleared.connect(_on_all_stages_cleared)
 
 
 ## lane 模式结束后的回调：若拾取物缺失，延迟一段时间后生成
@@ -34,6 +35,13 @@ func _on_lane_sequence_finished(_is_full_combo: bool) -> void:
 	CLog.o("lane 模式结束，等待 %f 秒后生成拾取物" % spawn_delay)
 	if _active_item == null:
 		get_tree().create_timer(spawn_delay).timeout.connect(_spawn_one)
+
+
+## 所有阶段通关：断开信号，停止生成拾取物
+func _on_all_stages_cleared() -> void:
+	if _conductor != null and _conductor.lane_sequence_finished.is_connected(_on_lane_sequence_finished):
+		_conductor.lane_sequence_finished.disconnect(_on_lane_sequence_finished)
+	CLog.o("PickupSpawner 已停止生成拾取物")
 
 # ── 生成逻辑 ─────────────────────────────────────────
 

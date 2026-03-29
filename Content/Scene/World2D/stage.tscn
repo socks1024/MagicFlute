@@ -25,29 +25,29 @@
 [ext_resource type="Resource" uid="uid://dm2kk3vlinq8p" path="res://Content/Art/Audio/Events/SFX/sfx_lane_start.tres" id="13_e7bwl"]
 [ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="13_s8toy"]
 [ext_resource type="SpriteFrames" uid="uid://cbn6v3yfe8gc4" path="res://Content/Art/Animation/boss_body_idle.tres" id="13_un7u5"]
-[ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="14_w4ako"]
 [ext_resource type="PackedScene" uid="uid://bk48po8w3n23c" path="res://Content/Scene/World2D/spawn_warning.tscn" id="14_warn"]
 [ext_resource type="SpriteFrames" uid="uid://c2lfowytce1ft" path="res://Content/Art/Animation/boss_hand_idle.tres" id="15_q6inv"]
 [ext_resource type="Resource" uid="uid://c1lc7w4ja46t0" path="res://Content/Data/Gameplay/wave1.tres" id="15_wfkcj"]
 [ext_resource type="Resource" uid="uid://cmcyyf7lceqvv" path="res://Content/Data/Gameplay/wave2.tres" id="16_0mb5s"]
-[ext_resource type="PackedScene" uid="uid://cth0ecix72u77" path="res://Content/Scene/World2D/invisible_wall.tscn" id="16_ah7ky"]
 [ext_resource type="SpriteFrames" uid="uid://cpyy6t0on42x2" path="res://Content/Art/Animation/boss_head_idle.tres" id="16_q6inv"]
 [ext_resource type="Resource" uid="uid://c8g6di542lnwi" path="res://Content/Data/Gameplay/wave3.tres" id="17_2mmnj"]
-[ext_resource type="PackedScene" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
+[ext_resource type="PackedScene" uid="uid://bors2mstsog80" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
 [ext_resource type="Script" uid="uid://c6pv56k62bu1r" path="res://Content/Script/Gameplay/rhythm_music_manager.gd" id="18_rmm"]
 [ext_resource type="PackedScene" uid="uid://cvl0mwpum6uh1" path="res://Content/Scene/World2D/Enemy/sun_enemy.tscn" id="18_w4ako"]
 [ext_resource type="Resource" uid="uid://n8ntksgpn5k1" path="res://Content/Art/Audio/Events/SFX/sfx_lane_full_combo.tres" id="19_fc_sfx"]
 [ext_resource type="Resource" uid="uid://bmrb7oog1acme" path="res://Content/Art/Audio/Events/SFX/sfx_lane_fail.tres" id="19_fl_sfx"]
 [ext_resource type="PackedScene" uid="uid://bw186rrtm66mx" path="res://Content/Scene/World2D/hp_display.tscn" id="19_hpdsp"]
-[ext_resource type="Script" uid="uid://1ikgqxtpsrjj" path="res://Content/Script/Gameplay/player.gd" id="22_w8tg0"]
-[ext_resource type="Texture2D" uid="uid://gx38nvm7ln5q" path="res://Content/Art/Sprite/camp/马戏团资源/主角小狗.PNG" id="23_sbmb4"]
-[ext_resource type="Texture2D" uid="uid://bca7hrd1gw6m6" path="res://Content/Art/Sprite/camp/马戏团资源/拿到道具的小狗.PNG" id="24_e7bwl"]
+[ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="22_e7bwl"]
+[ext_resource type="Script" uid="uid://1ikgqxtpsrjj" path="res://Content/Script/Gameplay/player.gd" id="23_rvebn"]
+[ext_resource type="Texture2D" uid="uid://gx38nvm7ln5q" path="res://Content/Art/Sprite/camp/马戏团资源/主角小狗.PNG" id="24_qr617"]
 [ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="25_bo2u5"]
-[ext_resource type="Script" uid="uid://b0dvuy1pbv02i" path="res://Content/Script/Gameplay/invisible_wall.gd" id="25_rvebn"]
+[ext_resource type="Texture2D" uid="uid://bca7hrd1gw6m6" path="res://Content/Art/Sprite/camp/马戏团资源/拿到道具的小狗.PNG" id="25_ly26w"]
+[ext_resource type="PackedScene" uid="uid://cth0ecix72u77" path="res://Content/Scene/World2D/invisible_wall.tscn" id="26_xqog1"]
+[ext_resource type="Script" uid="uid://b0dvuy1pbv02i" path="res://Content/Script/Gameplay/invisible_wall.gd" id="27_2mrh2"]
 [ext_resource type="PackedScene" uid="uid://g6owaymnd7hv" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_processing_2d.tscn" id="27_aau2w"]
 [ext_resource type="SpriteFrames" uid="uid://cvii0gvuirn5x" path="res://Content/Art/Animation/curtain_move.tres" id="34_l56ef"]
 [ext_resource type="SpriteFrames" uid="uid://cm2tid00e7s5d" path="res://Content/Art/Animation/curtain_open.tres" id="35_rk33d"]
-[ext_resource type="Script" path="res://Content/Script/Gameplay/curtain_controller.gd" id="36_cctrl"]
+[ext_resource type="Script" uid="uid://dmjv1wwg2ij4r" path="res://Content/Script/Gameplay/curtain_controller.gd" id="36_cctrl"]
 [ext_resource type="Resource" uid="uid://dr56365ljksi7" path="res://Content/Art/Audio/Events/SFX/sfx_doggy_hurt.tres" id="39_12x1l"]
 [ext_resource type="Script" uid="uid://vajxay0gjnd7" path="res://Content/Script/Gameplay/boss_joker.gd" id="47_bjkr"]
 
@@ -57,29 +57,9 @@ notes = Array[int]([0, 1, 2, 3, 0, 1, 2, 3, 0, 0, 2, 3, 1, 1, 1, 1])
 Playmusic = ExtResource("10_aau2w")
 metadata/_custom_type_script = "uid://c1cs73c4jp6m1"
 
-[sub_resource type="Resource" id="Resource_yq7bf"]
-script = ExtResource("10_8fjbb")
-notes = Array[int]([0, 0, 0, 0])
-metadata/_custom_type_script = "uid://c1cs73c4jp6m1"
-
 [sub_resource type="Resource" id="Resource_8fjbb"]
 script = ExtResource("9_4quhg")
-sequences = Array[ExtResource("10_8fjbb")]([SubResource("Resource_ww6io"), SubResource("Resource_yq7bf")])
-
-[sub_resource type="Resource" id="Resource_a1jhf"]
-script = ExtResource("10_8fjbb")
-notes = Array[int]([1, 1, 3, 3])
-metadata/_custom_type_script = "uid://c1cs73c4jp6m1"
-
-[sub_resource type="Resource" id="Resource_0cby3"]
-script = ExtResource("10_8fjbb")
-notes = Array[int]([0, 0, 2, 2])
-metadata/_custom_type_script = "uid://c1cs73c4jp6m1"
-
-[sub_resource type="Resource" id="Resource_aau2w"]
-script = ExtResource("9_4quhg")
-sequences = Array[ExtResource("10_8fjbb")]([SubResource("Resource_a1jhf"), SubResource("Resource_0cby3")])
-metadata/_custom_type_script = "uid://73borrbd2lo2"
+sequences = Array[ExtResource("10_8fjbb")]([SubResource("Resource_ww6io")])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cby3"]
 size = Vector2(2189, 1234)
@@ -121,11 +101,12 @@ script = ExtResource("2_ax35w")
 unique_name_in_owner = true
 script = ExtResource("11_clock")
 bpm = 140.0
+hit_window_sec = 0.3
 
 [node name="RhythmConductor" type="Node" parent="." unique_id=724941742]
 unique_name_in_owner = true
 script = ExtResource("5_cndct")
-lane_stages = Array[ExtResource("9_4quhg")]([SubResource("Resource_8fjbb"), SubResource("Resource_aau2w")])
+lane_stages = Array[ExtResource("9_4quhg")]([SubResource("Resource_8fjbb")])
 move_input_context = ExtResource("3_4ao8j")
 rhythm_clock_path = NodePath("../RhythmClock")
 rhythm_lane_path = NodePath("../HUD/RhythmLane")
@@ -156,6 +137,13 @@ shape = SubResource("RectangleShape2D_0cby3")
 [node name="BossJoker" type="Node2D" parent="." unique_id=1240223137]
 script = ExtResource("47_bjkr")
 spawn_anim_positions = Array[Vector2i]([Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(8, 0)])
+head_float_amplitude = 50.0
+head_float_speed = 7.0
+hit_flash_duration = 1.0
+hit_shake_bump = Vector2(60, 30)
+hit_shake_duration = 1.0
+fall_distance = 600.0
+fall_duration = 5.0
 
 [node name="JokerBody" type="AnimatedSprite2D" parent="BossJoker" unique_id=552106722]
 z_index = -1
@@ -188,690 +176,15 @@ tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAACAAAAAQAAAAAAAAAEAAAAAQAAAAA
 tile_set = ExtResource("10_grid")
 
 [node name="EntityLayer" type="TileMapLayer" parent="GridSystem2D" unique_id=216665195]
-tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAAgD/////AAAAAAAAAwAAAP//AAAAAAAAAwABAP//AAAAAAAAAwACAP//AAAAAAAAAwADAP//AAAAAAAAAwAEAP//AAAAAAAAAwAFAP//AAAAAAAAAwAGAP//AAAAAAAAAwAHAP//AAAAAAAAAwAIAP//AAAAAAAAAwAJAP//AAAAAAAAAwAKAP//AAAAAAAAAwALAP//AAAAAAAAAwAMAP//AAAAAAAAAwANAP//AAAAAAAAAwD//wYAAAAAAAAAAwD//wUAAAAAAAAAAwD//wQAAAAAAAAAAwD//wMAAAAAAAAAAwD//wIAAAAAAAAAAwD//wEAAAAAAAAAAwD//wAAAAAAAAAAAwAAAAYAAAAAAAAAAwABAAYAAAAAAAAAAwACAAYAAAAAAAAAAwADAAYAAAAAAAAAAwAEAAYAAAAAAAAAAwAFAAYAAAAAAAAAAwAGAAYAAAAAAAAAAwAHAAYAAAAAAAAAAwAIAAYAAAAAAAAAAwAJAAYAAAAAAAAAAwAKAAYAAAAAAAAAAwALAAYAAAAAAAAAAwAMAAYAAAAAAAAAAwANAAYAAAAAAAAAAwAOAAYAAAAAAAAAAwAOAAUAAAAAAAAAAwAOAAQAAAAAAAAAAwAOAAMAAAAAAAAAAwAOAAIAAAAAAAAAAwAOAAEAAAAAAAAAAwAOAAAAAAAAAAAAAwAOAP//AAAAAAAAAwA=")
+tile_map_data = PackedByteArray("AAAGAAMAAAAAAAAAAgADAP//AAAAAAAAAwAEAP//AAAAAAAAAwAFAP//AAAAAAAAAwAGAP//AAAAAAAAAwAHAP//AAAAAAAAAwAIAP//AAAAAAAAAwAJAP//AAAAAAAAAwAKAP//AAAAAAAAAwALAP//AAAAAAAAAwAMAP//AAAAAAAAAwANAP//AAAAAAAAAwD//wYAAAAAAAAAAwD//wUAAAAAAAAAAwD//wQAAAAAAAAAAwD//wMAAAAAAAAAAwD//wIAAAAAAAAAAwD//wEAAAAAAAAAAwD//wAAAAAAAAAAAwAAAAYAAAAAAAAAAwABAAYAAAAAAAAAAwACAAYAAAAAAAAAAwADAAYAAAAAAAAAAwAEAAYAAAAAAAAAAwAFAAYAAAAAAAAAAwAGAAYAAAAAAAAAAwAHAAYAAAAAAAAAAwAIAAYAAAAAAAAAAwAJAAYAAAAAAAAAAwAKAAYAAAAAAAAAAwALAAYAAAAAAAAAAwAMAAYAAAAAAAAAAwANAAYAAAAAAAAAAwAOAAYAAAAAAAAAAwAOAAUAAAAAAAAAAwAOAAQAAAAAAAAAAwAOAAMAAAAAAAAAAwAOAAIAAAAAAAAAAwAOAAEAAAAAAAAAAwACAP//AAAAAAAAAwABAP//AAAAAAAAAwAAAP//AAAAAAAAAwD/////AAAAAAAAAwAOAAAAAAAAAAAAAwAOAP//AAAAAAAAAwA=")
 tile_set = ExtResource("3_rjhk7")
 
-[node name="Player" parent="GridSystem2D/EntityLayer" unique_id=925869519 instance=ExtResource("14_w4ako")]
+[node name="Player" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=925869519 instance=ExtResource("22_e7bwl")]
 position = Vector2(598, 322)
-
-[node name="InvisibleWall" parent="GridSystem2D/EntityLayer" unique_id=1044690490 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-
-[node name="@Node2D@245489" parent="GridSystem2D/EntityLayer" unique_id=1120792855 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-
-[node name="@Node2D@245490" parent="GridSystem2D/EntityLayer" unique_id=1599210749 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-
-[node name="@Node2D@245491" parent="GridSystem2D/EntityLayer" unique_id=1196952200 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-
-[node name="@Node2D@245492" parent="GridSystem2D/EntityLayer" unique_id=1932290449 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, -46)
-
-[node name="@Node2D@245493" parent="GridSystem2D/EntityLayer" unique_id=1002538050 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, -46)
-
-[node name="@Node2D@245494" parent="GridSystem2D/EntityLayer" unique_id=552953459 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, -46)
-
-[node name="@Node2D@245495" parent="GridSystem2D/EntityLayer" unique_id=1888569734 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, -46)
-
-[node name="@Node2D@245496" parent="GridSystem2D/EntityLayer" unique_id=455088799 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, -46)
-
-[node name="@Node2D@245497" parent="GridSystem2D/EntityLayer" unique_id=1014718745 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, -46)
-
-[node name="@Node2D@245498" parent="GridSystem2D/EntityLayer" unique_id=1018965571 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, -46)
-
-[node name="@Node2D@245499" parent="GridSystem2D/EntityLayer" unique_id=1224612692 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, -46)
-
-[node name="@Node2D@245500" parent="GridSystem2D/EntityLayer" unique_id=863854924 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, -46)
-
-[node name="@Node2D@245501" parent="GridSystem2D/EntityLayer" unique_id=1047484730 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, -46)
-
-[node name="@Node2D@245502" parent="GridSystem2D/EntityLayer" unique_id=497618212 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, -46)
-
-[node name="@Node2D@245503" parent="GridSystem2D/EntityLayer" unique_id=1888616058 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 598)
-
-[node name="@Node2D@245504" parent="GridSystem2D/EntityLayer" unique_id=202341976 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 506)
-
-[node name="@Node2D@245505" parent="GridSystem2D/EntityLayer" unique_id=1816417226 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 414)
-
-[node name="@Node2D@245506" parent="GridSystem2D/EntityLayer" unique_id=1917701027 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 322)
-
-[node name="@Node2D@245507" parent="GridSystem2D/EntityLayer" unique_id=1638198935 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 230)
-
-[node name="@Node2D@245508" parent="GridSystem2D/EntityLayer" unique_id=819720746 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 138)
-
-[node name="@Node2D@245509" parent="GridSystem2D/EntityLayer" unique_id=817744034 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 46)
-
-[node name="@Node2D@245510" parent="GridSystem2D/EntityLayer" unique_id=1837404306 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, 598)
-
-[node name="@Node2D@245511" parent="GridSystem2D/EntityLayer" unique_id=1886601463 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, 598)
-
-[node name="@Node2D@245512" parent="GridSystem2D/EntityLayer" unique_id=1021518224 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, 598)
-
-[node name="@Node2D@245513" parent="GridSystem2D/EntityLayer" unique_id=214624702 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, 598)
-
-[node name="@Node2D@245514" parent="GridSystem2D/EntityLayer" unique_id=359261800 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, 598)
-
-[node name="@Node2D@245515" parent="GridSystem2D/EntityLayer" unique_id=804228662 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, 598)
-
-[node name="@Node2D@245516" parent="GridSystem2D/EntityLayer" unique_id=936455292 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, 598)
-
-[node name="@Node2D@245517" parent="GridSystem2D/EntityLayer" unique_id=103153000 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, 598)
-
-[node name="@Node2D@245518" parent="GridSystem2D/EntityLayer" unique_id=356710469 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, 598)
-
-[node name="@Node2D@245519" parent="GridSystem2D/EntityLayer" unique_id=45737734 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, 598)
-
-[node name="@Node2D@245520" parent="GridSystem2D/EntityLayer" unique_id=1736215683 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, 598)
-
-[node name="@Node2D@245521" parent="GridSystem2D/EntityLayer" unique_id=1215396426 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, 598)
-
-[node name="@Node2D@245522" parent="GridSystem2D/EntityLayer" unique_id=739532456 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, 598)
-
-[node name="@Node2D@245523" parent="GridSystem2D/EntityLayer" unique_id=1372134504 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, 598)
-
-[node name="@Node2D@245524" parent="GridSystem2D/EntityLayer" unique_id=1938216616 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 598)
-
-[node name="@Node2D@245525" parent="GridSystem2D/EntityLayer" unique_id=801266415 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 506)
-
-[node name="@Node2D@245526" parent="GridSystem2D/EntityLayer" unique_id=129132100 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 414)
-
-[node name="@Node2D@245527" parent="GridSystem2D/EntityLayer" unique_id=1509386304 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 322)
-
-[node name="@Node2D@245528" parent="GridSystem2D/EntityLayer" unique_id=1300189770 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 230)
-
-[node name="@Node2D@245529" parent="GridSystem2D/EntityLayer" unique_id=193777537 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 138)
-
-[node name="@Node2D@245530" parent="GridSystem2D/EntityLayer" unique_id=1339557353 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 46)
-
-[node name="@Node2D@245531" parent="GridSystem2D/EntityLayer" unique_id=327718212 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, -46)
-
-[node name="@Node2D@313477" parent="GridSystem2D/EntityLayer" unique_id=1342502461 instance=ExtResource("14_w4ako")]
-position = Vector2(598, 322)
-
-[node name="@Node2D@313480" parent="GridSystem2D/EntityLayer" unique_id=1716576407 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-
-[node name="@Node2D@313481" parent="GridSystem2D/EntityLayer" unique_id=751596920 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-
-[node name="@Node2D@313482" parent="GridSystem2D/EntityLayer" unique_id=881581326 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-
-[node name="@Node2D@313483" parent="GridSystem2D/EntityLayer" unique_id=1488918697 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-
-[node name="@Node2D@313484" parent="GridSystem2D/EntityLayer" unique_id=476747894 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, -46)
-
-[node name="@Node2D@313485" parent="GridSystem2D/EntityLayer" unique_id=2268753 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, -46)
-
-[node name="@Node2D@313486" parent="GridSystem2D/EntityLayer" unique_id=85549607 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, -46)
-
-[node name="@Node2D@313487" parent="GridSystem2D/EntityLayer" unique_id=1610585646 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, -46)
-
-[node name="@Node2D@313488" parent="GridSystem2D/EntityLayer" unique_id=2030181857 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, -46)
-
-[node name="@Node2D@313489" parent="GridSystem2D/EntityLayer" unique_id=1400655175 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, -46)
-
-[node name="@Node2D@313490" parent="GridSystem2D/EntityLayer" unique_id=88908679 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, -46)
-
-[node name="@Node2D@313491" parent="GridSystem2D/EntityLayer" unique_id=1469693801 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, -46)
-
-[node name="@Node2D@313492" parent="GridSystem2D/EntityLayer" unique_id=302966525 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, -46)
-
-[node name="@Node2D@313493" parent="GridSystem2D/EntityLayer" unique_id=1364764503 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, -46)
-
-[node name="@Node2D@313494" parent="GridSystem2D/EntityLayer" unique_id=425431241 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, -46)
-
-[node name="@Node2D@313495" parent="GridSystem2D/EntityLayer" unique_id=1453021695 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 598)
-
-[node name="@Node2D@313496" parent="GridSystem2D/EntityLayer" unique_id=1415465656 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 506)
-
-[node name="@Node2D@313497" parent="GridSystem2D/EntityLayer" unique_id=369437084 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 414)
-
-[node name="@Node2D@313498" parent="GridSystem2D/EntityLayer" unique_id=1079773791 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 322)
-
-[node name="@Node2D@313499" parent="GridSystem2D/EntityLayer" unique_id=1793040547 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 230)
-
-[node name="@Node2D@313500" parent="GridSystem2D/EntityLayer" unique_id=522904539 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 138)
-
-[node name="@Node2D@313501" parent="GridSystem2D/EntityLayer" unique_id=1515929507 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 46)
-
-[node name="@Node2D@313502" parent="GridSystem2D/EntityLayer" unique_id=1228213451 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, 598)
-
-[node name="@Node2D@313503" parent="GridSystem2D/EntityLayer" unique_id=2058483454 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, 598)
-
-[node name="@Node2D@313504" parent="GridSystem2D/EntityLayer" unique_id=438415391 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, 598)
-
-[node name="@Node2D@313505" parent="GridSystem2D/EntityLayer" unique_id=1902251154 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, 598)
-
-[node name="@Node2D@313506" parent="GridSystem2D/EntityLayer" unique_id=1066243884 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, 598)
-
-[node name="@Node2D@313507" parent="GridSystem2D/EntityLayer" unique_id=743429947 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, 598)
-
-[node name="@Node2D@313508" parent="GridSystem2D/EntityLayer" unique_id=251228571 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, 598)
-
-[node name="@Node2D@313509" parent="GridSystem2D/EntityLayer" unique_id=701353744 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, 598)
-
-[node name="@Node2D@313510" parent="GridSystem2D/EntityLayer" unique_id=177057218 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, 598)
-
-[node name="@Node2D@313511" parent="GridSystem2D/EntityLayer" unique_id=198468501 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, 598)
-
-[node name="@Node2D@313512" parent="GridSystem2D/EntityLayer" unique_id=1613026295 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, 598)
-
-[node name="@Node2D@313513" parent="GridSystem2D/EntityLayer" unique_id=357714244 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, 598)
-
-[node name="@Node2D@313514" parent="GridSystem2D/EntityLayer" unique_id=554924427 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, 598)
-
-[node name="@Node2D@313515" parent="GridSystem2D/EntityLayer" unique_id=1357774309 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, 598)
-
-[node name="@Node2D@313516" parent="GridSystem2D/EntityLayer" unique_id=1471523603 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 598)
-
-[node name="@Node2D@313517" parent="GridSystem2D/EntityLayer" unique_id=2147271247 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 506)
-
-[node name="@Node2D@313518" parent="GridSystem2D/EntityLayer" unique_id=2118036639 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 414)
-
-[node name="@Node2D@313519" parent="GridSystem2D/EntityLayer" unique_id=1151784082 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 322)
-
-[node name="@Node2D@313520" parent="GridSystem2D/EntityLayer" unique_id=782228845 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 230)
-
-[node name="@Node2D@313521" parent="GridSystem2D/EntityLayer" unique_id=469332056 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 138)
-
-[node name="@Node2D@313522" parent="GridSystem2D/EntityLayer" unique_id=464697676 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 46)
-
-[node name="@Node2D@313523" parent="GridSystem2D/EntityLayer" unique_id=743082378 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, -46)
-
-[node name="@Node2D@19457" parent="GridSystem2D/EntityLayer" unique_id=453632728 instance=ExtResource("14_w4ako")]
-position = Vector2(598, 322)
-
-[node name="@Node2D@19459" parent="GridSystem2D/EntityLayer" unique_id=1562329326 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-
-[node name="@Node2D@19460" parent="GridSystem2D/EntityLayer" unique_id=1337839136 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-
-[node name="@Node2D@19461" parent="GridSystem2D/EntityLayer" unique_id=655642575 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-
-[node name="@Node2D@19462" parent="GridSystem2D/EntityLayer" unique_id=163777603 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-
-[node name="@Node2D@19463" parent="GridSystem2D/EntityLayer" unique_id=1443555265 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, -46)
-
-[node name="@Node2D@19464" parent="GridSystem2D/EntityLayer" unique_id=1474219953 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, -46)
-
-[node name="@Node2D@19465" parent="GridSystem2D/EntityLayer" unique_id=1157127226 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, -46)
-
-[node name="@Node2D@19466" parent="GridSystem2D/EntityLayer" unique_id=364417360 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, -46)
-
-[node name="@Node2D@19467" parent="GridSystem2D/EntityLayer" unique_id=742701876 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, -46)
-
-[node name="@Node2D@19468" parent="GridSystem2D/EntityLayer" unique_id=1185843240 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, -46)
-
-[node name="@Node2D@19469" parent="GridSystem2D/EntityLayer" unique_id=1628480955 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, -46)
-
-[node name="@Node2D@19470" parent="GridSystem2D/EntityLayer" unique_id=1780519331 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, -46)
-
-[node name="@Node2D@19471" parent="GridSystem2D/EntityLayer" unique_id=1951932527 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, -46)
-
-[node name="@Node2D@19472" parent="GridSystem2D/EntityLayer" unique_id=1129875182 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, -46)
-
-[node name="@Node2D@19473" parent="GridSystem2D/EntityLayer" unique_id=1067787508 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, -46)
-
-[node name="@Node2D@19474" parent="GridSystem2D/EntityLayer" unique_id=1710724463 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 598)
-
-[node name="@Node2D@19475" parent="GridSystem2D/EntityLayer" unique_id=84372959 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 506)
-
-[node name="@Node2D@19476" parent="GridSystem2D/EntityLayer" unique_id=1955349010 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 414)
-
-[node name="@Node2D@19477" parent="GridSystem2D/EntityLayer" unique_id=1069638185 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 322)
-
-[node name="@Node2D@19478" parent="GridSystem2D/EntityLayer" unique_id=980629285 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 230)
-
-[node name="@Node2D@19479" parent="GridSystem2D/EntityLayer" unique_id=323289038 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 138)
-
-[node name="@Node2D@19480" parent="GridSystem2D/EntityLayer" unique_id=887859977 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 46)
-
-[node name="@Node2D@19481" parent="GridSystem2D/EntityLayer" unique_id=863491463 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, 598)
-
-[node name="@Node2D@19482" parent="GridSystem2D/EntityLayer" unique_id=1475996230 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, 598)
-
-[node name="@Node2D@19483" parent="GridSystem2D/EntityLayer" unique_id=1224558218 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, 598)
-
-[node name="@Node2D@19484" parent="GridSystem2D/EntityLayer" unique_id=1092890377 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, 598)
-
-[node name="@Node2D@19485" parent="GridSystem2D/EntityLayer" unique_id=1268549633 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, 598)
-
-[node name="@Node2D@19486" parent="GridSystem2D/EntityLayer" unique_id=1312814803 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, 598)
-
-[node name="@Node2D@19487" parent="GridSystem2D/EntityLayer" unique_id=555582555 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, 598)
-
-[node name="@Node2D@19488" parent="GridSystem2D/EntityLayer" unique_id=530806330 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, 598)
-
-[node name="@Node2D@19489" parent="GridSystem2D/EntityLayer" unique_id=1767688250 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, 598)
-
-[node name="@Node2D@19490" parent="GridSystem2D/EntityLayer" unique_id=579526212 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, 598)
-
-[node name="@Node2D@19491" parent="GridSystem2D/EntityLayer" unique_id=343274474 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, 598)
-
-[node name="@Node2D@19492" parent="GridSystem2D/EntityLayer" unique_id=1897558298 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, 598)
-
-[node name="@Node2D@19493" parent="GridSystem2D/EntityLayer" unique_id=887171442 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, 598)
-
-[node name="@Node2D@19494" parent="GridSystem2D/EntityLayer" unique_id=951042652 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, 598)
-
-[node name="@Node2D@19495" parent="GridSystem2D/EntityLayer" unique_id=1027353621 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 598)
-
-[node name="@Node2D@19496" parent="GridSystem2D/EntityLayer" unique_id=1536854278 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 506)
-
-[node name="@Node2D@19497" parent="GridSystem2D/EntityLayer" unique_id=1866364356 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 414)
-
-[node name="@Node2D@19498" parent="GridSystem2D/EntityLayer" unique_id=945835502 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 322)
-
-[node name="@Node2D@19499" parent="GridSystem2D/EntityLayer" unique_id=996453721 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 230)
-
-[node name="@Node2D@19500" parent="GridSystem2D/EntityLayer" unique_id=1336799004 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 138)
-
-[node name="@Node2D@19501" parent="GridSystem2D/EntityLayer" unique_id=1981861922 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 46)
-
-[node name="@Node2D@19502" parent="GridSystem2D/EntityLayer" unique_id=304958309 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, -46)
-
-[node name="@Node2D@72668" parent="GridSystem2D/EntityLayer" unique_id=956668042 instance=ExtResource("14_w4ako")]
-position = Vector2(598, 322)
-
-[node name="@Node2D@72670" parent="GridSystem2D/EntityLayer" unique_id=866279326 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-
-[node name="@Node2D@72671" parent="GridSystem2D/EntityLayer" unique_id=420498527 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-
-[node name="@Node2D@72672" parent="GridSystem2D/EntityLayer" unique_id=15763116 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-
-[node name="@Node2D@72673" parent="GridSystem2D/EntityLayer" unique_id=424822404 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-
-[node name="@Node2D@72674" parent="GridSystem2D/EntityLayer" unique_id=1616526980 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, -46)
-
-[node name="@Node2D@72675" parent="GridSystem2D/EntityLayer" unique_id=647767560 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, -46)
-
-[node name="@Node2D@72676" parent="GridSystem2D/EntityLayer" unique_id=1406432443 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, -46)
-
-[node name="@Node2D@72677" parent="GridSystem2D/EntityLayer" unique_id=2094357978 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, -46)
-
-[node name="@Node2D@72678" parent="GridSystem2D/EntityLayer" unique_id=1040406740 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, -46)
-
-[node name="@Node2D@72679" parent="GridSystem2D/EntityLayer" unique_id=289909300 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, -46)
-
-[node name="@Node2D@72680" parent="GridSystem2D/EntityLayer" unique_id=626629090 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, -46)
-
-[node name="@Node2D@72681" parent="GridSystem2D/EntityLayer" unique_id=1638561531 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, -46)
-
-[node name="@Node2D@72682" parent="GridSystem2D/EntityLayer" unique_id=702793205 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, -46)
-
-[node name="@Node2D@72683" parent="GridSystem2D/EntityLayer" unique_id=1075723361 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, -46)
-
-[node name="@Node2D@72684" parent="GridSystem2D/EntityLayer" unique_id=1814100935 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, -46)
-
-[node name="@Node2D@72685" parent="GridSystem2D/EntityLayer" unique_id=1901534166 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 598)
-
-[node name="@Node2D@72686" parent="GridSystem2D/EntityLayer" unique_id=1522735293 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 506)
-
-[node name="@Node2D@72687" parent="GridSystem2D/EntityLayer" unique_id=1902273297 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 414)
-
-[node name="@Node2D@72688" parent="GridSystem2D/EntityLayer" unique_id=1000399867 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 322)
-
-[node name="@Node2D@72689" parent="GridSystem2D/EntityLayer" unique_id=825181467 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 230)
-
-[node name="@Node2D@72690" parent="GridSystem2D/EntityLayer" unique_id=844229203 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 138)
-
-[node name="@Node2D@72691" parent="GridSystem2D/EntityLayer" unique_id=1153492444 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 46)
-
-[node name="@Node2D@72692" parent="GridSystem2D/EntityLayer" unique_id=1579721367 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, 598)
-
-[node name="@Node2D@72693" parent="GridSystem2D/EntityLayer" unique_id=1421008398 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, 598)
-
-[node name="@Node2D@72694" parent="GridSystem2D/EntityLayer" unique_id=22533314 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, 598)
-
-[node name="@Node2D@72695" parent="GridSystem2D/EntityLayer" unique_id=894903376 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, 598)
-
-[node name="@Node2D@72696" parent="GridSystem2D/EntityLayer" unique_id=1329032171 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, 598)
-
-[node name="@Node2D@72697" parent="GridSystem2D/EntityLayer" unique_id=1174356414 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, 598)
-
-[node name="@Node2D@72698" parent="GridSystem2D/EntityLayer" unique_id=1206806270 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, 598)
-
-[node name="@Node2D@72699" parent="GridSystem2D/EntityLayer" unique_id=1718706851 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, 598)
-
-[node name="@Node2D@72700" parent="GridSystem2D/EntityLayer" unique_id=1725131514 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, 598)
-
-[node name="@Node2D@72701" parent="GridSystem2D/EntityLayer" unique_id=856215293 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, 598)
-
-[node name="@Node2D@72702" parent="GridSystem2D/EntityLayer" unique_id=1626848267 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, 598)
-
-[node name="@Node2D@72703" parent="GridSystem2D/EntityLayer" unique_id=1963916245 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, 598)
-
-[node name="@Node2D@72704" parent="GridSystem2D/EntityLayer" unique_id=1962434331 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, 598)
-
-[node name="@Node2D@72705" parent="GridSystem2D/EntityLayer" unique_id=1534999630 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, 598)
-
-[node name="@Node2D@72706" parent="GridSystem2D/EntityLayer" unique_id=1546758277 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 598)
-
-[node name="@Node2D@72707" parent="GridSystem2D/EntityLayer" unique_id=1230697813 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 506)
-
-[node name="@Node2D@72708" parent="GridSystem2D/EntityLayer" unique_id=1639253545 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 414)
-
-[node name="@Node2D@72709" parent="GridSystem2D/EntityLayer" unique_id=490884983 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 322)
-
-[node name="@Node2D@72710" parent="GridSystem2D/EntityLayer" unique_id=1705804582 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 230)
-
-[node name="@Node2D@72711" parent="GridSystem2D/EntityLayer" unique_id=1632936231 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 138)
-
-[node name="@Node2D@72712" parent="GridSystem2D/EntityLayer" unique_id=285874733 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 46)
-
-[node name="@Node2D@72713" parent="GridSystem2D/EntityLayer" unique_id=1988226406 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, -46)
-
-[node name="@Node2D@161494" parent="GridSystem2D/EntityLayer" unique_id=973672789 instance=ExtResource("14_w4ako")]
-position = Vector2(598, 322)
-
-[node name="@Node2D@161496" parent="GridSystem2D/EntityLayer" unique_id=1331280568 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-
-[node name="@Node2D@161497" parent="GridSystem2D/EntityLayer" unique_id=1351482333 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-
-[node name="@Node2D@161498" parent="GridSystem2D/EntityLayer" unique_id=889988317 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-
-[node name="@Node2D@161499" parent="GridSystem2D/EntityLayer" unique_id=51466525 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-
-[node name="@Node2D@161500" parent="GridSystem2D/EntityLayer" unique_id=395174233 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, -46)
-
-[node name="@Node2D@161501" parent="GridSystem2D/EntityLayer" unique_id=1226203953 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, -46)
-
-[node name="@Node2D@161502" parent="GridSystem2D/EntityLayer" unique_id=1647016893 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, -46)
-
-[node name="@Node2D@161503" parent="GridSystem2D/EntityLayer" unique_id=91451363 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, -46)
-
-[node name="@Node2D@161504" parent="GridSystem2D/EntityLayer" unique_id=796610444 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, -46)
-
-[node name="@Node2D@161505" parent="GridSystem2D/EntityLayer" unique_id=1689059359 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, -46)
-
-[node name="@Node2D@161506" parent="GridSystem2D/EntityLayer" unique_id=1121545756 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, -46)
-
-[node name="@Node2D@161507" parent="GridSystem2D/EntityLayer" unique_id=1352354759 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, -46)
-
-[node name="@Node2D@161508" parent="GridSystem2D/EntityLayer" unique_id=1114803222 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, -46)
-
-[node name="@Node2D@161509" parent="GridSystem2D/EntityLayer" unique_id=1864184487 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, -46)
-
-[node name="@Node2D@161510" parent="GridSystem2D/EntityLayer" unique_id=836369655 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, -46)
-
-[node name="@Node2D@161511" parent="GridSystem2D/EntityLayer" unique_id=1436037849 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 598)
-
-[node name="@Node2D@161512" parent="GridSystem2D/EntityLayer" unique_id=1202135712 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 506)
-
-[node name="@Node2D@161513" parent="GridSystem2D/EntityLayer" unique_id=1172883700 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 414)
-
-[node name="@Node2D@161514" parent="GridSystem2D/EntityLayer" unique_id=313526857 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 322)
-
-[node name="@Node2D@161515" parent="GridSystem2D/EntityLayer" unique_id=2118834639 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 230)
-
-[node name="@Node2D@161516" parent="GridSystem2D/EntityLayer" unique_id=2129784588 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 138)
-
-[node name="@Node2D@161517" parent="GridSystem2D/EntityLayer" unique_id=2007849256 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, 46)
-
-[node name="@Node2D@161518" parent="GridSystem2D/EntityLayer" unique_id=1294688013 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, 598)
-
-[node name="@Node2D@161519" parent="GridSystem2D/EntityLayer" unique_id=1103305768 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, 598)
-
-[node name="@Node2D@161520" parent="GridSystem2D/EntityLayer" unique_id=1642203208 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, 598)
-
-[node name="@Node2D@161521" parent="GridSystem2D/EntityLayer" unique_id=313336861 instance=ExtResource("16_ah7ky")]
-position = Vector2(322, 598)
-
-[node name="@Node2D@161522" parent="GridSystem2D/EntityLayer" unique_id=1486078062 instance=ExtResource("16_ah7ky")]
-position = Vector2(414, 598)
-
-[node name="@Node2D@161523" parent="GridSystem2D/EntityLayer" unique_id=1892941343 instance=ExtResource("16_ah7ky")]
-position = Vector2(506, 598)
-
-[node name="@Node2D@161524" parent="GridSystem2D/EntityLayer" unique_id=1353798094 instance=ExtResource("16_ah7ky")]
-position = Vector2(598, 598)
-
-[node name="@Node2D@161525" parent="GridSystem2D/EntityLayer" unique_id=1889216398 instance=ExtResource("16_ah7ky")]
-position = Vector2(690, 598)
-
-[node name="@Node2D@161526" parent="GridSystem2D/EntityLayer" unique_id=992591728 instance=ExtResource("16_ah7ky")]
-position = Vector2(782, 598)
-
-[node name="@Node2D@161527" parent="GridSystem2D/EntityLayer" unique_id=1402664290 instance=ExtResource("16_ah7ky")]
-position = Vector2(874, 598)
-
-[node name="@Node2D@161528" parent="GridSystem2D/EntityLayer" unique_id=1681308307 instance=ExtResource("16_ah7ky")]
-position = Vector2(966, 598)
-
-[node name="@Node2D@161529" parent="GridSystem2D/EntityLayer" unique_id=1680513247 instance=ExtResource("16_ah7ky")]
-position = Vector2(1058, 598)
-
-[node name="@Node2D@161530" parent="GridSystem2D/EntityLayer" unique_id=1121371751 instance=ExtResource("16_ah7ky")]
-position = Vector2(1150, 598)
-
-[node name="@Node2D@161531" parent="GridSystem2D/EntityLayer" unique_id=844862026 instance=ExtResource("16_ah7ky")]
-position = Vector2(1242, 598)
-
-[node name="@Node2D@161532" parent="GridSystem2D/EntityLayer" unique_id=1470395872 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 598)
-
-[node name="@Node2D@161533" parent="GridSystem2D/EntityLayer" unique_id=910521140 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 506)
-
-[node name="@Node2D@161534" parent="GridSystem2D/EntityLayer" unique_id=978814033 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 414)
-
-[node name="@Node2D@161535" parent="GridSystem2D/EntityLayer" unique_id=132096376 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 322)
-
-[node name="@Node2D@161536" parent="GridSystem2D/EntityLayer" unique_id=944706763 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 230)
-
-[node name="@Node2D@161537" parent="GridSystem2D/EntityLayer" unique_id=1124726085 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 138)
-
-[node name="@Node2D@161538" parent="GridSystem2D/EntityLayer" unique_id=1143236192 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, 46)
-
-[node name="@Node2D@161539" parent="GridSystem2D/EntityLayer" unique_id=1980741565 instance=ExtResource("16_ah7ky")]
-position = Vector2(1334, -46)
-
-[node name="@Node2D@27471" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1990922653 instance=ExtResource("14_w4ako")]
-position = Vector2(598, 322)
-script = ExtResource("22_w8tg0")
+script = ExtResource("23_rvebn")
 max_hp = 5
-texture_normal = ExtResource("23_sbmb4")
-texture_lane = ExtResource("24_e7bwl")
+texture_normal = ExtResource("24_qr617")
+texture_lane = ExtResource("25_ly26w")
 spring_position_damping = 0.275
 spring_scale_damping = 0.298
 squash_stretch_amount = 1.0
@@ -884,267 +197,267 @@ grid_layer = 1
 block_mask = 8
 overlap_mask = 6
 
-[node name="@Node2D@27473" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=251083588 instance=ExtResource("16_ah7ky")]
-position = Vector2(-46, -46)
-script = ExtResource("25_rvebn")
-draw_size = Vector2(64, 64)
-grid_layer = 8
-
-[node name="@Node2D@27474" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=830856575 instance=ExtResource("16_ah7ky")]
-position = Vector2(46, -46)
-script = ExtResource("25_rvebn")
-draw_size = Vector2(64, 64)
-grid_layer = 8
-
-[node name="@Node2D@27475" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=309880583 instance=ExtResource("16_ah7ky")]
-position = Vector2(138, -46)
-script = ExtResource("25_rvebn")
-draw_size = Vector2(64, 64)
-grid_layer = 8
-
-[node name="@Node2D@27476" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1519316850 instance=ExtResource("16_ah7ky")]
-position = Vector2(230, -46)
-script = ExtResource("25_rvebn")
-draw_size = Vector2(64, 64)
-grid_layer = 8
-
-[node name="@Node2D@27477" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1429108644 instance=ExtResource("16_ah7ky")]
+[node name="InvisibleWall" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1044690490 instance=ExtResource("26_xqog1")]
 position = Vector2(322, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27478" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=559689378 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37595" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=25524289 instance=ExtResource("26_xqog1")]
 position = Vector2(414, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27479" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=95902476 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37596" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=385385478 instance=ExtResource("26_xqog1")]
 position = Vector2(506, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27480" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=633764394 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37597" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1230060120 instance=ExtResource("26_xqog1")]
 position = Vector2(598, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27481" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=150794954 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37598" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1653614358 instance=ExtResource("26_xqog1")]
 position = Vector2(690, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27482" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1965354923 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37599" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=2136611392 instance=ExtResource("26_xqog1")]
 position = Vector2(782, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27483" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=397503845 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37600" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1378613906 instance=ExtResource("26_xqog1")]
 position = Vector2(874, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27484" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=244562854 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37601" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=752687035 instance=ExtResource("26_xqog1")]
 position = Vector2(966, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27485" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=648708816 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37602" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=12054699 instance=ExtResource("26_xqog1")]
 position = Vector2(1058, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27486" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=706643049 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37603" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=821330903 instance=ExtResource("26_xqog1")]
 position = Vector2(1150, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27487" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=796673454 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37604" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1459672378 instance=ExtResource("26_xqog1")]
 position = Vector2(1242, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27488" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1550471555 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37605" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=672839062 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27489" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1241579319 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37606" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1416983445 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 506)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27490" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=754145873 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37607" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=797835959 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 414)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27491" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1217153280 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37608" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1107771862 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 322)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27492" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=57986583 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37609" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1242952692 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 230)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27493" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1237536656 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37610" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=488305091 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 138)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27494" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1031671540 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37611" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=265244501 instance=ExtResource("26_xqog1")]
 position = Vector2(-46, 46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27495" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=114977603 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37612" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1509346482 instance=ExtResource("26_xqog1")]
 position = Vector2(46, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27496" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=789340980 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37613" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=854566662 instance=ExtResource("26_xqog1")]
 position = Vector2(138, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27497" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1072868861 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37614" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=551926681 instance=ExtResource("26_xqog1")]
 position = Vector2(230, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27498" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1151224640 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37615" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1591891572 instance=ExtResource("26_xqog1")]
 position = Vector2(322, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27499" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1762946387 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37616" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1658319913 instance=ExtResource("26_xqog1")]
 position = Vector2(414, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27500" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1311572515 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37617" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1011516530 instance=ExtResource("26_xqog1")]
 position = Vector2(506, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27501" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1807369726 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37618" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=145993380 instance=ExtResource("26_xqog1")]
 position = Vector2(598, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27502" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1898231259 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37619" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1302099037 instance=ExtResource("26_xqog1")]
 position = Vector2(690, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27503" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1820076745 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37620" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=463748662 instance=ExtResource("26_xqog1")]
 position = Vector2(782, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27504" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=844538768 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37621" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1712593874 instance=ExtResource("26_xqog1")]
 position = Vector2(874, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27505" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=21638202 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37622" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1888530093 instance=ExtResource("26_xqog1")]
 position = Vector2(966, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27506" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=324125075 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37623" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=376787058 instance=ExtResource("26_xqog1")]
 position = Vector2(1058, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27507" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=823882425 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37624" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1553321 instance=ExtResource("26_xqog1")]
 position = Vector2(1150, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27508" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1066362335 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37625" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1098725385 instance=ExtResource("26_xqog1")]
 position = Vector2(1242, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27509" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1106841025 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37626" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1853530337 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 598)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27510" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=2020535746 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37627" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1487730112 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 506)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27511" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=530823964 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37628" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=402927674 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 414)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27512" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=63675412 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37629" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1056317346 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 322)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27513" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1744219881 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37630" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=235482604 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 230)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27514" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1701729061 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37631" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=700463768 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 138)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27515" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=939269212 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37632" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=491215238 instance=ExtResource("26_xqog1")]
+position = Vector2(230, -46)
+script = ExtResource("27_2mrh2")
+draw_size = Vector2(64, 64)
+grid_layer = 8
+
+[node name="@Node2D@37633" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=169201826 instance=ExtResource("26_xqog1")]
+position = Vector2(138, -46)
+script = ExtResource("27_2mrh2")
+draw_size = Vector2(64, 64)
+grid_layer = 8
+
+[node name="@Node2D@37634" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1516714545 instance=ExtResource("26_xqog1")]
+position = Vector2(46, -46)
+script = ExtResource("27_2mrh2")
+draw_size = Vector2(64, 64)
+grid_layer = 8
+
+[node name="@Node2D@37635" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1858586059 instance=ExtResource("26_xqog1")]
+position = Vector2(-46, -46)
+script = ExtResource("27_2mrh2")
+draw_size = Vector2(64, 64)
+grid_layer = 8
+
+[node name="@Node2D@37636" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=289997800 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, 46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
-[node name="@Node2D@27516" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1434106424 instance=ExtResource("16_ah7ky")]
+[node name="@Node2D@37637" type="Node2D" parent="GridSystem2D/EntityLayer" unique_id=1329027817 instance=ExtResource("26_xqog1")]
 position = Vector2(1334, -46)
-script = ExtResource("25_rvebn")
+script = ExtResource("27_2mrh2")
 draw_size = Vector2(64, 64)
 grid_layer = 8
 
@@ -1169,7 +482,7 @@ layer = 99
 script = ExtResource("36_cctrl")
 
 [node name="CurtainMove" type="AnimatedSprite2D" parent="HUD/Curtain" unique_id=1497023214]
-position = Vector2(960, 540)
+position = Vector2(953, 382)
 scale = Vector2(1.01, 1.01)
 sprite_frames = ExtResource("34_l56ef")
 

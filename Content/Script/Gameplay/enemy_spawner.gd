@@ -67,6 +67,7 @@ func _ready() -> void:
 	if _conductor != null:
 		_conductor.move_beat_tick.connect(_on_move_beat_tick)
 		_conductor.stage_advanced.connect(_on_stage_advanced)
+		_conductor.all_stages_cleared.connect(_on_all_stages_cleared)
 	var mode_text: String = "谱面(%d阶段)" % spawn_charts.size() if not spawn_charts.is_empty() else "随机(每%d拍)" % beats_per_spawn
 	CLog.o("EnemySpawner 就绪 | 模式=%s  最大数量=%d" % [mode_text, max_enemies])
 
@@ -79,6 +80,25 @@ func _on_move_beat_tick(_beat_index: int) -> void:
 ## 收到阶段推进信号：同步切换出怪阶段
 func _on_stage_advanced(stage_index: int) -> void:
 	set_stage(stage_index)
+
+
+## 所有阶段通关：断开节拍信号，清除所有待生成预警
+func _on_all_stages_cleared() -> void:
+	# 断开节拍信号，停止响应
+	if _conductor != null and _conductor.move_beat_tick.is_connected(_on_move_beat_tick):
+		_conductor.move_beat_tick.disconnect(_on_move_beat_tick)
+	# 清除所有待生成的预警（销毁预警节点，释放预实例化的敌人）
+	for info: Dictionary in _pending_spawns:
+		var warnings: Array = info["warnings"] as Array
+		for w: Variant in warnings:
+			var warning: SpawnWarning = w as SpawnWarning
+			if warning != null and is_instance_valid(warning):
+				warning.queue_free()
+		var enemy: Enemy = info["enemy"] as Enemy
+		if enemy != null and is_instance_valid(enemy):
+			enemy.free()
+	_pending_spawns.clear()
+	CLog.o("EnemySpawner 已停止生成，清除所有预警")
 
 
 ## 延迟生成：在帧末尾根据模式决定是否生成敌人
