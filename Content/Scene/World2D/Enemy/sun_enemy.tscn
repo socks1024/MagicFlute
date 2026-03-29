@@ -14,6 +14,7 @@ colors = PackedColorArray(0.9064108, 0.7148066, 0, 1, 0.68043804, 0.54213935, 0,
 [node name="SunEnemy" type="Node2D" unique_id=1541572849]
 script = ExtResource("1_76oox")
 contact_damage = 2
+move_direction = Vector2i(0, 1)
 cell_size = Vector2i(2, 2)
 grid_layer = 2
 block_mask = 8

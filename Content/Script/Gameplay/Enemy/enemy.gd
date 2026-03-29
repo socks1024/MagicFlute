@@ -8,6 +8,8 @@ extends GridEntity2D
 # ── 战斗参数 ─────────────────────────────────────────
 ## 接触伤害（碰到玩家时造成的伤害值）
 @export var contact_damage: int = 1
+## 移动方向
+@export var move_direction: Vector2i = Vector2.RIGHT
 
 @export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
@@ -74,7 +76,7 @@ func _physics_process(delta: float) -> void:
 
 ## 收到移动节拍信号：向右移动一格（lane 模式时 Conductor 不会发出此信号）
 func _on_move_beat_tick(_beat_index: int) -> void:
-	_move(Vector2i.RIGHT)
+	_move(move_direction)
 
 # ── 移动逻辑 ─────────────────────────────────────────
 
