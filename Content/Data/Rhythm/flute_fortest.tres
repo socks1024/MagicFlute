@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LaneSequence" format=3 uid="uid://bktalln5iek1q"]
+
+[ext_resource type="Script" uid="uid://c1cs73c4jp6m1" path="res://Content/Script/Gameplay/lane_sequence.gd" id="1_ax454"]
+[ext_resource type="Resource" uid="uid://crnc28jd4irta" path="res://Content/Art/Audio/Events/BGM/bgm_flutephase1.tres" id="1_we5cc"]
+
+[resource]
+script = ExtResource("1_ax454")
+notes = Array[int]([0, 0, 0, 0])
+Playmusic = ExtResource("1_we5cc")
+metadata/_custom_type_script = "uid://c1cs73c4jp6m1"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://dtp6xq6g4xxu1"]
+
+[ext_resource type="AudioStream" uid="uid://dvpsnu6u11lcl" path="res://Content/Art/Audio/Raw/Music/魔笛演奏版v2_135这次不改了_演奏片段2.mp3" id="1_bfrng"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_m3os5"]
+
+[resource]
+script = ExtResource("2_m3os5")
+name = &"BGMLoop135"
+audio_stream = ExtResource("1_bfrng")
+bus = &"Music"
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"

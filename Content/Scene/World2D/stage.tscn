@@ -7,16 +7,20 @@
 [ext_resource type="Resource" uid="uid://dhb014m0yrg4o" path="res://Content/Data/Input/Contexts/move_inputs.tres" id="3_4ao8j"]
 [ext_resource type="TileSet" uid="uid://0sh7pvtsgcgc" path="res://Content/Data/Tile/grid_entity_tiles.tres" id="3_rjhk7"]
 [ext_resource type="Script" uid="uid://dsnc167qrhosw" path="res://Content/Script/Gameplay/rhythm_conductor.gd" id="5_cndct"]
+[ext_resource type="Resource" uid="uid://daxhp1ye0krii" path="res://Content/Data/Rhythm/flute_phase1.tres" id="5_ly26w"]
 [ext_resource type="Script" uid="uid://gppmvqpv2eet" path="res://Content/Script/Gameplay/pickup_spawner.gd" id="6_ewrlj"]
+[ext_resource type="Resource" uid="uid://5ufdj2lk4vnm" path="res://Content/Data/Rhythm/flute_phase2.tres" id="6_xqog1"]
 [ext_resource type="Resource" uid="uid://ce5g6xmc8a3e7" path="res://Content/Art/Audio/Events/BGM/bgm_flute.tres" id="7_8fjbb"]
-[ext_resource type="PackedScene" uid="uid://da26uuyph7uni" path="res://Content/Scene/World2D/Enemy/star_enemy.tscn" id="7_enemy_scene"]
+[ext_resource type="PackedScene" uid="uid://da26uuyph7uni" path="res://Content/Scene/World2D/Enemy/star_down_enemy.tscn" id="7_enemy_scene"]
 [ext_resource type="Script" uid="uid://gam8rl8w7kpi" path="res://Content/Script/Gameplay/enemy_spawner.gd" id="7_enemy_spawner"]
 [ext_resource type="PackedScene" uid="uid://bynok26sjmh57" path="res://Content/Scene/World2D/pickup_item.tscn" id="7_gmcr5"]
+[ext_resource type="Resource" uid="uid://dh0t16rr1ta2f" path="res://Content/Data/Rhythm/flute_phase3.tres" id="7_ly26w"]
+[ext_resource type="Resource" uid="uid://cx6ykcje17nqe" path="res://Content/Data/Rhythm/flute_phase4.tres" id="7_y4dqv"]
 [ext_resource type="PackedScene" uid="uid://ct4kfyl64iem4" path="res://Content/Scene/World2D/rhythm_lane.tscn" id="8_18ekj"]
+[ext_resource type="Resource" uid="uid://cccdu4ue0cmv1" path="res://Content/Data/Rhythm/flute_phasefinal.tres" id="8_22ye8"]
 [ext_resource type="Script" uid="uid://73borrbd2lo2" path="res://Content/Script/Gameplay/lane_stage.gd" id="9_4quhg"]
 [ext_resource type="PackedScene" uid="uid://dha7k2m4p8bti" path="res://Content/Scene/World2D/beat_indicator.tscn" id="9_s8toy"]
 [ext_resource type="Script" uid="uid://c1cs73c4jp6m1" path="res://Content/Script/Gameplay/lane_sequence.gd" id="10_8fjbb"]
-[ext_resource type="Resource" uid="uid://crnc28jd4irta" path="res://Content/Art/Audio/Events/BGM/bgm_flutephase1.tres" id="10_aau2w"]
 [ext_resource type="TileSet" uid="uid://weqkdnp3lgyk" path="res://Content/Data/Tile/grid_zone_tiles.tres" id="10_grid"]
 [ext_resource type="Resource" uid="uid://dtp3wy6msecmu" path="res://Content/Art/Audio/Events/SFX/sfx_lane_full_combo2.tres" id="10_sbmb4"]
 [ext_resource type="Script" uid="uid://cpm7se6xcholx" path="res://Content/Script/Gameplay/rhythm_clock.gd" id="11_clock"]
@@ -27,11 +31,8 @@
 [ext_resource type="SpriteFrames" uid="uid://cbn6v3yfe8gc4" path="res://Content/Art/Animation/boss_body_idle.tres" id="13_un7u5"]
 [ext_resource type="PackedScene" uid="uid://bk48po8w3n23c" path="res://Content/Scene/World2D/spawn_warning.tscn" id="14_warn"]
 [ext_resource type="SpriteFrames" uid="uid://c2lfowytce1ft" path="res://Content/Art/Animation/boss_hand_idle.tres" id="15_q6inv"]
-[ext_resource type="Resource" uid="uid://c1lc7w4ja46t0" path="res://Content/Data/Gameplay/wave1.tres" id="15_wfkcj"]
-[ext_resource type="Resource" uid="uid://cmcyyf7lceqvv" path="res://Content/Data/Gameplay/wave2.tres" id="16_0mb5s"]
 [ext_resource type="SpriteFrames" uid="uid://cpyy6t0on42x2" path="res://Content/Art/Animation/boss_head_idle.tres" id="16_q6inv"]
-[ext_resource type="Resource" uid="uid://c8g6di542lnwi" path="res://Content/Data/Gameplay/wave3.tres" id="17_2mmnj"]
-[ext_resource type="PackedScene" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
+[ext_resource type="PackedScene" uid="uid://bors2mstsog80" path="res://Content/Scene/World2D/game_over_screen.tscn" id="18_gover"]
 [ext_resource type="Script" uid="uid://c6pv56k62bu1r" path="res://Content/Script/Gameplay/rhythm_music_manager.gd" id="18_rmm"]
 [ext_resource type="PackedScene" uid="uid://dooue1hytivjc" path="res://Content/Scene/World2D/victory_screen.tscn" id="18_vscr"]
 [ext_resource type="PackedScene" uid="uid://cvl0mwpum6uh1" path="res://Content/Scene/World2D/Enemy/sun_enemy.tscn" id="18_w4ako"]
@@ -39,29 +40,43 @@
 [ext_resource type="Resource" uid="uid://bmrb7oog1acme" path="res://Content/Art/Audio/Events/SFX/sfx_lane_fail.tres" id="19_fl_sfx"]
 [ext_resource type="PackedScene" uid="uid://bw186rrtm66mx" path="res://Content/Scene/World2D/hp_display.tscn" id="19_hpdsp"]
 [ext_resource type="PackedScene" uid="uid://5xec5ie0txqm" path="res://Content/Scene/World2D/player.tscn" id="22_e7bwl"]
-[ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="25_bo2u5"]
 [ext_resource type="PackedScene" uid="uid://cth0ecix72u77" path="res://Content/Scene/World2D/invisible_wall.tscn" id="26_xqog1"]
 [ext_resource type="PackedScene" uid="uid://g6owaymnd7hv" path="res://Content/Art/Shader/PostProcess/PostProcess2D/post_processing_2d.tscn" id="27_aau2w"]
 [ext_resource type="PackedScene" uid="uid://dhf8k0x4pfahq" path="res://Content/Scene/World2D/Enemy/moon_enemy.tscn" id="29_qr617"]
+[ext_resource type="PackedScene" uid="uid://cbj8mt6ijsuk6" path="res://Content/Scene/World2D/Enemy/star_rightup_enemy.tscn" id="31_2mrh2"]
+[ext_resource type="PackedScene" uid="uid://vo6q6sdifcbo" path="res://Content/Scene/World2D/Enemy/star_leftdown_enemy.tscn" id="32_y4dqv"]
 [ext_resource type="SpriteFrames" uid="uid://cvii0gvuirn5x" path="res://Content/Art/Animation/curtain_move.tres" id="34_l56ef"]
+[ext_resource type="PackedScene" uid="uid://chjqg53ft8oua" path="res://Content/Scene/World2D/Enemy/sun_ultra_enemy.tscn" id="35_1jyxn"]
+[ext_resource type="Resource" uid="uid://c5qx17dv0vvdk" path="res://Content/Data/Gameplay/phase1_sundown.tres" id="35_ly26w"]
 [ext_resource type="SpriteFrames" uid="uid://cm2tid00e7s5d" path="res://Content/Art/Animation/curtain_open.tres" id="35_rk33d"]
+[ext_resource type="PackedScene" uid="uid://4g7p8vyaya2l" path="res://Content/Scene/World2D/Enemy/moon_ultra_enemy.tscn" id="36_8p4pt"]
 [ext_resource type="Script" path="res://Content/Script/Gameplay/curtain_controller.gd" id="36_cctrl"]
+[ext_resource type="Resource" uid="uid://c1yr4ul2lm30t" path="res://Content/Data/Gameplay/phase1_moonup.tres" id="36_xqog1"]
+[ext_resource type="Resource" uid="uid://yi16rdsrt6qx" path="res://Content/Data/Gameplay/phase2_starsdown.tres" id="37_2mrh2"]
+[ext_resource type="Resource" uid="uid://cgxk86c60r6yu" path="res://Content/Data/Gameplay/phase2_starscross.tres" id="39_2mrh2"]
 [ext_resource type="Resource" uid="uid://dr56365ljksi7" path="res://Content/Art/Audio/Events/SFX/sfx_doggy_hurt.tres" id="39_12x1l"]
+[ext_resource type="Resource" uid="uid://ctr478b8r4rin" path="res://Content/Data/Gameplay/phasef_supersun.tres" id="40_fuoth"]
+[ext_resource type="Resource" uid="uid://bmsrwi845aymt" path="res://Content/Data/Gameplay/phasef_supermoon.tres" id="40_qmmxn"]
+[ext_resource type="Resource" uid="uid://u8bfyl0wyytr" path="res://Content/Data/Gameplay/phasef_sunmoon.tres" id="46_fuoth"]
 [ext_resource type="Script" uid="uid://vajxay0gjnd7" path="res://Content/Script/Gameplay/boss_joker.gd" id="47_bjkr"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="48_noise"]
 [ext_resource type="Texture2D" uid="uid://dthcc8thh47hl" path="res://Content/Art/Sprite/place_holder/five_three.png" id="49_2mrh2"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="49_emitter"]
 [ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="49_ly26w"]
 
-[sub_resource type="Resource" id="Resource_ww6io"]
-script = ExtResource("10_8fjbb")
-notes = Array[int]([0, 1, 2, 3, 0, 1, 2, 3, 0, 0, 2, 3, 1, 1, 1, 1])
-Playmusic = ExtResource("10_aau2w")
-metadata/_custom_type_script = "uid://c1cs73c4jp6m1"
-
 [sub_resource type="Resource" id="Resource_8fjbb"]
 script = ExtResource("9_4quhg")
-sequences = Array[ExtResource("10_8fjbb")]([SubResource("Resource_ww6io")])
+sequences = Array[ExtResource("10_8fjbb")]([ExtResource("5_ly26w"), ExtResource("6_xqog1")])
+
+[sub_resource type="Resource" id="Resource_1jyxn"]
+script = ExtResource("9_4quhg")
+sequences = Array[ExtResource("10_8fjbb")]([ExtResource("7_ly26w"), ExtResource("7_y4dqv")])
+metadata/_custom_type_script = "uid://73borrbd2lo2"
+
+[sub_resource type="Resource" id="Resource_qmmxn"]
+script = ExtResource("9_4quhg")
+sequences = Array[ExtResource("10_8fjbb")]([ExtResource("8_22ye8")])
+metadata/_custom_type_script = "uid://73borrbd2lo2"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0cby3"]
 size = Vector2(2189, 1234)
@@ -72,67 +87,22 @@ amplitude = 200.0
 frequency = 10.0
 noise_seed = 1024
 
-[sub_resource type="Resource" id="Resource_ah7ky"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(2, 0)
-enemy_index = 1
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_12x1l"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(6, 0)
-enemy_index = 1
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_qr617"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(10, 0)
-enemy_index = 1
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_5e7t0"]
-script = ExtResource("13_s8toy")
-entries = Array[ExtResource("25_bo2u5")]([SubResource("Resource_ah7ky"), SubResource("Resource_12x1l"), SubResource("Resource_qr617")])
-metadata/_custom_type_script = "uid://b4m40imwwrqjp"
-
-[sub_resource type="Resource" id="Resource_ly26w"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(0, 4)
-enemy_index = 2
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_xqog1"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(4, 4)
-enemy_index = 2
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_2mrh2"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(8, 4)
-enemy_index = 2
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_y4dqv"]
-script = ExtResource("25_bo2u5")
-pos = Vector2i(12, 4)
-enemy_index = 2
-metadata/_custom_type_script = "uid://mrc62ssit8w1"
-
-[sub_resource type="Resource" id="Resource_22ye8"]
-script = ExtResource("13_s8toy")
-entries = Array[ExtResource("25_bo2u5")]([SubResource("Resource_ly26w"), SubResource("Resource_xqog1"), SubResource("Resource_2mrh2"), SubResource("Resource_y4dqv")])
-metadata/_custom_type_script = "uid://b4m40imwwrqjp"
-
 [sub_resource type="Resource" id="Resource_0mb5s"]
 script = ExtResource("13_18ekj")
-waves = Array[ExtResource("13_s8toy")]([SubResource("Resource_5e7t0"), SubResource("Resource_22ye8")])
+waves = Array[ExtResource("13_s8toy")]([ExtResource("35_ly26w"), ExtResource("36_xqog1")])
 next_wave_interval = 8
 metadata/_custom_type_script = "uid://tpl6qhi7y6op"
 
 [sub_resource type="Resource" id="Resource_wfkcj"]
 script = ExtResource("13_18ekj")
-waves = Array[ExtResource("13_s8toy")]([ExtResource("17_2mmnj"), ExtResource("16_0mb5s"), ExtResource("15_wfkcj")])
+waves = Array[ExtResource("13_s8toy")]([ExtResource("37_2mrh2"), ExtResource("39_2mrh2"), ExtResource("36_xqog1"), ExtResource("35_ly26w")])
+next_wave_interval = 6
+metadata/_custom_type_script = "uid://tpl6qhi7y6op"
+
+[sub_resource type="Resource" id="Resource_5evew"]
+script = ExtResource("13_18ekj")
+waves = Array[ExtResource("13_s8toy")]([ExtResource("40_qmmxn"), ExtResource("40_fuoth"), ExtResource("37_2mrh2"), ExtResource("39_2mrh2"), ExtResource("46_fuoth")])
+next_wave_interval = 6
 metadata/_custom_type_script = "uid://tpl6qhi7y6op"
 
 [sub_resource type="Gradient" id="Gradient_confetti"]
@@ -197,7 +167,7 @@ hit_window_sec = 0.3
 [node name="RhythmConductor" type="Node" parent="." unique_id=724941742]
 unique_name_in_owner = true
 script = ExtResource("5_cndct")
-lane_stages = Array[ExtResource("9_4quhg")]([SubResource("Resource_8fjbb")])
+lane_stages = Array[ExtResource("9_4quhg")]([SubResource("Resource_8fjbb"), SubResource("Resource_1jyxn"), SubResource("Resource_qmmxn")])
 move_input_context = ExtResource("3_4ao8j")
 rhythm_clock_path = NodePath("../RhythmClock")
 rhythm_lane_path = NodePath("../HUD/RhythmLane")
@@ -1089,10 +1059,10 @@ position = Vector2(1334, -46)
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1551983401]
 unique_name_in_owner = true
 script = ExtResource("7_enemy_spawner")
-enemy_scenes = Array[PackedScene]([ExtResource("7_enemy_scene"), ExtResource("18_w4ako"), ExtResource("29_qr617")])
+enemy_scenes = Array[PackedScene]([ExtResource("7_enemy_scene"), ExtResource("18_w4ako"), ExtResource("29_qr617"), ExtResource("31_2mrh2"), ExtResource("32_y4dqv"), ExtResource("35_1jyxn"), ExtResource("36_8p4pt")])
 max_enemies = 99
 warn_scene = ExtResource("14_warn")
-spawn_charts = Array[ExtResource("13_18ekj")]([SubResource("Resource_0mb5s"), SubResource("Resource_wfkcj")])
+spawn_charts = Array[ExtResource("13_18ekj")]([SubResource("Resource_0mb5s"), SubResource("Resource_wfkcj"), SubResource("Resource_5evew")])
 start_delay_beats = 8
 
 [node name="PickupSpawner" type="Node2D" parent="." unique_id=1355343133]

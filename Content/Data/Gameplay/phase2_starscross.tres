@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="SpawnWave" format=3 uid="uid://cgxk86c60r6yu"]
+
+[ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="1_a3omn"]
+[ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="2_2ghyl"]
+
+[sub_resource type="Resource" id="Resource_2mrh2"]
+script = ExtResource("1_a3omn")
+pos = Vector2i(0, 3)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_y4dqv"]
+script = ExtResource("1_a3omn")
+pos = Vector2i(6, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_g033l"]
+script = ExtResource("1_a3omn")
+pos = Vector2i(4, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_qmmxn"]
+script = ExtResource("1_a3omn")
+pos = Vector2i(12, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_8p4pt"]
+script = ExtResource("1_a3omn")
+pos = Vector2i(10, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[resource]
+script = ExtResource("2_2ghyl")
+entries = Array[ExtResource("1_a3omn")]([SubResource("Resource_2mrh2"), SubResource("Resource_y4dqv"), SubResource("Resource_g033l"), SubResource("Resource_qmmxn"), SubResource("Resource_8p4pt")])
+metadata/_custom_type_script = "uid://b4m40imwwrqjp"

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://chjqg53ft8oua"]
+
+[ext_resource type="Script" uid="uid://dv5h567dx51wi" path="res://Content/Script/Gameplay/Enemy/sun_enemy.gd" id="1_nxrul"]
+[ext_resource type="Texture2D" uid="uid://bocxuewrktfnu" path="res://Content/Art/Sprite/gamefeel/sun.PNG" id="2_ycu1n"]
+
+[sub_resource type="Curve" id="Curve_death_scale"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_death_color"]
+offsets = PackedFloat32Array(0, 0.99717915)
+colors = PackedColorArray(0.9064108, 0.7148066, 0, 1, 0.68043804, 0.54213935, 0, 0)
+
+[node name="SunEnemy" type="Node2D" unique_id=1541572849]
+scale = Vector2(0.96, 0.96)
+script = ExtResource("1_nxrul")
+contact_damage = 3
+move_direction = Vector2i(0, 1)
+cell_size = Vector2i(4, 4)
+grid_layer = 2
+block_mask = 8
+overlap_mask = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=936646376]
+position = Vector2(249, 253)
+texture = ExtResource("2_ycu1n")
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=1127894653]
+emitting = false
+amount = 160
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.6
+explosiveness = 1.0
+randomness = 0.3
+lifetime_randomness = 0.3
+emission_shape = 3
+emission_rect_extents = Vector2(40, 40)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 200)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+scale_amount_min = 5.0
+scale_amount_max = 20.0
+scale_amount_curve = SubResource("Curve_death_scale")
+color_ramp = SubResource("Gradient_death_color")
