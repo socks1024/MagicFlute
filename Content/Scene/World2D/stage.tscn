@@ -52,6 +52,7 @@
 [ext_resource type="Resource" uid="uid://dr56365ljksi7" path="res://Content/Art/Audio/Events/SFX/sfx_doggy_hurt.tres" id="39_12x1l"]
 [ext_resource type="Script" uid="uid://vajxay0gjnd7" path="res://Content/Script/Gameplay/boss_joker.gd" id="47_bjkr"]
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="48_noise"]
+[ext_resource type="Texture2D" uid="uid://dthcc8thh47hl" path="res://Content/Art/Sprite/place_holder/five_three.png" id="49_2mrh2"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="49_emitter"]
 [ext_resource type="Texture2D" uid="uid://ds46wxjmw2syc" path="res://Content/Art/Sprite/place_holder/white.png" id="49_ly26w"]
 
@@ -1254,7 +1255,7 @@ z_index = 2
 position = Vector2(-95, 126)
 emitting = false
 amount = 200
-texture = ExtResource("49_ly26w")
+texture = ExtResource("49_2mrh2")
 lifetime = 4.0
 one_shot = true
 explosiveness = 0.9
