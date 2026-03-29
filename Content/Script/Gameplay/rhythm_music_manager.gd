@@ -10,10 +10,14 @@ extends Node
 @export var bgm_music: AudioEvent
 ## Lane 序列全连音效
 @export var lane_full_combo_sfx: AudioEvent
+@export var lane_full_combo_sfx2: AudioEvent
 ## Lane 序列失败音效
 @export var lane_fail_sfx: AudioEvent
+@export var lane_fail_sfx2: AudioEvent
 ## 受击音效
 @export var hurt_sfx:AudioEvent
+##开始音效
+@export var lane_start_sfx:AudioEvent
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 指挥引用
@@ -45,6 +49,7 @@ func stop_bgm() -> void:
 
 ## lane 序列开始时的回调（可在此扩展音乐行为）
 func _on_lane_sequence_started() -> void:
+	AudioManager.play_sound(lane_start_sfx)
 	stop_bgm()
 
 
@@ -52,6 +57,8 @@ func _on_lane_sequence_started() -> void:
 func _on_lane_sequence_finished(is_full_combo: bool) -> void:
 	if is_full_combo and lane_full_combo_sfx != null:
 		AudioManager.play_sound(lane_full_combo_sfx)
+		AudioManager.play_sound(lane_full_combo_sfx2)
 	elif not is_full_combo and lane_fail_sfx != null:
 		AudioManager.play_sound(lane_fail_sfx)
+		AudioManager.play_sound(lane_fail_sfx2)
 	AudioManager.continue_music(&"BGM",0.3)

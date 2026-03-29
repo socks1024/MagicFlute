@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://dk0mpe0xv0brn"]
+
+[ext_resource type="AudioStream" uid="uid://deln3dmdxmtdp" path="res://Content/Art/Audio/Raw/SFX/Other/boo.mp3" id="1_rekdn"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_xwdo8"]
+
+[resource]
+script = ExtResource("2_xwdo8")
+name = &"LaneFail"
+audio_stream = ExtResource("1_rekdn")
+bus = &"SFX"
+pitch = 0.8
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"
