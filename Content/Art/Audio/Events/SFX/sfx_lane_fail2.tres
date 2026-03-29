@@ -8,5 +8,6 @@ script = ExtResource("2_xwdo8")
 name = &"LaneFail"
 audio_stream = ExtResource("1_rekdn")
 bus = &"SFX"
+volume = -0.7000000000000028
 pitch = 0.8
 metadata/_custom_type_script = "uid://b8l57kl8oyb2f"
