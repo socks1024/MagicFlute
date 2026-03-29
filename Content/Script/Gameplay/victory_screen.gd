@@ -5,9 +5,17 @@ extends CanvasLayer
 ## 监听 BossJoker 的 death_finished 信号，
 ## 触发胜利结算流程：停止游戏并显示胜利画面。
 
+# ── 信号 ──────────────────────────────────────────────
+## 玩家点击重试按钮
+signal retry_clicked
+## 玩家点击返回主界面按钮
+signal back_to_start_clicked
+
 # ── 子节点引用 ────────────────────────────────────────
 @onready var _panel: Panel = $Panel
 @onready var _label: Label = $Panel/Label
+@onready var _btn_retry: Button = $Panel/ButtonContainer/RetryButton
+@onready var _btn_back: Button = $Panel/ButtonContainer/BackButton
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 节拍时钟引用
@@ -68,3 +76,16 @@ func _show_victory() -> void:
 	_panel.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	var tween: Tween = create_tween()
 	tween.tween_property(_panel, "modulate:a", 1.0, 1.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	# 显示鼠标光标以便点击按钮
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+# ── 按钮回调 ─────────────────────────────────────────
+
+## 重试按钮回调
+func _on_retry_button_pressed() -> void:
+	retry_clicked.emit()
+
+
+## 返回主界面按钮回调
+func _on_back_button_pressed() -> void:
+	back_to_start_clicked.emit()

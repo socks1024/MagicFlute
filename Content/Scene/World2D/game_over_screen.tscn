@@ -43,3 +43,29 @@ text = "GAME OVER"
 label_settings = SubResource("LabelSettings_title")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -180.0
+offset_right = 120.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 16
+
+[node name="RetryButton" type="Button" parent="Panel/ButtonContainer"]
+layout_mode = 2
+text = "再来一次"
+
+[node name="BackButton" type="Button" parent="Panel/ButtonContainer"]
+layout_mode = 2
+text = "返回主界面"
+
+[connection signal="pressed" from="Panel/ButtonContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Panel/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

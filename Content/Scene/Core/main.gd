@@ -49,6 +49,7 @@ func _on_new_game() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	ui.hide()
 	_game_root = await SceneUtils.instantiate_scene_by_load_control(world,game_world_path,loading_scene_path)
+	_connect_end_screen_signals()
 
 
 ## 暂停游戏并显示暂停菜单
@@ -75,6 +76,34 @@ func _on_pause_back_to_start() -> void:
 	pause_menu.hide()
 	_on_back_to_start()
 
+
+## 连接胜利/失败界面的信号
+func _connect_end_screen_signals() -> void:
+	if _game_root == null:
+		return
+	for child: Node in _game_root.get_children():
+		if child is VictoryScreen:
+			child.retry_clicked.connect(_on_end_screen_retry)
+			child.back_to_start_clicked.connect(_on_end_screen_back_to_start)
+		elif child is GameOverScreen:
+			child.retry_clicked.connect(_on_end_screen_retry)
+			child.back_to_start_clicked.connect(_on_end_screen_back_to_start)
+
+
+## 胜利/失败界面 - 快速重试（重新加载关卡）
+func _on_end_screen_retry() -> void:
+	_game_root.queue_free()
+	_game_root = null
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+	_game_root = await SceneUtils.instantiate_scene_by_load_control(world, game_world_path, loading_scene_path)
+	_connect_end_screen_signals()
+
+
+## 胜利/失败界面 - 返回主菜单
+func _on_end_screen_back_to_start() -> void:
+	_game_root.queue_free()
+	_game_root = null
+	_on_back_to_start()
 
 func _on_exit_clicked() -> void:
 	get_tree().quit()
