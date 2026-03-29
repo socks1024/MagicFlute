@@ -30,6 +30,26 @@
 [ext_resource type="Texture2D" uid="uid://bcgpjs0onn1wn" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0028.png" id="28_cpkfi"]
 [ext_resource type="Texture2D" uid="uid://op0umnepsmll" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0029.png" id="29_2y41a"]
 [ext_resource type="Texture2D" uid="uid://bcaicb7akba8j" path="res://Content/Art/Sprite/boss动画/头待机/头部待机0030.png" id="30_8cr8r"]
+[ext_resource type="Texture2D" uid="uid://blk84tmetfujk" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0001.png" id="31_rpf42"]
+[ext_resource type="Texture2D" uid="uid://do6crsrp2t2mh" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0002.png" id="32_udb8e"]
+[ext_resource type="Texture2D" uid="uid://dd0pu2psojweu" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0003.png" id="33_samc2"]
+[ext_resource type="Texture2D" uid="uid://ck3ubjx116ghx" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0004.png" id="34_h3uya"]
+[ext_resource type="Texture2D" uid="uid://c54ss3v5gtkiw" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0005.png" id="35_vhncj"]
+[ext_resource type="Texture2D" uid="uid://cucvtbwqjxpaf" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0006.png" id="36_snpyj"]
+[ext_resource type="Texture2D" uid="uid://2fnpj3c4pdyu" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0007.png" id="37_5vfjy"]
+[ext_resource type="Texture2D" uid="uid://dvowf2bbfimph" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0008.png" id="38_cpkfi"]
+[ext_resource type="Texture2D" uid="uid://brlx6ifrhxvqk" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0009.png" id="39_2y41a"]
+[ext_resource type="Texture2D" uid="uid://vddedcwletty" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0010.png" id="40_8cr8r"]
+[ext_resource type="Texture2D" uid="uid://bq7an8bqdutiq" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0011.png" id="41_70id7"]
+[ext_resource type="Texture2D" uid="uid://da5wnfg4pv53q" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0012.png" id="42_1kidv"]
+[ext_resource type="Texture2D" uid="uid://b1n3sjuwdvwhf" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0013.png" id="43_7lehd"]
+[ext_resource type="Texture2D" uid="uid://335woregjrms" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0014.png" id="44_2tvha"]
+[ext_resource type="Texture2D" uid="uid://bokrvk8l1hpwl" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0015.png" id="45_oc8t5"]
+[ext_resource type="Texture2D" uid="uid://h12rk0ks3tdd" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0016.png" id="46_d71o8"]
+[ext_resource type="Texture2D" uid="uid://bk8mi42xntixp" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0017.png" id="47_klm32"]
+[ext_resource type="Texture2D" uid="uid://dp2qo4mb7bl11" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0018.png" id="48_3hnll"]
+[ext_resource type="Texture2D" uid="uid://l86d7ahkkdhw" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0019.png" id="49_jcjuy"]
+[ext_resource type="Texture2D" uid="uid://cwq4lp424gvxe" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0020.png" id="50_ie7e6"]
 
 [resource]
 animations = [{
@@ -126,5 +146,70 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 24.0
+"speed": 35.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_rpf42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_udb8e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_samc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_h3uya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_vhncj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_snpyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_5vfjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_cpkfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_2y41a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_8cr8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_70id7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1kidv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_7lehd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_2tvha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_oc8t5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_d71o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_klm32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_3hnll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_jcjuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_ie7e6")
+}],
+"loop": false,
+"name": &"spawn_enemy",
+"speed": 35.0
 }]

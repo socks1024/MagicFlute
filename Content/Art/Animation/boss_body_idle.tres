@@ -1,0 +1,130 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cbn6v3yfe8gc4"]
+
+[ext_resource type="Texture2D" uid="uid://b2xe1s0q5jd2k" path="res://Content/Art/Sprite/boss动画/身体待机/身体0001.png" id="1_6gur7"]
+[ext_resource type="Texture2D" uid="uid://kma8ytbjm76j" path="res://Content/Art/Sprite/boss动画/身体待机/身体0002.png" id="2_7s0vd"]
+[ext_resource type="Texture2D" uid="uid://b3er1f35o14lp" path="res://Content/Art/Sprite/boss动画/身体待机/身体0003.png" id="3_b8nih"]
+[ext_resource type="Texture2D" uid="uid://bfji70ehdk5qt" path="res://Content/Art/Sprite/boss动画/身体待机/身体0004.png" id="4_0yt0o"]
+[ext_resource type="Texture2D" uid="uid://b8wvu0bhi0svd" path="res://Content/Art/Sprite/boss动画/身体待机/身体0005.png" id="5_fqbae"]
+[ext_resource type="Texture2D" uid="uid://bvo5qdbbfwlvh" path="res://Content/Art/Sprite/boss动画/身体待机/身体0006.png" id="6_eo8o8"]
+[ext_resource type="Texture2D" uid="uid://6pnbh4dqvle5" path="res://Content/Art/Sprite/boss动画/身体待机/身体0007.png" id="7_7ab6p"]
+[ext_resource type="Texture2D" uid="uid://bqein1ccyi54y" path="res://Content/Art/Sprite/boss动画/身体待机/身体0008.png" id="8_ydwqa"]
+[ext_resource type="Texture2D" uid="uid://brgrdktimy3u1" path="res://Content/Art/Sprite/boss动画/身体待机/身体0009.png" id="9_d7ir3"]
+[ext_resource type="Texture2D" uid="uid://dtfx53ebcbeff" path="res://Content/Art/Sprite/boss动画/身体待机/身体0010.png" id="10_7xd7l"]
+[ext_resource type="Texture2D" uid="uid://b4yu7xsp5em0p" path="res://Content/Art/Sprite/boss动画/身体待机/身体0011.png" id="11_i0glq"]
+[ext_resource type="Texture2D" uid="uid://bf7kvhpqssryu" path="res://Content/Art/Sprite/boss动画/身体待机/身体0012.png" id="12_bixgk"]
+[ext_resource type="Texture2D" uid="uid://b6fe5uu1igja2" path="res://Content/Art/Sprite/boss动画/身体待机/身体0013.png" id="13_jqxu3"]
+[ext_resource type="Texture2D" uid="uid://ctaqvy2kacjp1" path="res://Content/Art/Sprite/boss动画/身体待机/身体0014.png" id="14_s7ycm"]
+[ext_resource type="Texture2D" uid="uid://bxagglxvkfhk8" path="res://Content/Art/Sprite/boss动画/身体待机/身体0015.png" id="15_dqtf7"]
+[ext_resource type="Texture2D" uid="uid://4te0mqtingtm" path="res://Content/Art/Sprite/boss动画/身体待机/身体0016.png" id="16_f56mi"]
+[ext_resource type="Texture2D" uid="uid://3okg0kwtgp7j" path="res://Content/Art/Sprite/boss动画/身体待机/身体0017.png" id="17_qd2n3"]
+[ext_resource type="Texture2D" uid="uid://by5hgltlmcmkv" path="res://Content/Art/Sprite/boss动画/身体待机/身体0018.png" id="18_63n4r"]
+[ext_resource type="Texture2D" uid="uid://ff3epqesmd6" path="res://Content/Art/Sprite/boss动画/身体待机/身体0019.png" id="19_bsjrk"]
+[ext_resource type="Texture2D" uid="uid://dwwxxgyk2qnsi" path="res://Content/Art/Sprite/boss动画/身体待机/身体0020.png" id="20_y8u36"]
+[ext_resource type="Texture2D" uid="uid://78lilqo3smx5" path="res://Content/Art/Sprite/boss动画/身体待机/身体0021.png" id="21_dwfpl"]
+[ext_resource type="Texture2D" uid="uid://fmqmgi4p36gj" path="res://Content/Art/Sprite/boss动画/身体待机/身体0022.png" id="22_28y6v"]
+[ext_resource type="Texture2D" uid="uid://cjhhuopxcucqn" path="res://Content/Art/Sprite/boss动画/身体待机/身体0023.png" id="23_p5bkc"]
+[ext_resource type="Texture2D" uid="uid://b878u20d6a40k" path="res://Content/Art/Sprite/boss动画/身体待机/身体0024.png" id="24_w5ghw"]
+[ext_resource type="Texture2D" uid="uid://c8ueuec2q4fco" path="res://Content/Art/Sprite/boss动画/身体待机/身体0025.png" id="25_8ra2l"]
+[ext_resource type="Texture2D" uid="uid://c8wfs4u50naq5" path="res://Content/Art/Sprite/boss动画/身体待机/身体0026.png" id="26_s3gb7"]
+[ext_resource type="Texture2D" uid="uid://cql5hkpijymed" path="res://Content/Art/Sprite/boss动画/身体待机/身体0027.png" id="27_0lc1j"]
+[ext_resource type="Texture2D" uid="uid://pnkw83a7727c" path="res://Content/Art/Sprite/boss动画/身体待机/身体0028.png" id="28_7oqr7"]
+[ext_resource type="Texture2D" uid="uid://bqybtg6rhyhsv" path="res://Content/Art/Sprite/boss动画/身体待机/身体0029.png" id="29_q8c4b"]
+[ext_resource type="Texture2D" uid="uid://dbjvgx7h1qej3" path="res://Content/Art/Sprite/boss动画/身体待机/身体0030.png" id="30_2w5j0"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6gur7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7s0vd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b8nih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0yt0o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fqbae")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eo8o8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ab6p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ydwqa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_d7ir3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_7xd7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i0glq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bixgk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jqxu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s7ycm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_dqtf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_f56mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_qd2n3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_63n4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_bsjrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_y8u36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_dwfpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_28y6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_p5bkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_w5ghw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_8ra2l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_s3gb7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_0lc1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7oqr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_q8c4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_2w5j0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 35.0
+}]

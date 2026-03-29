@@ -11,6 +11,10 @@ extends Node2D
 ## 监听 RhythmConductor 的 move_beat_tick 信号（lane 模式时不发出，
 ## 因此 lane 期间谱面自动冻结、出怪自动暂停）。
 
+# ── 信号 ─────────────────────────────────────────────
+## 敌人生成时发射，传出网格位置和敌人节点
+signal enemy_spawned(grid_pos: Vector2i, enemy: Enemy)
+
 # ── 导出属性 ─────────────────────────────────────────
 ## 敌人场景资源列表（通过 SpawnEntry.enemy_index 索引）
 @export var enemy_scenes: Array[PackedScene] = []
@@ -215,6 +219,7 @@ func _do_spawn_enemy(grid_pos: Vector2i, enemy: Enemy) -> void:
 	enemy.owner = owner
 	# 在网格系统中注册敌人占用（place_entity 内部会调用 _on_placed，完成信号连接等初始化）
 	_grid.place_entity(grid_pos, enemy)
+	enemy_spawned.emit(grid_pos, enemy)
 	CLog.o("生成敌人 -> %s（移动拍 #%d）" % [grid_pos, _move_beat_count])
 
 # ── 预警逻辑 ─────────────────────────────────────────

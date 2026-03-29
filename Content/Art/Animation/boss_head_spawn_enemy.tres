@@ -1,0 +1,90 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dmlo40w2hmxpo"]
+
+[ext_resource type="Texture2D" uid="uid://blk84tmetfujk" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0001.png" id="1_nave7"]
+[ext_resource type="Texture2D" uid="uid://do6crsrp2t2mh" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0002.png" id="2_b3pi4"]
+[ext_resource type="Texture2D" uid="uid://dd0pu2psojweu" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0003.png" id="3_qe624"]
+[ext_resource type="Texture2D" uid="uid://ck3ubjx116ghx" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0004.png" id="4_2lieg"]
+[ext_resource type="Texture2D" uid="uid://c54ss3v5gtkiw" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0005.png" id="5_0b4yr"]
+[ext_resource type="Texture2D" uid="uid://cucvtbwqjxpaf" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0006.png" id="6_pbob5"]
+[ext_resource type="Texture2D" uid="uid://2fnpj3c4pdyu" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0007.png" id="7_33dcn"]
+[ext_resource type="Texture2D" uid="uid://dvowf2bbfimph" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0008.png" id="8_ug7i3"]
+[ext_resource type="Texture2D" uid="uid://brlx6ifrhxvqk" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0009.png" id="9_xanxf"]
+[ext_resource type="Texture2D" uid="uid://vddedcwletty" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0010.png" id="10_u3son"]
+[ext_resource type="Texture2D" uid="uid://bq7an8bqdutiq" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0011.png" id="11_pbdwa"]
+[ext_resource type="Texture2D" uid="uid://da5wnfg4pv53q" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0012.png" id="12_jufc5"]
+[ext_resource type="Texture2D" uid="uid://b1n3sjuwdvwhf" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0013.png" id="13_x8yqp"]
+[ext_resource type="Texture2D" uid="uid://335woregjrms" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0014.png" id="14_xdk43"]
+[ext_resource type="Texture2D" uid="uid://bokrvk8l1hpwl" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0015.png" id="15_hgjys"]
+[ext_resource type="Texture2D" uid="uid://h12rk0ks3tdd" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0016.png" id="16_sx6ya"]
+[ext_resource type="Texture2D" uid="uid://bk8mi42xntixp" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0017.png" id="17_4vj4j"]
+[ext_resource type="Texture2D" uid="uid://dp2qo4mb7bl11" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0018.png" id="18_aai7j"]
+[ext_resource type="Texture2D" uid="uid://l86d7ahkkdhw" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0019.png" id="19_70brk"]
+[ext_resource type="Texture2D" uid="uid://cwq4lp424gvxe" path="res://Content/Art/Sprite/boss动画/头吐怪/吐0020.png" id="20_xlfu1"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nave7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_b3pi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qe624")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2lieg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0b4yr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pbob5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_33dcn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ug7i3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_xanxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_u3son")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pbdwa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jufc5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_x8yqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_xdk43")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_hgjys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sx6ya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4vj4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_aai7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_70brk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_xlfu1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
