@@ -1,5 +1,9 @@
+class_name BossJoker
 extends Node2D
 ## Boss Joker 控制脚本，管理下属节点的动画播放
+
+## 处决动画完成信号（下坠渐隐结束后发射）
+signal death_finished
 
 ## 触发头部 spawn_enemy 动画的网格位置列表（在编辑器中配置）
 @export var spawn_anim_positions: Array[Vector2i] = []
@@ -44,6 +48,9 @@ var _is_dead: bool = false
 @onready var body: AnimatedSprite2D = $JokerBody
 @onready var _enemy_spawner: EnemySpawner = %EnemySpawner
 @onready var _conductor: RhythmConductor = %RhythmConductor
+@onready var _death_shake_emitter: PhantomCameraNoiseEmitter2D = $DeathShakeEmitter
+@onready var _confetti_left: GPUParticles2D = %ConfettiLeft
+@onready var _confetti_right: GPUParticles2D = %ConfettiRight
 
 
 func _ready() -> void:
@@ -137,6 +144,14 @@ func _play_death_effect() -> void:
 
 ## 抖动结束后执行下坠 + 渐隐
 func _start_death_fall() -> void:
+	# 触发处决震屏
+	if _death_shake_emitter != null:
+		_death_shake_emitter.emit()
+	# 触发礼花效果
+	if _confetti_left != null:
+		_confetti_left.emitting = true
+	if _confetti_right != null:
+		_confetti_right.emitting = true
 	# 停止所有帧动画
 	for part: AnimatedSprite2D in _all_parts:
 		part.stop()
@@ -155,6 +170,10 @@ func _start_death_fall() -> void:
 		if mat != null:
 			death_tween.tween_property(mat, "shader_parameter/color_amount", 1.0, fall_duration) \
 				.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	death_tween.finished.connect(func() -> void:
+		death_finished.emit()
+		CLog.o("BossJoker 处决动画完成")
+	)
 	CLog.o("BossJoker 下坠渐隐开始")
 
 
