@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SpawnWave" format=3 uid="uid://b13tptqfnejwa"]
+
+[ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="1_tf4ba"]
+[ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="2_itite"]
+
+[sub_resource type="Resource" id="Resource_gxxyw"]
+script = ExtResource("1_tf4ba")
+pos = Vector2i(0, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_fjce4"]
+script = ExtResource("1_tf4ba")
+beat = 1
+pos = Vector2i(2, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_utv62"]
+script = ExtResource("1_tf4ba")
+beat = 2
+pos = Vector2i(4, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_yrp8i"]
+script = ExtResource("1_tf4ba")
+beat = 3
+pos = Vector2i(6, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[resource]
+script = ExtResource("2_itite")
+entries = Array[ExtResource("1_tf4ba")]([SubResource("Resource_gxxyw"), SubResource("Resource_fjce4"), SubResource("Resource_utv62"), SubResource("Resource_yrp8i")])
+metadata/_custom_type_script = "uid://b4m40imwwrqjp"
