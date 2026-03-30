@@ -97,9 +97,9 @@ color = Color(0.12156863, 0.12156863, 0.18039216, 0)
 
 [node name="JudgeLine" type="ColorRect" parent="." unique_id=422261649]
 layout_mode = 0
-offset_left = 640.31006
+offset_left = 681.58136
 offset_top = 57.364372
-offset_right = 673.4842
+offset_right = 700.2463
 offset_bottom = 257.36438
 scale = Vector2(5.775194, 2.736432)
 color = Color(1, 1, 1, 0)
