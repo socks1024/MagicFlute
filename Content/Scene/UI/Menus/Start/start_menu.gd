@@ -14,7 +14,7 @@ signal exit_clicked
 
 
 func _ready() -> void:
-	animated_sprite_2d.play("default")	
+	animated_sprite_2d.play("default")
 
 
 func _on_new_game_button_anim_finish() -> void:
