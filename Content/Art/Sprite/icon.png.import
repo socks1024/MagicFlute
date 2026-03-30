@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bca7hrd1gw6m6"
-path="res://.godot/imported/拿到道具的小狗.PNG-c861b66f9808e9bb41e38a0f6064e817.ctex"
+uid="uid://cm4ne4rujybsg"
+path="res://.godot/imported/icon.png-a8ab35e8d152f6549b307169e20ff067.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Content/Art/Sprite/camp/马戏团资源/拿到道具的小狗.PNG"
-dest_files=["res://.godot/imported/拿到道具的小狗.PNG-c861b66f9808e9bb41e38a0f6064e817.ctex"]
+source_file="res://Content/Art/Sprite/icon.png"
+dest_files=["res://.godot/imported/icon.png-a8ab35e8d152f6549b307169e20ff067.ctex"]
 
 [params]
 

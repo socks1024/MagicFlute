@@ -4,10 +4,9 @@
 [ext_resource type="Script" uid="uid://dimvdouy8g0sv" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_2d.gd" id="3_noise"]
 [ext_resource type="Texture2D" uid="uid://gx38nvm7ln5q" path="res://Content/Art/Sprite/camp/马戏团资源/主角小狗.PNG" id="3_npcrf"]
 [ext_resource type="Script" uid="uid://bhd4nuiu23e7l" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_noise_emitter_2d.gd" id="4_emitter"]
-[ext_resource type="Texture2D" uid="uid://bl5c1egnhjkk4" path="res://Content/Art/Sprite/小狗和警告ui/小狗冲刺.PNG" id="4_s456o"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_pcam_host"]
 [ext_resource type="Shader" uid="uid://dvbw1qfgow638" path="res://Content/Art/Shader/Sprite/Color/color.gdshader" id="6_color_shader"]
-[ext_resource type="Texture2D" uid="uid://bca7hrd1gw6m6" path="res://Content/Art/Sprite/camp/马戏团资源/拿到道具的小狗.PNG" id="7_lane_sprite"]
+[ext_resource type="Texture2D" uid="uid://bca7hrd1gw6m6" path="res://Content/Art/Sprite/camp/马戏团资源/dog_with_horn.PNG" id="7_lane_sprite"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flash"]
 shader = ExtResource("6_color_shader")
@@ -31,7 +30,6 @@ script = ExtResource("1_player")
 max_hp = 5
 texture_normal = ExtResource("3_npcrf")
 texture_lane = ExtResource("7_lane_sprite")
-texture_dash = ExtResource("4_s456o")
 spring_position_damping = 0.275
 spring_scale_damping = 0.298
 squash_stretch_amount = 1.0
