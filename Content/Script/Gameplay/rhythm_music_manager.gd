@@ -38,7 +38,7 @@ func _ready() -> void:
 ## 播放主 BGM
 func play_bgm() -> void:
 	if bgm_music != null:
-		AudioManager.start_music(bgm_music, &"BGM", 0.3)
+		AudioManager.start_music(bgm_music, &"BGM",1.0,false)
 
 
 ## 停止主 BGM
