@@ -63,6 +63,9 @@ const LANE_COLORS: Array[Color] = [
 # ── 音符场景 ─────────────────────────────────────────
 ## 音符场景资源（FallingNote）
 @export var note_scene: PackedScene
+@export var note_scene_right:PackedScene
+@export var note_scene_left:PackedScene
+@export var note_scene_down:PackedScene
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 每拍时长（秒），由外部通过 configure() 设置
@@ -370,8 +373,8 @@ func _get_note_x(beat_time: float) -> float:
 
 ## 生成即将进入可视范围的音符
 func _spawn_pending_notes() -> void:
-	if note_scene == null:
-		return
+	
+	
 	var scroll_duration: float = _scroll_beats * _seconds_per_beat
 	while _next_chart_index < _current_chart.size():
 		var entry: Dictionary = _current_chart[_next_chart_index]
@@ -379,11 +382,23 @@ func _spawn_pending_notes() -> void:
 		var lane_idx: int = int(entry["lane"])
 		var beat_time: float = _get_beat_time(beat_idx)
 		var spawn_time: float = beat_time - scroll_duration
+		
+		var notescene:PackedScene
+		match lane_idx:
+			0:
+				notescene=note_scene
+			1:
+				notescene=note_scene_left
+			2:
+				notescene=note_scene_down
+			3:
+				notescene=note_scene_right
+		
 		# 只生成 spawn_time 已到达的音符（提前 0.1 秒生成以避免视觉跳变）
 		if spawn_time > _song_time_sec + 0.1:
 			break
 		# 实例化音符
-		var note: FallingNote = note_scene.instantiate() as FallingNote
+		var note: FallingNote = notescene.instantiate() as FallingNote
 		note.lane_index = lane_idx
 		note.beat_index = beat_idx
 		# 设置大小
@@ -395,10 +410,12 @@ func _spawn_pending_notes() -> void:
 		if note_texture_common != null:
 			# 如果 FallingNote 是 TextureRect，直接设置 texture 属性
 			if note is TextureRect:
-				note.texture = note_texture_common
+				note.texture = note_texture_common			
 			# 或者如果有 texture 属性
 			elif "texture" in note:
 				note.texture = note_texture_common
+				
+			
 		
 		# 设置标签文字
 		if note.label:

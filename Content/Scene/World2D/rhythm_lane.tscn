@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://chomgpjgfaqf" path="res://Content/Art/Sprite/scene/谱子/节奏板2.png" id="3_41u7t"]
 [ext_resource type="Texture2D" uid="uid://pbj4euo4ikcc" path="res://Content/Art/Sprite/scene/谱子/左.png" id="3_m1p3b"]
 [ext_resource type="Texture2D" uid="uid://coqxqtvslikru" path="res://Content/Art/Sprite/scene/谱子/下.png" id="4_kka61"]
+[ext_resource type="PackedScene" uid="uid://d0daf4xhypilv" path="res://Content/Scene/World2D/falling_note_right.tscn" id="4_lcbet"]
+[ext_resource type="PackedScene" uid="uid://dr2kkequg3l2b" path="res://Content/Scene/World2D/falling_note_left.tscn" id="5_f7jic"]
 [ext_resource type="Texture2D" uid="uid://b1gfvevqsqwsw" path="res://Content/Art/Sprite/scene/谱子/右.png" id="5_p7vu8"]
+[ext_resource type="PackedScene" uid="uid://sfdbual48ir3" path="res://Content/Scene/World2D/falling_note_down.tscn" id="6_cdv2y"]
 [ext_resource type="Texture2D" uid="uid://dthcc8thh47hl" path="res://Content/Art/Sprite/place_holder/five_three.png" id="8_kka61"]
 
 [sub_resource type="Gradient" id="Gradient_p7vu8"]
@@ -54,6 +57,9 @@ scale = Vector2(0.645, 0.645)
 script = ExtResource("1_lane")
 track_y_positions = Array[float]([105.0, 245.0, 370.0, 500.0])
 note_scene = ExtResource("2_note")
+note_scene_right = ExtResource("4_lcbet")
+note_scene_left = ExtResource("5_f7jic")
+note_scene_down = ExtResource("6_cdv2y")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1996383841]
 layout_mode = 0
@@ -97,9 +103,9 @@ color = Color(0.12156863, 0.12156863, 0.18039216, 0)
 
 [node name="JudgeLine" type="ColorRect" parent="." unique_id=422261649]
 layout_mode = 0
-offset_left = 681.58136
+offset_left = 722.52686
 offset_top = 57.364372
-offset_right = 700.2463
+offset_right = 728.2344
 offset_bottom = 257.36438
 scale = Vector2(5.775194, 2.736432)
 color = Color(1, 1, 1, 0)

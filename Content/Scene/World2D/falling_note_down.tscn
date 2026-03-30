@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://6pihc4mmw4ps"]
+[gd_scene format=3 uid="uid://sfdbual48ir3"]
 
-[ext_resource type="Texture2D" uid="uid://d20673iqa1iqy" path="res://Content/Art/Sprite/gamefeel/上-export.png" id="1_dpu88"]
-[ext_resource type="Script" uid="uid://bgkrn54pipur" path="res://Content/Script/Gameplay/falling_note.gd" id="1_note"]
+[ext_resource type="Texture2D" uid="uid://b4qbvg67ik1gf" path="res://Content/Art/Sprite/gamefeel/下-export.png" id="1_5800s"]
+[ext_resource type="Script" uid="uid://bgkrn54pipur" path="res://Content/Script/Gameplay/falling_note.gd" id="2_ym5r2"]
 
 [node name="FallingNote" type="TextureRect" unique_id=676456302]
 custom_minimum_size = Vector2(44, 44)
@@ -9,8 +9,8 @@ offset_right = 711.0468
 offset_bottom = 758.30676
 rotation = 1.5707964
 scale = Vector2(0.255, 0.255)
-texture = ExtResource("1_dpu88")
-script = ExtResource("1_note")
+texture = ExtResource("1_5800s")
+script = ExtResource("2_ym5r2")
 
 [node name="Label" type="Label" parent="." unique_id=932274102]
 layout_mode = 1
