@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SpawnWave" format=3 uid="uid://cgxk86c60r6yu"]
+[gd_resource type="Resource" script_class="SpawnWave" format=3 uid="uid://bea6c4usx62c3"]
 
 [ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="1_a3omn"]
 [ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="2_2ghyl"]

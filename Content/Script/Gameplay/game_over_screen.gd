@@ -13,9 +13,6 @@ signal back_to_start_clicked
 
 # ── 子节点引用 ────────────────────────────────────────
 @onready var _panel: Panel = $Panel
-@onready var _label: Label = $Panel/Label
-@onready var _btn_retry: Button = $Panel/ButtonContainer/RetryButton
-@onready var _btn_back: Button = $Panel/ButtonContainer/BackButton
 
 # ── 内部变量 ─────────────────────────────────────────
 ## 节拍时钟引用

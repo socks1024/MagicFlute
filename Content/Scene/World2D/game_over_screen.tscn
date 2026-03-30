@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://bors2mstsog80"]
 
 [ext_resource type="Script" uid="uid://gqivcubgibbx" path="res://Content/Script/Gameplay/game_over_screen.gd" id="1_script"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_title"]
-font_size = 72
+[ext_resource type="Texture2D" uid="uid://bceq1pfnrx7mx" path="res://Content/Art/Sprite/结算/失败ui.PNG" id="2_6gy1x"]
+[ext_resource type="Texture2D" uid="uid://cdoqi8v61y7qp" path="res://Content/Art/Sprite/结算/重新玩ui.PNG" id="3_6gy1x"]
 
 [node name="GameOverScreen" type="CanvasLayer" unique_id=952328629]
 layer = 100
@@ -11,40 +10,31 @@ script = ExtResource("1_script")
 
 [node name="Panel" type="Panel" parent="." unique_id=806334991]
 visible = false
+self_modulate = Color(0, 0, 0, 0.43529412)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Panel" unique_id=1842490504]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.7)
+[node name="Control" type="Control" parent="Panel" unique_id=793934442]
+anchors_preset = 0
+scale = Vector2(0.5, 0.5)
 
-[node name="Label" type="Label" parent="Panel" unique_id=948982886]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -60.0
-offset_right = 300.0
-offset_bottom = 60.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "GAME OVER"
-label_settings = SubResource("LabelSettings_title")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="BG" type="TextureRect" parent="Panel/Control" unique_id=353018027]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture = ExtResource("2_6gy1x")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="Panel"]
+[node name="Restart" type="TextureButton" parent="Panel/Control" unique_id=1517242465]
+layout_mode = 0
+offset_right = 3840.0
+offset_bottom = 2160.0
+texture_normal = ExtResource("3_6gy1x")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Panel" unique_id=466854069]
+visible = false
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -59,13 +49,14 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 16
 
-[node name="RetryButton" type="Button" parent="Panel/ButtonContainer"]
+[node name="RetryButton" type="Button" parent="Panel/ButtonContainer" unique_id=903723696]
 layout_mode = 2
 text = "再来一次"
 
-[node name="BackButton" type="Button" parent="Panel/ButtonContainer"]
+[node name="BackButton" type="Button" parent="Panel/ButtonContainer" unique_id=1793833451]
 layout_mode = 2
 text = "返回主界面"
 
+[connection signal="pressed" from="Panel/Control/Restart" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/ButtonContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
