@@ -21,6 +21,8 @@ signal died
 @export var texture_normal: Texture2D
 ## Lane 音游模式精灵图
 @export var texture_lane: Texture2D
+## 冲刺（移动中）精灵图
+@export var texture_dash: Texture2D
 
 @export_group("Spring")
 ## 位移弹簧阻尼（0~1，越大越快停下）
@@ -73,6 +75,8 @@ var _spring_zoom: SpringFloat
 var _spring_rotation: SpringFloat
 ## 当前是否朝左（默认朝左）
 var _facing_left: bool = true
+## 当前是否处于移动中（用于冲刺精灵图切换）
+var _is_moving: bool = false
 
 # ── @onready 引用 ────────────────────────────────────
 ## 精灵节点引用
@@ -117,6 +121,11 @@ func _physics_process(delta: float) -> void:
 	_spring_rotation.update(delta)
 	# 用位移弹簧驱动视觉位置（使用全局坐标，与网格系统坐标一致）
 	global_position = _spring_position.current
+	# 移动接近目标后切回普通精灵图（不等弹簧完全静止，差不多到了就切）
+	if _is_moving and _spring_position.current.distance_to(_spring_position.target) < 2.0:
+		_is_moving = false
+		if _sprite != null and texture_normal != null:
+			_sprite.texture = texture_normal
 	# 用缩放弹簧驱动精灵缩放
 	if _sprite != null:
 		_sprite.scale = _spring_scale.current
@@ -217,6 +226,10 @@ func _do_beat_move(direction: Vector2) -> void:
 	# 用位移弹簧驱动视觉过渡（动画未结束时再次调用会自然过渡到新目标）
 	_spring_position.move_to(target_pos)
 	_face_direction(direction)
+	# 切换到冲刺精灵图
+	_is_moving = true
+	if texture_dash != null and _sprite != null:
+		_sprite.texture = texture_dash
 	# 挤压拉伸：沿移动方向拉伸	
 	var stretch: Vector2 = Vector2(
 		absf(direction.x) * squash_stretch_amount - absf(direction.y) * squash_stretch_amount,

@@ -139,6 +139,7 @@ position = Vector2(87.25002, 220.00002)
 emitting = false
 amount = 20
 texture = ExtResource("5_particles")
+lifetime = 0.8
 one_shot = true
 speed_scale = 2.0
 explosiveness = 1.0
