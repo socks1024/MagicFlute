@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="AudioEvent" format=3 uid="uid://dve2cqad4mq2a"]
+
+[ext_resource type="AudioStream" uid="uid://bmc8og6xi5712" path="res://Content/Art/Audio/Raw/Music/节奏吉娃娃title.wav" id="1_vjxn3"]
+[ext_resource type="Script" uid="uid://b8l57kl8oyb2f" path="res://Content/Script/Audio/audio_event.gd" id="2_r85uq"]
+
+[resource]
+script = ExtResource("2_r85uq")
+name = &"bgm_flute"
+audio_stream = ExtResource("1_vjxn3")
+is_loop = true
+bus = &"Music"
+metadata/_custom_type_script = "uid://b8l57kl8oyb2f"
