@@ -97,6 +97,18 @@ var _miss_count: int = 0
 # ── 场景中静态配置的视觉节点 ────────────────────────
 @onready var _judge_line: ColorRect = $JudgeLine
 
+# ── 四个轨道的粒子系统（需要在场景中创建并命名）────
+@onready var firework_w: GPUParticles2D = $Firework_W
+@onready var firework_a: GPUParticles2D = $Firework_A
+@onready var firework_s: GPUParticles2D = $Firework_S
+@onready var firework_d: GPUParticles2D = $Firework_D
+
+# ── 四个轨道的打击感贴图（需要在场景中创建并命名）────
+@onready var hit_effect_w: TextureRect = $HitEffect_W
+@onready var hit_effect_a: TextureRect = $HitEffect_A
+@onready var hit_effect_s: TextureRect = $HitEffect_S
+@onready var hit_effect_d: TextureRect = $HitEffect_D
+
 # ── 生命周期 ─────────────────────────────────────────
 
 func _ready() -> void:
@@ -106,7 +118,59 @@ func _ready() -> void:
 	_update_lane_centers()
 	# 初始隐藏
 	visible = false
+	
+	# 调试：检查节点是否存在
+	print("=== 检查打击感节点 ===")
+	print("HitEffect_W: ", hit_effect_w)
+	print("HitEffect_A: ", hit_effect_a)
+	print("HitEffect_S: ", hit_effect_s)
+	print("HitEffect_D: ", hit_effect_d)
+	
+	# 设置打击感贴图的初始状态（正常显示）
+	_setup_hit_effects()
+	
 	CLog.o("RhythmLane 就绪 | 判定线X=%.0f" % _judge_x)
+
+
+## 初始化打击感效果节点
+func _setup_hit_effects() -> void:
+	var effects = [hit_effect_w, hit_effect_a, hit_effect_s, hit_effect_d]
+	for effect in effects:
+		if effect != null:
+			# 设置为正常显示（完全不透明）
+			effect.modulate = Color(1.0, 1.0, 1.0, 1.0)
+
+
+## 播放打击感闪烁效果（缩放 + 闪烁，更明显）
+func _play_hit_flash(effect: TextureRect) -> void:
+	if effect == null:
+		print("错误：打击感节点为空")
+		return
+	
+	print("播放打击效果: ", effect.name)
+	
+	# 停止当前所有动画
+	var tween = effect.create_tween()
+	tween.kill()
+	
+	# 保存原始状态
+	var original_scale = effect.scale
+	var original_color = effect.modulate
+	
+	# 第一步：瞬间放大并变色
+	effect.scale = original_scale * 1.3
+	effect.modulate = Color(1.0, 0.5, 0.0, 1.0)  # 橙色
+	
+	# 第二步：缩小并恢复颜色
+	tween = effect.create_tween()
+	tween.set_parallel(true)  # 并行执行
+	
+	# 缩放动画
+	tween.tween_property(effect, "scale", original_scale, 0.12).set_ease(Tween.EASE_OUT)
+	
+	# 颜色动画（金色 -> 白色）
+	tween.tween_property(effect, "modulate", Color(1.0, 0.9, 0.3, 1.0), 0.05)
+	tween.tween_property(effect, "modulate", original_color, 0.1).set_delay(0.05)
 
 
 func _process(_delta: float) -> void:
@@ -118,6 +182,35 @@ func _process(_delta: float) -> void:
 	_update_note_positions()
 	# 检查飘过判定线的音符（Miss）
 	_check_missed_notes()
+
+
+func _input(event: InputEvent) -> void:
+	# 只在序列激活时处理输入
+	if not _active:
+		return
+	
+	# 检测 WASD 按键
+	if event.is_pressed() and not event.is_echo():
+		if event.is_action_pressed("move_up"):      # W 键
+			print("按下 W 键")
+			_play_hit_flash(hit_effect_w)
+			_play_firework_at_lane(0)
+			try_hit_lane(0)
+		elif event.is_action_pressed("move_left"):   # A 键
+			print("按下 A 键")
+			_play_hit_flash(hit_effect_a)
+			_play_firework_at_lane(1)
+			try_hit_lane(1)
+		elif event.is_action_pressed("move_down"):   # S 键
+			print("按下 S 键")
+			_play_hit_flash(hit_effect_s)
+			_play_firework_at_lane(2)
+			try_hit_lane(2)
+		elif event.is_action_pressed("move_right"):  # D 键
+			print("按下 D 键")
+			_play_hit_flash(hit_effect_d)
+			_play_firework_at_lane(3)
+			try_hit_lane(3)
 
 
 func _draw() -> void:
@@ -177,6 +270,28 @@ func _resized() -> void:
 	if not use_custom_track_positions:
 		_update_lane_centers()
 	queue_redraw()
+
+# ── 烟花效果 ─────────────────────────────────────────
+
+## 在指定轨道播放烟花效果（使用场景中配置好的粒子系统）
+func _play_firework_at_lane(lane_idx: int) -> void:
+	# 根据轨道索引获取对应的粒子系统
+	var particles: GPUParticles2D = null
+	match lane_idx:
+		0: particles = firework_w   # W 键
+		1: particles = firework_a   # A 键
+		2: particles = firework_s   # S 键
+		3: particles = firework_d   # D 键
+	
+	# 检查粒子系统是否存在
+	if particles == null:
+		CLog.w("轨道 %d 的粒子系统不存在" % lane_idx)
+		return
+	
+	# 播放烟花（重启粒子系统）
+	particles.restart()
+	particles.emitting = true
+	CLog.o("播放烟花 - 轨道: %d" % lane_idx)
 
 # ── 辅助函数 ─────────────────────────────────────────
 
