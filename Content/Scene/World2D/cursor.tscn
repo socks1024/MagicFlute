@@ -1,9 +1,16 @@
 [gd_scene format=3 uid="uid://mnq5sr7j6f62"]
 
+[ext_resource type="Shader" uid="uid://dvbw1qfgow638" path="res://Content/Art/Shader/Sprite/Color/color.gdshader" id="1_4tvn1"]
 [ext_resource type="Texture2D" uid="uid://2qoafgl22ffi" path="res://Content/Art/Sprite/scene/谱子/音符.png" id="1_cursor"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rwxfu"]
+shader = ExtResource("1_4tvn1")
+shader_parameter/base_color = Color(1, 1, 0, 1)
+shader_parameter/color_amount = 1.0
 
 [node name="Cursor" type="TextureRect" unique_id=433974622]
 z_index = 1
+material = SubResource("ShaderMaterial_rwxfu")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

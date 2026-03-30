@@ -2,6 +2,7 @@ extends Node
 
 @export_file("*.tscn") var game_world_path: String
 @export_file("*.tscn") var loading_scene_path: String
+@export var title_music: AudioEvent
 
 @onready var world: Node = $World
 @onready var ui: CanvasLayer = $UI
@@ -12,6 +13,9 @@ extends Node
 @onready var pause_menu: Control = $UI/PauseMenu
 
 var _game_root: Node
+
+func _ready() -> void:
+	AudioManager.start_music(title_music,&"title",3.0)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
@@ -40,6 +44,7 @@ func _on_goto_credits() -> void:
 
 func _on_back_to_start() -> void:
 	_show_only_menu(start_menu)
+	AudioManager.start_music(title_music,&"title", 3.0)
 
 
 func _on_new_game() -> void:
@@ -50,6 +55,7 @@ func _on_new_game() -> void:
 	ui.hide()
 	_game_root = await SceneUtils.instantiate_scene_by_load_control(world,game_world_path,loading_scene_path)
 	_connect_end_screen_signals()
+	AudioManager.start_music(null,&"title")
 
 
 ## 暂停游戏并显示暂停菜单

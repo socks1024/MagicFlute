@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://gqivcubgibbx" path="res://Content/Script/Gameplay/game_over_screen.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://bceq1pfnrx7mx" path="res://Content/Art/Sprite/结算/失败ui.PNG" id="2_6gy1x"]
 [ext_resource type="Texture2D" uid="uid://cdoqi8v61y7qp" path="res://Content/Art/Sprite/结算/重新玩ui.PNG" id="3_6gy1x"]
+[ext_resource type="Texture2D" uid="uid://b0dsqgg2rpcd8" path="res://Content/Art/Sprite/结算/回到主屏幕.png" id="4_6ju7k"]
+[ext_resource type="BitMap" uid="uid://tk7h0eadheie" path="res://Content/Art/Sprite/结算/重新玩ui_bitmask.tres" id="5_t5wsi"]
 
 [node name="GameOverScreen" type="CanvasLayer" unique_id=952328629]
 layer = 100
 script = ExtResource("1_script")
 
 [node name="Panel" type="Panel" parent="." unique_id=806334991]
-visible = false
 self_modulate = Color(0, 0, 0, 0.43529412)
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,11 +28,20 @@ offset_right = 3840.0
 offset_bottom = 2160.0
 texture = ExtResource("2_6gy1x")
 
+[node name="Return" type="TextureButton" parent="Panel/Control" unique_id=1271770484]
+layout_mode = 0
+offset_left = -14.0
+offset_top = 130.0
+offset_right = 3826.0
+offset_bottom = 2290.0
+texture_normal = ExtResource("4_6ju7k")
+
 [node name="Restart" type="TextureButton" parent="Panel/Control" unique_id=1517242465]
 layout_mode = 0
 offset_right = 3840.0
 offset_bottom = 2160.0
 texture_normal = ExtResource("3_6gy1x")
+texture_click_mask = ExtResource("5_t5wsi")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="Panel" unique_id=466854069]
 visible = false
@@ -57,6 +67,7 @@ text = "再来一次"
 layout_mode = 2
 text = "返回主界面"
 
+[connection signal="pressed" from="Panel/Control/Return" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="Panel/Control/Restart" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/ButtonContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Panel/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

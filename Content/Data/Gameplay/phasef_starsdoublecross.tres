@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="SpawnWave" format=3 uid="uid://bljpvew7qbf2m"]
+
+[ext_resource type="Script" uid="uid://mrc62ssit8w1" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_entry.gd" id="1_1hlop"]
+[ext_resource type="Script" uid="uid://b4m40imwwrqjp" path="res://Content/Script/Gameplay/EnemySpawnData/spawn_wave.gd" id="2_ctk81"]
+
+[sub_resource type="Resource" id="Resource_2mrh2"]
+script = ExtResource("1_1hlop")
+pos = Vector2i(0, 3)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_y4dqv"]
+script = ExtResource("1_1hlop")
+pos = Vector2i(6, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_g033l"]
+script = ExtResource("1_1hlop")
+pos = Vector2i(4, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_qmmxn"]
+script = ExtResource("1_1hlop")
+pos = Vector2i(12, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_8p4pt"]
+script = ExtResource("1_1hlop")
+pos = Vector2i(10, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_1hlop"]
+script = ExtResource("1_1hlop")
+beat = 2
+pos = Vector2i(0, 4)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_ctk81"]
+script = ExtResource("1_1hlop")
+beat = 2
+pos = Vector2i(7, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_j2wby"]
+script = ExtResource("1_1hlop")
+beat = 2
+pos = Vector2i(5, 5)
+enemy_index = 3
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_53hqw"]
+script = ExtResource("1_1hlop")
+beat = 2
+pos = Vector2i(13, 0)
+enemy_index = 4
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[sub_resource type="Resource" id="Resource_0py0l"]
+script = ExtResource("1_1hlop")
+beat = 2
+pos = Vector2i(11, 5)
+metadata/_custom_type_script = "uid://mrc62ssit8w1"
+
+[resource]
+script = ExtResource("2_ctk81")
+entries = Array[ExtResource("1_1hlop")]([SubResource("Resource_2mrh2"), SubResource("Resource_y4dqv"), SubResource("Resource_g033l"), SubResource("Resource_qmmxn"), SubResource("Resource_8p4pt"), SubResource("Resource_1hlop"), SubResource("Resource_ctk81"), SubResource("Resource_j2wby"), SubResource("Resource_53hqw"), SubResource("Resource_0py0l")])
+metadata/_custom_type_script = "uid://b4m40imwwrqjp"
